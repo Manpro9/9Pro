@@ -2,7 +2,7 @@
     <div class="container-fluid xyz">
         <div class="row">
             <div class="col-lg-12">
-                <h2 id="content-title">All Games</h2>
+                <h2 id="content-title">Contoh Content</h2>
                 <div class="col-centered text-center">
                 <hr style="height:1px;border:none;color:#333;background-color:#333;" />
                 <br/>
