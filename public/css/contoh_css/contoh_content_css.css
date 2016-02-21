@@ -21,27 +21,27 @@
 }
 
 #sidebar-wrapper {
-    z-index: 1000;
+    z-index: 0;
     position: absolute; 
     left: 250px;
     width: 0;
     height: 100%;
     margin-left: -250px;
-    overflow-y: auto;
-    background: #000;
+   /* overflow-y: auto;*/
+    background: #ffffcc;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
 #wrapper.toggled #sidebar-wrapper {
-    width: 250px;
+    width: 180px;
 }
 
 #page-content-wrapper {
     position: absolute;
     padding: 15px;
-    width: 100%;  
+    width: 100%;   
     overflow-x: hidden; 
 }
 .xyz{
@@ -74,14 +74,15 @@
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #999999;
+    color: #000000;
 }
 
 .sidebar-nav li a:hover {
     text-decoration: none;
-    color: #fff;
-    background: rgba(255,255,255,0.2);
-    border-left: red 2px solid;
+    color: #000066;
+    background: rgba(255,255,255,1);
+    border-left: #337ab7 5px solid;
+    border-radius: 0px;
 }
 
 .sidebar-nav li a:active,
@@ -100,7 +101,7 @@
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
-    color: #fff;
+    color: #000066;
     background: none;
 }
 .no-margin{
@@ -109,7 +110,7 @@
 
 @media(min-width:768px) {
     #wrapper {
-        padding-left: 250px;
+        padding-left: 70px;
     }
     .fixed-brand{
         width: 250px;
@@ -119,17 +120,17 @@
     }
 
     #sidebar-wrapper {
-        width: 250px;
+        width: 180px;
     }
 
     #wrapper.toggled #sidebar-wrapper {
-        width: 250px;
+        width: 180px;
     }
     #wrapper.toggled-2 #sidebar-wrapper {
         width: 50px;
     }
     #wrapper.toggled-2 #sidebar-wrapper:hover {
-        width: 250px;
+        width: 180px;
     }
 
 
@@ -174,3 +175,17 @@ th {
     background-color: black;
     color: white;
 } 
+
+
+.banner{
+    width: 800px !important;
+    height: 300px !important;
+}
+
+.topic{
+    width: 100%;
+    height: auto;
+}
+h4{
+    text-align: left;
+}
