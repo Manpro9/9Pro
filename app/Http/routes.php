@@ -19,6 +19,10 @@ Route::get('/contoh', function() {
 	return view('contoh.contoh_content');
 });
 
+Route::get('/psdm', function() {
+	return view('psdm.psdm_content');
+});
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
