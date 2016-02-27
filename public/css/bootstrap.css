@@ -4496,7 +4496,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #f8f8f8;
+  background-color: #006699;
   border-color: #e7e7e7;
 }
 .navbar-default .navbar-brand {
@@ -4693,6 +4693,8 @@ fieldset[disabled] .navbar-inverse .btn-link:hover,
 fieldset[disabled] .navbar-inverse .btn-link:focus {
   color: #444;
 }
+
+
 .breadcrumb {
   padding: 8px 15px;
   margin-bottom: 20px;

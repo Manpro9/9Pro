@@ -1,9 +1,12 @@
-<div id="page-content-wrapper" style="padding-left:133px; padding-top: 3px;">
-    <div class="container-fluid xyz">
-        <div class="row">
-            <div class="col-lg-12" style="padding-left: 0px;">
-                <i id="loading" class="fa fa-spinner fa-pulse fa-3x center-block" style="text-color:red"></i>
-                <div id="psdm_content">
+@extends('psdm.psdm_master')
+
+@section('content')
+<style type="text/css">
+  body {
+    background-color: #fff;
+  }
+</style>
+<div id="contoh_content">
                     <div class="row">
                         <div class="col-sm-8">
                             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -47,21 +50,16 @@
                     </div>
                     </div>
               </div>  
-                <div class="col-sm-4">
+                <div class="col-sm-4" >
                   <h4 style="text-align: left;">AGENDA</h4>
-                  <div class="row" style="padding: 5px;">
-                    <div class="col-sm-12">
+                    <div class="col-sm-10" style="padding-left:0%;">
                       <script language="javascript" type="text/javascript" src="{{ asset('public/js/calendar.js') }}"> </script>
                     </div>
-                      
                   </div>
-        
-        
-                </div>
             </div>
         </div>
       </br>
-        <div id="psdm_content">
+        <div id="contoh_content">
                     <div class="row">
                         <div class="col-sm-8" style="text-align:left;">
                           <h4>News Topic</h4>
@@ -85,8 +83,5 @@
                   </div>
             </div>
         </div>
-        </div>
-    </div>
-</div>
-</div>
 
+@endsection

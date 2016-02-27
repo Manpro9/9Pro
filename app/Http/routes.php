@@ -20,7 +20,7 @@ Route::get('/contoh', function() {
 });
 
 Route::get('/psdm', function() {
-	return view('psdm.psdm_content');
+	return view('psdm.psdm_homePage');
 });
 
 /*
