@@ -1,0 +1,72 @@
+/*!
+ * Start Bootstrap - SB Admin Bootstrap Admin Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+/* Global Styles */
+
+.collapse .navbar-collapse .navbar-ex1-collapse{
+	height: 200px;
+}
+
+#page-wrapper {
+    width: 100%;
+    padding: 0;
+    background-color: #e4e3e3;
+}
+.navbar-header{
+	background-color:#e6880e; 
+}
+
+.navbar-right{
+	background-color:#e6880e; 
+}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form{
+	background-color: #e6880e;
+	box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.navbar-inverse{
+	border-color: #e6880e;
+}
+
+.navbar-inverse .navbar-brand{
+	color: white;
+}
+
+
+.top-nav>li>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 20px;
+    color: white;
+}
+
+.top-nav>li>a:hover,
+.top-nav>li>a:focus,
+.top-nav>.open>a,
+.top-nav>.open>a:hover,
+.top-nav>.open>a:focus {
+    color: #fff;
+    background-color: #c0720e;
+}
+
+.side-nav{
+	background-color: #31393d;
+}
+
+
+.row.col-md-6.col-md-offset-2.custyle{
+	position: relative;
+	padding-top: 5%;
+	width: 70%;
+	min-width: 400px;
+	
+}
+
+.container{
+	min-height: 600px;
+
+
+}
