@@ -1,0 +1,10 @@
+body {
+    margin-top: 100px;
+    background-color: #EBE6E6;
+}
+
+@media(min-width:768px) {
+    body {
+        margin-top: 50px;
+    }
+}

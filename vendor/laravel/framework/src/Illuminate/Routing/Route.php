@@ -102,7 +102,7 @@ class Route
     /**
      * Create a new Route instance.
      *
-     * @param  array   $methods
+     * @param  array|string  $methods
      * @param  string  $uri
      * @param  \Closure|array  $action
      * @return void
@@ -508,13 +508,19 @@ class Route
             $value = isset($value) ? $value : Arr::get($this->defaults, $key);
         }
 
+        foreach ($this->defaults as $key => $value) {
+            if (! isset($parameters[$key])) {
+                $parameters[$key] = $value;
+            }
+        }
+
         return $parameters;
     }
 
     /**
      * Parse the route action into a standard array.
      *
-     * @param  callable|array  $action
+     * @param  callable|array|null  $action
      * @return array
      *
      * @throws \UnexpectedValueException

@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/contoh', function() {
 	return view('contoh.contoh_content');
 });
@@ -35,5 +31,26 @@ Route::get('/psdm', function() {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+    Route::get('/', function () {
+	    return view('content.home');
+	});
+
+	Route::get('/news', function () {
+	    return view('content.news');
+	});
+	Route::get('/agenda', function () {
+	    return view('content.agenda');
+	});
+
+	Route::get('/documents', function () {
+	    return view('content.documents');
+	});
+
+	Route::get('/gallery', function () {
+	    return view('content.gallery');
+	});
+
+	Route::get('/admin', function () {
+	    return view('content.admin');
+	});
 });
