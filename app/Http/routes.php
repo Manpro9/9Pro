@@ -38,6 +38,11 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/news', function () {
 	    return view('content.news');
 	});
+
+	Route::get('/detailnews', function () {
+	    return view('content.detailnews');
+	});
+	
 	Route::get('/agenda', function () {
 	    return view('content.agenda');
 	});
@@ -53,4 +58,6 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/admin', function () {
 	    return view('content.admin');
 	});
+
+
 });
