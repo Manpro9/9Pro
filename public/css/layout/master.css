@@ -8,3 +8,22 @@ body {
         margin-top: 50px;
     }
 }
+
+.banner{
+    width: 800px !important;
+    height: 350px !important;
+}
+
+.topic{
+    width: 100%;
+    height: auto;
+}
+h4{
+    text-align: left;
+}
+
+hr {
+  color: #000;
+  background-color: #000;
+  height: 1px;
+}

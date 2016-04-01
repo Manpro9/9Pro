@@ -15,8 +15,8 @@ Route::get('/contoh', function() {
 	return view('contoh.contoh_content');
 });
 
-Route::get('/psdm', function() {
-	return view('psdm.psdm_homePage');
+Route::get('/home', function() {
+	return view('content.home');
 });
 
 /*
@@ -31,8 +31,8 @@ Route::get('/psdm', function() {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/', function () {
-	    return view('content.home');
+    Route::get('/dashboard', function () {
+	    return view('content.dashboard');
 	});
 
 	Route::get('/news', function () {

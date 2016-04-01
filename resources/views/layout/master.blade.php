@@ -29,7 +29,8 @@
     @yield('scripts')
 </head>
 
-<body>
+<body style="width:98,5%;">
+
     <!-- Navbar + Sidebar -->
     @include('layout.navbar-sidebar')
 
@@ -40,5 +41,7 @@
 
     <!-- Untuk Javascript / jQuery yang letaknya di dalam tag "body" -->
     @yield('scriptsInsideBody')
+
+    @include('layout.masterFooter')
 </body>
 </html>
