@@ -17,6 +17,10 @@
                         Univeristas Kristen Duta Wacana Yogyakarta
                     </a>
             </div>
+            <div class="form-group has-feedback" style="float:right; margin-right:1%; margin-top:0.5%; margin-bottom:0%;">
+                      <input id="search" type="text" name="search" class="form-control" placeholder="Search. . ." />
+                         <i class="glyphicon glyphicon-search form-control-feedback"></i>
+            </div>
             <!-- User's Menu -->
 
 <!-- BELUM LOGIN -->
@@ -41,10 +45,7 @@
                 </li>
             </ul> -->
             <!-- End of Navbar -->
-            <div class="form-group has-feedback" style="float:right; margin-right:1%; margin-top:0.5%; margin-bottom:0%;">
-                      <input id="search" type="text" name="search" class="form-control" placeholder="Search. . ." />
-                         <i class="glyphicon glyphicon-search form-control-feedback"></i>
-            </div>
+            
 
     
 
