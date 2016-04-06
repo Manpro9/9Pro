@@ -85,7 +85,7 @@
                 <a href="{{ url('/agenda') }}"><i class="fa fa-fw fa-calendar"></i> Kegiatan</a>
             </li>
             <li class="documents">
-                <a href="{{ url('/documents') }}"><i class="fa fa-fw fa-upload"></i> Dokumen SOP</a>
+                <a href="{{ url('/tentang') }}"><i class="fa fa-fw fa-upload"></i> Tentang PSDM</a>
             </li>
             <li class="gallery">
                 <a href="{{ url('/gallery') }}"><i class="fa fa-fw fa-picture-o"></i> Galeri</a>
