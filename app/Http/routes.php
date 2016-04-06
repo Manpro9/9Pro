@@ -59,5 +59,9 @@ Route::group(['middleware' => ['web']], function () {
 	    return view('content.admin');
 	});
 
+	Route::get('/tentang', function () {
+	    return view('content.tentang');
+	});
+
 
 });
