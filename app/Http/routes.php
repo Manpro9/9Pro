@@ -23,7 +23,12 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
+
     Route::get('/', function () {
-	    return view('welcome');
+	    return view('content.index');
+	});
+
+	Route::get('/pengumuman', function(){
+		return view('content.pengumuman');
 	});
 });
