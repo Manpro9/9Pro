@@ -11,14 +11,6 @@
 |
 */
 
-Route::get('/contoh', function() {
-	return view('contoh.contoh_content');
-});
-
-Route::get('/home', function() {
-	return view('content.home');
-});
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -31,37 +23,7 @@ Route::get('/home', function() {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('/dashboard', function () {
-	    return view('content.dashboard');
+    Route::get('/', function () {
+	    return view('welcome');
 	});
-
-	Route::get('/news', function () {
-	    return view('content.news');
-	});
-
-	Route::get('/detailnews', function () {
-	    return view('content.detailnews');
-	});
-	
-	Route::get('/agenda', function () {
-	    return view('content.agenda');
-	});
-
-	Route::get('/documents', function () {
-	    return view('content.documents');
-	});
-
-	Route::get('/gallery', function () {
-	    return view('content.gallery');
-	});
-
-	Route::get('/admin', function () {
-	    return view('content.admin');
-	});
-
-	Route::get('/tentang', function () {
-	    return view('content.tentang');
-	});
-
-
 });
