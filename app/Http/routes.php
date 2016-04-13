@@ -57,4 +57,11 @@ Route::group(['middleware' => ['web']], function () {
 		return view('admin.content-editor');
 	});
 	
+	Route::get('/content/upload', function() {
+		return view('admin.content-upload');
+	});
+
+	Route::get('/content/adduser', function() {
+		return view('admin.content-adduser');
+	});
 });

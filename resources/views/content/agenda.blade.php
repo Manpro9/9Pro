@@ -8,7 +8,6 @@
 <!-- CUSTOM JS UNTUK AGENDA -->
 @section('js')
     <!-- ISIKAN DISINI -->
-    <script src="../bootstrap/js/agenda.js"></script>
     <script src="{{ asset('public/js/agenda/agenda.js')}}"></script>
   	
 @endsection
@@ -119,6 +118,15 @@
                                             </div>
                                                             
                             </div>
+                            				<form>
+                                                <span>
+                                                    <a href="pubagenda.html" target="blank">
+                                                    <label class="btn btn-default"><i class="fa fa-calendar-check-o"></i>Tambah Agenda baru
+                                                    </label>
+                                                    </a>
+                                                </span>
+                                            </form>
+                 
                     </div>
                 </div>
 
@@ -170,14 +178,8 @@
                                                       
                                                                    
                                            </div>
-                                                        <form>
-                                                            <span >
-                                                                <a href="pubagenda.html" target="blank">
-                                                                <label class="btn btn-default"><i class="fa fa-calendar-check-o"></i>Tambah Agenda baru
-                                                                </label>
-                                                                </a>
-                                                             </span>
-                                                        </form>
+                                                       
+
 
 
       		</div>
