@@ -120,7 +120,7 @@
                             </div>
                             				<form>
                                                 <span>
-                                                    <a href="pubagenda.html" target="blank">
+                                                    <a href="{{ url('content/addagenda') }}" target="blank">
                                                     <label class="btn btn-default"><i class="fa fa-calendar-check-o"></i>Tambah Agenda baru
                                                     </label>
                                                     </a>

@@ -64,4 +64,8 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/content/adduser', function() {
 		return view('admin.content-adduser');
 	});
+
+	Route::get('/content/addagenda', function() {
+		return view('admin.content-addagenda');
+	});
 });
