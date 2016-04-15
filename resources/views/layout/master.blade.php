@@ -34,9 +34,9 @@
       </section>
       
       <!-- Custom Content -->
-      @yield('content')    
+      @yield('content') 
+      </br></br></br></br></br></br>   
     </div>
-
     @include('layout.footer')
   </div>
 
