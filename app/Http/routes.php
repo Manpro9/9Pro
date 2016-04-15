@@ -30,15 +30,9 @@ Route::group(['middleware' => ['web']], function () {
 	});
 
 	// Route untuk Content
-	Route::get('/berita', function() {
-	    return view('content.berita');
-	});
-	Route::get('/pengumuman', function(){
-		return view('content.pengumuman');
-	});
-	Route::get('/kegiatan', function() {
-	    return view('content.kegiatan');
-	});
+	Route::get('/berita', 'BeritaController@index');
+	Route::get('/pengumuman', 'PengumumanController@index');
+	Route::get('/kegiatan', 'KegiatanController@index');
 	Route::get('/agenda', function() {
 	    return view('content.agenda');
 	});
@@ -51,6 +45,11 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/users', function() {
 	    return view('content.users');
 	});
+
+	//Route untuk tampilkan detail Berita, Pengumuman, Kegiatan
+	Route::get('/berita/{id}', ['as' => 'berita.show', 'uses' => 'BeritaController@show' ]);
+	Route::get('/pengumuman/{id}', ['as' => 'pengumuman.show', 'uses' => 'PengumumanController@show' ]);
+	Route::get('/kegiatan/{id}', ['as' => 'kegiatan.show', 'uses' => 'KegiatanController@show' ]);
 
 	// Route untuk Admin
 	Route::get('/content/edit', function() {
@@ -68,4 +67,10 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/content/addagenda', function() {
 		return view('admin.content-addagenda');
 	});
+
+
+	// Resource Route
+	Route::resource('berita', 'BeritaController');
+	Route::resource('pengumuman', 'PengumumanController');
+	Route::resource('kegiatan', 'KegiatanController');
 });
