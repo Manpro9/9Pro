@@ -43,17 +43,15 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/users', function() {
 	    return view('content.users');
 	});
-
-<<<<<<< HEAD
 	Route::get('/login', function() {
 	    return view('content.login');
 	});
-=======
+
 	//Route untuk tampilkan detail Berita, Pengumuman, Kegiatan
 	Route::get('/berita/{id}', ['as' => 'berita.show', 'uses' => 'BeritaController@show' ]);
 	Route::get('/pengumuman/{id}', ['as' => 'pengumuman.show', 'uses' => 'PengumumanController@show' ]);
 	Route::get('/kegiatan/{id}', ['as' => 'kegiatan.show', 'uses' => 'KegiatanController@show' ]);
->>>>>>> f2437ff8a2139fe37f102f2ca3f597bf82bec284
+
 
 	// Route untuk Admin
 	Route::get('/content/edit', function() {
