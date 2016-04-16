@@ -25,9 +25,7 @@
 Route::group(['middleware' => ['web']], function () {
 
 	// Route untuk halaman index (home)
-    Route::get('/', function() {
-	    return view('index');
-	});
+    Route::get('/', 'IndexController@index');
 
 	// Route untuk Content
 	Route::get('/berita', 'BeritaController@index');
@@ -55,19 +53,19 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/content/edit', function() {
 		return view('admin.content-editor');
 	});
-	
 	Route::get('/content/upload', function() {
 		return view('admin.content-upload');
 	});
-
 	Route::get('/content/adduser', function() {
 		return view('admin.content-adduser');
 	});
-
 	Route::get('/content/addagenda', function() {
 		return view('admin.content-addagenda');
 	});
 
+
+	// Ajax
+	Route::post('/index/artikel/ajax', 'IndexController@artikel_ajax');
 
 	// Resource Route
 	Route::resource('berita', 'BeritaController');

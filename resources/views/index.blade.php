@@ -7,7 +7,8 @@
 
 <!-- CUSTOM JS UNTUK INDEX -->
 @section('js')
-    <script src="{{ asset('public/js/slider/slider.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('public/js/slider/slider.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('public/js/index/ajax-artikel.js') }}"></script>
 @endsection
 
 <!-- CUSTOM CONTENT UNTUK INDEX -->
@@ -46,21 +47,14 @@
       <div class="col-sm-9">
         <h3><b>KATEGORI</b></h3>
         <ul class="nav nav-pills nav-justified">
-            <li data-target="#target" data-slide-to="0" class="active" style="text-align:center;"><a href="#">Berita</a></li>
-            <li data-target="" data-slide-to="1" style="text-align:center;"><a href="#">Kegiatan</a></li>
-            <li data-target="" data-slide-to="2" style="text-align:center;"><a href="#">Pengumuman</a></li>
+            <li class="ajax-artikel active" style="text-align:center;"><a href="#">Berita</a></li>
+            <li class="ajax-artikel" style="text-align:center;"><a href="#">Kegiatan</a></li>
+            <li class="ajax-artikel" style="text-align:center;"><a href="#">Pengumuman</a></li>
         </ul>
         <br>
-        <div class="row" style="padding-left:2%;">
-          <div class="col-sm-6" style="border:1px solid black; width:48%; margin-left:0px; padding-left:0px;padding-right:0px;">
-            <img src="{{ asset('public/images/04.jpg') }}" class="topic" alt="gambar1">
-            <h5 style="text-align:center;"><b>judul</b></h5>
-          </div>
-          <div class="col-sm-6" style="border:1px solid black; width:48%; margin-left:10px; padding-left:0px;padding-right:0px;">
-            <img src="{{ asset('public/images/05.jpg') }}" class="topic" alt="gambar2">
-            <h5 style="text-align:center;"><b>judul</b></h5>
-          </div>
-      </div>
+        <div id="content-artikel-ajax">
+          @include('artikel-ajax')
+        </div>
     </div>
     <div class="col-sm-3">
           <h4 style="text-align: left; margin-bottom:0px;"><b>Daftar Agenda - bulan dan tahun yg aktif </b></h4>
