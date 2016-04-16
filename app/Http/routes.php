@@ -52,6 +52,10 @@ Route::group(['middleware' => ['web']], function () {
 	    return view('content.users');
 	});
 
+	Route::get('/login', function() {
+	    return view('content.login');
+	});
+
 	// Route untuk Admin
 	Route::get('/content/edit', function() {
 		return view('admin.content-editor');
