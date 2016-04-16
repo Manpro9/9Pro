@@ -2,7 +2,8 @@
 
 <!-- CUSTOM CSS UNTUK INDEX -->
 @section('css')
-  <link rel="stylesheet" href="{{ asset('public/css/content/index/slider.css' )}}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('public/css/content/index/index.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('public/css/content/index/slider.css' )}}">
 @endsection
 
 <!-- CUSTOM JS UNTUK INDEX -->
@@ -47,9 +48,9 @@
       <div class="col-sm-9">
         <h3><b>KATEGORI</b></h3>
         <ul class="nav nav-pills nav-justified">
-            <li class="ajax-artikel active" style="text-align:center;"><a href="#">Berita</a></li>
-            <li class="ajax-artikel" style="text-align:center;"><a href="#">Kegiatan</a></li>
-            <li class="ajax-artikel" style="text-align:center;"><a href="#">Pengumuman</a></li>
+            <li class="ajax-artikel active" style="text-align:center;"><a>Berita</a></li>
+            <li class="ajax-artikel" style="text-align:center;"><a>Kegiatan</a></li>
+            <li class="ajax-artikel" style="text-align:center;"><a>Pengumuman</a></li>
         </ul>
         <br>
         <div id="content-artikel-ajax">

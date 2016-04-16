@@ -11,12 +11,13 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   
   <!-- CSS -->
-  <link rel="stylesheet" href="{{ asset('public/css/bootstrap.min.css' )}}">
-  <link rel="stylesheet" href="{{ asset('public/font-awesome/css/font-awesome.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('public/ionicons/css/ionicons.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('public/css/dist/AdminLTE.min.css' )}}">
-  <link rel="stylesheet" href="{{ asset('public/css/dist/skins/_all-skins.min.css' )}}">
-  <link rel="stylesheet" href="{{ asset('public/css/content/custom.css' )}}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('public/css/bootstrap.min.css' )}}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('public/font-awesome/css/font-awesome.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('public/ionicons/css/ionicons.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('public/css/dist/AdminLTE.min.css' )}}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('public/css/dist/skins/_all-skins.min.css' )}}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('public/css/content/custom.css' )}}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('public/css/backToTop.css') }}">
   @yield('css')
   
   <!-- JS -->
@@ -48,6 +49,7 @@
   <script type="text/javascript" src="{{ asset('public/js/plugin/slimScroll/jquery.slimscroll.min.js') }}"></script>
   <script type="text/javascript" src="{{ asset('public/js/plugin/fastclick/fastclick.js') }}"></script>
   <script type="text/javascript" src="{{ asset('public/js/dist/app.min.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('public/js/backToTop.js') }}"></script>
   @yield('jsInsideBody')
 </body>
 </html>
