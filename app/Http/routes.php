@@ -43,30 +43,34 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/users', function() {
 	    return view('content.users');
 	});
-	Route::get('/login', function() {
-	    return view('content.login');
-	});
 
 	//Route untuk tampilkan detail Berita, Pengumuman, Kegiatan
 	Route::get('/berita/{id}', ['as' => 'berita.show', 'uses' => 'BeritaController@show' ]);
 	Route::get('/pengumuman/{id}', ['as' => 'pengumuman.show', 'uses' => 'PengumumanController@show' ]);
 	Route::get('/kegiatan/{id}', ['as' => 'kegiatan.show', 'uses' => 'KegiatanController@show' ]);
 
+	// Auth (Login / Logout)
+	Route::get('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@showLoginForm']);
+	Route::get('logout', ['as' => 'auth.logout', 'uses' => 'Auth\AuthController@logout']);
+
+	// Validating Login
+	Route::post('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@login']);
 
 	// Route untuk Admin
-	Route::get('/content/edit', function() {
-		return view('admin.content-editor');
+	Route::group(['middleware' => 'auth'], function(){
+		Route::get('/content/edit', function() {
+			return view('admin.content-editor');
+		});
+		Route::get('/content/upload', function() {
+			return view('admin.content-upload');
+		});
+		Route::get('/content/adduser', function() {
+			return view('admin.content-adduser');
+		});
+		Route::get('/content/addagenda', function() {
+			return view('admin.content-addagenda');
+		});
 	});
-	Route::get('/content/upload', function() {
-		return view('admin.content-upload');
-	});
-	Route::get('/content/adduser', function() {
-		return view('admin.content-adduser');
-	});
-	Route::get('/content/addagenda', function() {
-		return view('admin.content-addagenda');
-	});
-
 
 	// Ajax
 	Route::post('/index/artikel/ajax', 'IndexController@artikel_ajax');

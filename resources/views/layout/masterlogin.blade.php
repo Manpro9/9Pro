@@ -7,7 +7,10 @@
 
 
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
- <!-- CSS -->
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="{{ asset('public/css/bootstrap.min.css' )}}">
   <link rel="stylesheet" href="{{ asset('public/font-awesome/css/font-awesome.min.css') }}">
   <link rel="stylesheet" href="{{ asset('public/ionicons/css/ionicons.min.css') }}">
@@ -28,9 +31,6 @@
 	
 		@yield('login')
 
-	
-	
-  	
   	<script>
   		$(function () {
     	$('input').iCheck({
@@ -39,6 +39,6 @@
       	increaseArea: '20%' // optional
     		});
   		});
-</script>
+    </script>
 </body>
 </html>

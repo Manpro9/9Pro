@@ -12,18 +12,19 @@
     </a>
 
     <div class="navbar-custom-menu">
-      <ul class="nav navbar-nav">
-        <li class="dropdown user user-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <img src="{{ asset('public/images/dist/user2-160x160.jpg') }}" class="user-image" alt="User Image">
-            <span class="hidden-xs">Admin</span>
-          </a>
-          <ul class="dropdown-menu">
-            <li class="user-header">
-              <img src="{{ asset('public/images/dist/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
-                <p>
-                  Admin
-                </p>
+      @if (Auth::user())
+        <ul class="nav navbar-nav">
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="{{ asset('public/images/dist/user2-160x160.jpg') }}" class="user-image" alt="User Image">
+              <span class="hidden-xs">{{ Auth::user()->name }}</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="user-header">
+                <img src="{{ asset('public/images/dist/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+                  <p>
+                    {{ Auth::user()->name }}
+                  </p>
               </li>
               <li class="user-body">
                 <div class="row">
@@ -43,17 +44,22 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="{{ url('/logout') }}" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
-          </ul>
-        </li>
-        <!-- LI DIBAWAH JANGAN DIHAPUS -->
-        <!-- *UNTUK ADMIN -->
-        <li>
-          <!-- JANGAN DI HAPUS -->
-        </li>
-      </ul>
+            </ul>
+          </li>
+          <!-- LI DIBAWAH JANGAN DIHAPUS -->
+          <!-- *UNTUK ADMIN -->
+          <li>
+            <!-- JANGAN DI HAPUS -->
+          </li>
+        </ul>
+      @else
+        <ul>
+          <li class="login-user">Login</li>
+        </ul>
+      @endif
     </div>
 
   </nav>

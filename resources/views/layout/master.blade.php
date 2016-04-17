@@ -50,6 +50,7 @@
   <script type="text/javascript" src="{{ asset('public/js/plugin/fastclick/fastclick.js') }}"></script>
   <script type="text/javascript" src="{{ asset('public/js/dist/app.min.js') }}"></script>
   <script type="text/javascript" src="{{ asset('public/js/backToTop.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('public/js/index/login.js') }}"></script>
   @yield('jsInsideBody')
 </body>
 </html>

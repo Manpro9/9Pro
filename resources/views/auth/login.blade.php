@@ -9,9 +9,8 @@
 @section('js')
     <!-- ISIKAN DISINI -->
     <script type="text/javascript" src="{{ asset('public/js/login/icheck.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('public/js/login/shake.js') }}"></script>
     <script type="text/javascript" src="{{ asset('public/js/login/jquery-ui.js') }}"></script>
-   
+    <script type="text/javascript" src="{{ asset('public/js/login/shake.js') }}"></script>
 @endsection
 
 <!-- CUSTOM CONTENT HEADER (JUDUL) DOKUMEN -->
@@ -28,14 +27,26 @@
   <div id="login" class="login-box-body">
     <p class="login-box-msg">Login portal PSDM UKDW</p>
 
-    <form action="#" method="post" id="login" name="login">
+    <form method="post" id="login" name="login" action="{{ url('/login') }}">
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+        {!!Form::text('email', null, array('id' => 'email', 'class' => 'form-control {{ $errors->has("email") ? " has-error" : "" }}', 'placeholder' => 'Email', 'required'))!!}
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        @if ($errors->has('email'))
+          <span class="help-block">
+            <strong>{{ $errors->first('email') }}</strong>
+          </span>
+        @endif
+        
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+        {!!Form::password('password', array('id' => 'password', 'class' => 'form-control {{ $errors->has("password") ? " has-error" : "" }}' ,'placeholder' => 'Password')) !!}
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        @if ($errors->has('password'))
+          <span class="help-block">
+            <strong>{{ $errors->first('password') }}</strong>
+          </span>
+        @endif
       </div>
       <div class="row">
         <div class="col-xs-8">
@@ -44,19 +55,12 @@
         <!-- /.col -->
         <div class="col-xs-4">
           <button id="login_button" type="submit" class="btn btn-primary btn-block btn-flat" value=" Login ">Sign In</button>
-          
         </div>
         <div id="message"></div>
         <!-- /.col -->
       </div>
     </form>
-
-    
-    
-
     <a href="#">I forgot my password</a><br>
-    
-
   </div>
 </div>
   

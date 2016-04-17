@@ -41,10 +41,12 @@
           <i class="fa fa-picture-o"></i><span>Gallery</span>
         </a>
       </li>
+      @if (Auth::user())
       <li>
         <a href="{{ url('/users') }}">
           <i class="fa fa-users"></i><span>Manage User</span>
         </a>
       </li>
+      @endif
   </section>
 </aside>
