@@ -49,17 +49,18 @@
                                 
                 <div class="col-md-3 col-sm-4 col-xs-6"><img id="gallery" class="img-responsive" src="http://blog.arborday.org/wp-content/uploads/2013/02/NEC1-300x200.jpg" />
                 </div>
-                           
-                        <form>
-                            <span >
-                                <a href="{{ url('/content/upload') }}">
-                                <label class="btn btn-default">
-                                    <i class="fa fa-upload"></i>upload file
-                                </label>
-                                </a>
-                            </span>
-                        </form>
-                                                            
+                
+                @if(Auth::user())
+                <form>
+                    <span >
+                        <a href="{{ url('/content/upload') }}">
+                        <label class="btn btn-default">
+                            <i class="fa fa-upload"></i>upload file
+                        </label>
+                        </a>
+                    </span>
+                </form>
+                @endif                                    
                         
                         
             </div>

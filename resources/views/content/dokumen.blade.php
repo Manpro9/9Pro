@@ -26,100 +26,124 @@
     		<div class="container">
                 <div class="row">                                              
                     <div class="col-md-12">
-                    	 <h4>Dokumen arsip</h4>
-                            <div class="table-responsive">
-								<table id="mytable" class="table table-bordred table-striped">
-                                    <thead>
-                                        <th><input type="checkbox" id="checkall" /></th>
-                                        <th>No.</th>
-                                        <th>Judul</th>
-                                        <th>Jenis File</th>
-                                        <th>Keterangan</th>
-                                        <th>re-Upload</th>
-                                        <th>Delete</th>
-                                    </thead>
-                                    <tbody>
-                                                    
-                                        <tr>
-                                            <td><input type="checkbox" class="checkthis" /></td>
-                                            <td>1</td>
-                                            <td>File Daftar pegawai</td>
-                                            <td>PDF</td>
-                                            <td>-</td>
-                                            <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p>
-                                            </td>
-                                            <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
-                                            </td>
-                                        </tr>
-                                                    
-                                        <tr>
-                                            <td><input type="checkbox" class="checkthis" /></td>
-                                            <td>2</td>
-                                            <td>Materi Penilian</td>
-                                            <td>DOCX</td>
-                                            <td>bisa disunting</td>
-                                            <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p></td>
-                                            <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-                                        </tr>
-                                        <tr>
-                                            <td><input type="checkbox" class="checkthis" /></td>
-                                          	<td>3</td>
-                                           	<td>FIle</td>
-                                            <td>DOCX</td>
-                                            <td>-</td>
-                                            <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p></td>
-                                            <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-                                        </tr>
-                                                    
-                                        <tr>
-                                            <td><input type="checkbox" class="checkthis" /></td>
-                                            <td>4</td>
-                                            <td>File</td>
-                                            <td>PPTX</td>
-                                            <td>-</td>
-                                            <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p></td>
-                                            <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-                                        </tr>
-                                                    
-                                        <tr>
-                                            <td><input type="checkbox" class="checkthis" /></td>
-                                            <td>5</td>
-                                            <td>File</td>
-                                            <td>PDF</td>
-                                            <td>-</td>
-                                            <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p></td>
-                                            <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
-                                        </tr>
-                                                    
-                                    </tbody>
-                                                        
-                                </table>
-
-                                        	<div class="clearfix"></div>
-                                                <ul class="pagination pull-right">
-                                                  <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
-                                                  <li class="active"><a href="#">1</a></li>
-                                                  <li><a href="#">2</a></li>
-                                                  <li><a href="#">3</a></li>
-                                                  <li><a href="#">4</a></li>
-                                                  <li><a href="#">5</a></li>
-                                                  <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
-                                                </ul>
-                                                                
-                                            </div>
-                                                            
-                            </div>
-                            				<form>
-                                                <span >
-                                                <a href="{{ url('/content/upload') }}">
-                                                <label class="btn btn-default">
-                                                <i class="fa fa-upload"></i>upload file
-                                                </label></a>
-                                                </span>
-                                            </form>
-                 
+                    	<h4>Dokumen arsip</h4>
+                        <div class="table-responsive">
+							<table id="mytable" class="table table-bordred table-striped">
+                                <thead>
+                                    @if (Auth::user())
+                                    <th><input type="checkbox" id="checkall" /></th>
+                                    @endif
+                                    <th>No.</th>
+                                    <th>Judul</th>
+                                    <th>Jenis File</th>
+                                    <th>Keterangan</th>
+                                    @if (Auth::user())
+                                    <th>re-Upload</th>
+                                    <th>Delete</th>
+                                    @endif
+                                </thead>
+                                <tbody>         
+                                    <tr>
+                                        @if (Auth::user())
+                                        <td><input type="checkbox" class="checkthis" /></td>
+                                        @endif
+                                        <td>1</td>
+                                        <td>File Daftar pegawai</td>
+                                        <td>PDF</td>
+                                        <td>-</td>
+                                        @if (Auth::user())
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p>
+                                        </td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
+                                        </td>
+                                        @endif
+                                    </tr>     
+                                    <tr>
+                                        @if (Auth::user())
+                                        <td><input type="checkbox" class="checkthis" /></td>
+                                        @endif
+                                        <td>2</td>
+                                        <td>Materi Penilian</td>
+                                        <td>DOCX</td>
+                                        <td>bisa disunting</td>
+                                        @if (Auth::user())
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p>
+                                        </td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
+                                        </td>
+                                        @endif
+                                    </tr>
+                                    <tr>
+                                        @if (Auth::user())
+                                        <td><input type="checkbox" class="checkthis" /></td>
+                                        @endif
+                                      	<td>3</td>
+                                       	<td>FIle</td>
+                                        <td>DOCX</td>
+                                        <td>-</td>
+                                        @if (Auth::user())
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p>
+                                        </td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
+                                        </td>
+                                        @endif
+                                    </tr>     
+                                    <tr>
+                                        @if (Auth::user())
+                                        <td><input type="checkbox" class="checkthis" /></td>
+                                        @endif
+                                        <td>4</td>
+                                        <td>File</td>
+                                        <td>PPTX</td>
+                                        <td>-</td>
+                                        @if (Auth::user())
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p>
+                                        </td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
+                                        </td>
+                                        @endif
+                                    </tr> 
+                                    <tr>
+                                        @if (Auth::user())
+                                        <td><input type="checkbox" class="checkthis" /></td>
+                                        @endif
+                                        <td>5</td>
+                                        <td>File</td>
+                                        <td>PDF</td>
+                                        <td>-</td>
+                                        @if (Auth::user())
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p>
+                                        </td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
+                                        </td>
+                                        @endif
+                                    </tr>    
+                                </tbody>                 
+                            </table>
+                        	<div class="clearfix"></div>
+                            <ul class="pagination pull-right">
+                              <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+                              <li class="active"><a href="#">1</a></li>
+                              <li><a href="#">2</a></li>
+                              <li><a href="#">3</a></li>
+                              <li><a href="#">4</a></li>
+                              <li><a href="#">5</a></li>
+                              <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+                            </ul>                            
+                        </div>                          
                     </div>
+                    @if (Auth::user())
+    				<form>
+                        <span>
+                        <a href="{{ url('/content/upload') }}">
+                        <label class="btn btn-default">
+                        <i class="fa fa-upload"></i>upload file
+                        </label></a>
+                        </span>
+                    </form>
+                    @endif
                 </div>
+            </div>
 
                               <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
                                     <div class="modal-dialog">
