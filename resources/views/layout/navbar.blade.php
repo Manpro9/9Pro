@@ -57,7 +57,8 @@
         </ul>
       @else
         <ul>
-          <li class="login-user">Login</li>
+        </br>
+          <a href="login"><i class="fa fa-user" style="color:white;"></i><span style="color:white;"> Login &nbsp;&nbsp;</span></a>
         </ul>
       @endif
     </div>
