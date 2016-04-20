@@ -28,6 +28,14 @@
 			  <div class="page-header">
 				  <h1>Entah Berhasil atau Gagal Memotret Gerhana, Belitung Telah Berpesta <small class="date">Mar 31, 2016</small></h1>
 			  </div>     
+        <div class="col-sm-8">
+              <div class="carousel-inner">
+                <div class="item active">
+                  <img src="{{ asset('public/images/02.jpg') }}" alt="gambar1" style="width:100%;">
+                </div>
+              </div>
+        </div>
+
 			  <div class="row-fluid">            
 				  <div class="span4">
 					<h3>Sample text and paragraphs</h3>
