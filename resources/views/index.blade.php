@@ -4,6 +4,7 @@
 @section('css')
   <link rel="stylesheet" type="text/css" href="{{ asset('public/css/content/index/index.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('public/css/content/index/slider.css' )}}">
+
 @endsection
 
 <!-- CUSTOM JS UNTUK INDEX -->
@@ -22,15 +23,27 @@
               <div class="carousel-inner">
                 <div class="item active">
                   <img src="{{ asset('public/images/02.jpg') }}" alt="gambar1" style="width:100%;">
+                  <div class="w3-display-middle w3-large w3-container w3-padding-hor-16 w3-black">
+                   Mountains!
+                  </div>
                 </div>
                 <div class="item">
-                  <img src="{{ asset('public/images/04.jpg') }}" alt="gambar2" style="width:100%;">
+                  <img src="{{ asset('public/images/04.jpg') }}" alt="gambar2"  style="width:100%;">
+                   <div class="w3-display-middle w3-large w3-container w3-padding-hor-16 w3-black">
+                   Mountains!
+                  </div>
                 </div>
                 <div class="item">
-                  <img src="{{ asset('public/images/05.jpg') }}" alt="gambar3" style="width:100%;">
+                  <img src="{{ asset('public/images/05.jpg') }}" alt="gambar3"  style="width:100%;">
+                   <div class="w3-display-middle w3-large w3-container w3-padding-hor-16 w3-black">
+                   Mountains!
+                  </div>
                 </div>
                 <div class="item">
-                  <img src="{{ asset('public/images/09.jpg') }}" alt="gambar4" style="width:100%;">
+                  <img src="{{ asset('public/images/09.jpg') }}" alt="gambar4"  style="width:100%;">
+                   <div class="w3-display-middle w3-large w3-container w3-padding-hor-16 w3-black">
+                   Mountains!
+                  </div>
                 </div>           
               </div>
             </div>

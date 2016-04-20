@@ -12,3 +12,7 @@ img#gallery:hover {
   -webkit-filter: grayscale(0); /* Google Chrome, Safari 6+ & Opera 15+ */
  
 }
+
+p.deskripsifoto{
+	text-align: center;
+}

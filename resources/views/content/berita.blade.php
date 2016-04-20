@@ -52,7 +52,8 @@
 		                        </div>
 		                        @if (Auth::user())
 		                        <div class="col-md-3 text-center">
-		                            <button type="button" class="btn btn-default btn-lg btn-block" href="/asdasd"> Edit </button>
+		                            <button type="button" class="btn btn-info btn-lg btn-sm" href="/asdasd"> Edit </button>
+		                            <button type="button" class="btn btn-danger btn-lg btn-sm" href="/asdasd"> Delete </button>
 		                        </div>
 		                       	@endif
 		                    </a>
