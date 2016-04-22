@@ -44,6 +44,11 @@ Route::group(['middleware' => ['web']], function () {
 	    return view('content.users');
 	});
 
+	Route::get('/detailartikel', function() {
+	    return view('content.detailartikel');
+	});
+
+
 	//Route untuk tampilkan detail Berita, Pengumuman, Kegiatan
 	Route::get('/berita/{id}', ['as' => 'berita.show', 'uses' => 'BeritaController@show' ]);
 	Route::get('/pengumuman/{id}', ['as' => 'pengumuman.show', 'uses' => 'PengumumanController@show' ]);

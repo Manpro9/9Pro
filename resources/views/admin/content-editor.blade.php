@@ -32,7 +32,26 @@
                 <label for="keterangan">Kategori :</label>
                     <input type="text" class="form-control" id="document-name" placeholder="">
             </div>
-            
+            <div class="form-group">
+            <label for="file-gambar">Gambar Artikel :</label>
+            <div class="input-group image-preview">
+                <input placeholder="" type="text" class="form-control image-preview-filename" disabled="disabled">
+                          <!-- don't give a name === doesn't send on POST/GET --> 
+							<span class="input-group-btn"> 
+                          <!-- image-preview-clear button -->
+                         	<button type="button" class="btn btn-default image-preview-clear" style="display:none;"> 	<span class="glyphicon glyphicon-remove"></span> Clear 
+                         	</button>
+                          <!-- image-preview-input -->
+                    <div class="btn btn-default image-preview-input"> 
+                    	<span class="glyphicon glyphicon-folder-open"></span> <span class="image-preview-input-title">Browse</span>
+                            <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/>
+                            <!-- rename it --> 
+                   	</div>
+                         
+                        <button type="button" class="btn btn-labeled btn-default"> <span class="btn-label"><i class="glyphicon glyphicon-upload"></i> </span>Upload</button>
+                        </span> 
+            </div>
+            </div>            
             <div class="form-group">
                 <div class="panel-heading" style="text-align: center"><strong>Tipe Artikel</strong> <small> </small></div>
                     <form role="form" style="text-align:center">
@@ -63,8 +82,8 @@
                     </br>
                     <div class="form-group">
                         <form style="text-align: right">
-                            <span >
-                                <a href="#" target="blank"><label class="btn btn-default"><i class="fa fa-check"></i>Publish
+                            <span >                        
+                            <a href="#" target="blank"><label class="btn btn-default"><i class="fa fa-check"></i>Publish
                                 </label></a>
                             </span>
                         </form>

@@ -37,6 +37,7 @@
                                     <th>Judul</th>
                                     <th>Jenis File</th>
                                     <th>Keterangan</th>
+                                    <th>Download</th>
                                     @if (Auth::user())
                                     <th>re-Upload</th>
                                     <th>Delete</th>
@@ -51,6 +52,8 @@
                                         <td>File Daftar pegawai</td>
                                         <td>PDF</td>
                                         <td>-</td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Unduh"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-download"></span></button></p></td>
+                                        </tr>
                                         @if (Auth::user())
                                         <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p>
                                         </td>
@@ -66,6 +69,8 @@
                                         <td>Materi Penilian</td>
                                         <td>DOCX</td>
                                         <td>bisa disunting</td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Unduh"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-download"></span></button></p></td>
+                                        </tr>
                                         @if (Auth::user())
                                         <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p>
                                         </td>
@@ -81,6 +86,8 @@
                                        	<td>FIle</td>
                                         <td>DOCX</td>
                                         <td>-</td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Unduh"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-download"></span></button></p></td>
+                                        </tr>
                                         @if (Auth::user())
                                         <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p>
                                         </td>
@@ -96,6 +103,8 @@
                                         <td>File</td>
                                         <td>PPTX</td>
                                         <td>-</td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Unduh"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-download"></span></button></p></td>
+                                        </tr>
                                         @if (Auth::user())
                                         <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p>
                                         </td>
@@ -111,6 +120,8 @@
                                         <td>File</td>
                                         <td>PDF</td>
                                         <td>-</td>
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Unduh"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-download"></span></button></p></td>
+                                        </tr>
                                         @if (Auth::user())
                                         <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p>
                                         </td>
