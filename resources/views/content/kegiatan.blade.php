@@ -28,7 +28,12 @@
                 <span>
                     <a href="{{ url('content/edit') }}">
                     	<label class="btn btn-default">
-	                        <i class="fa fa-bullhorn"></i>Update Berita Baru
+	                        <i class="fa fa-bullhorn"></i>Update Kegiatan Baru
+	                    </label>
+	                </a>
+	                <a href="{{ url('content/panelkegiatan') }}">
+                    	<label class="btn btn-default">
+	                        <i class="fa fa-bullhorn"></i>Panel Kegiatan
 	                    </label>
 	                </a>
                 </span>

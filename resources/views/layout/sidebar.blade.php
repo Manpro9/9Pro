@@ -17,11 +17,6 @@
         </a>
       </li>
       <li>
-        <a href="{{ url('/pengumuman') }}" class="hvr-sweep-to-right">
-          <i class="fa fa-volume-up"></i><span>Pengumuman</span>
-        </a>
-      </li>
-      <li>
         <a href="{{ url('/kegiatan') }}" class="hvr-sweep-to-right">
           <i class="fa fa-list"></i><span>Kegiatan</span>
         </a>

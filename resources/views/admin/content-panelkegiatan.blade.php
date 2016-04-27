@@ -1,32 +1,33 @@
 @extends('layout.master')
 
-<!-- CUSTOM CSS UNTUK DOKUMEN -->
+<!-- CUSTOM CSS UNTUK AGENDA -->
 @section('css')
 	<!-- ISIKAN DISINI -->
 @endsection
 
-<!-- CUSTOM JS UNTUK DOKUMEN -->
+<!-- CUSTOM JS UNTUK AGENDA -->
 @section('js')
     <!-- ISIKAN DISINI -->
     <script src="{{ asset('public/js/agenda/agenda.js')}}"></script>
+  	
 @endsection
 
-<!-- CUSTOM CONTENT HEADER (JUDUL) DOKUMEN -->
+<!-- CUSTOM CONTENT HEADER (JUDUL) AGENDA -->
 @section('content-header')
   <h1>
-    Dokumen
-    <small>Kelola file-file</small>
+    Panel Kegiatan
+    <small>Kegiatan</small>
   </h1>
 @endsection
 
-<!-- CUSTOM CONTENT UNTUK DOKUMEN -->
+<!-- CUSTOM CONTENT UNTUK AGENDA -->
 @section('content')
 	<!-- ISIKAN DISINI -->
-	<section class="content">
+	    <section class="content">
     		<div class="container">
                 <div class="row">                                              
                     <div class="col-md-12">
-                    	<h4>Dokumen arsip</h4>
+                        <h4>Panel Kegiatan</h4>
                         <div class="table-responsive">
 							<table id="mytable" class="table table-bordred table-striped">
                                 <thead>
@@ -34,45 +35,40 @@
                                     <th><input type="checkbox" id="checkall" /></th>
                                     @endif
                                     <th>No.</th>
-                                    <th>Judul</th>
-                                    <th>Jenis File</th>
-                                    <th>Keterangan</th>
-                                    <th>Download</th>
+                                    <th>Artikel</th>
+                                    <th>Tanggal</th>
+                                   	<th>Keterangan</th>
                                     @if (Auth::user())
-                                    <th>re-Upload</th>
+                                    <th>Edit</th>
                                     <th>Delete</th>
                                     @endif
                                 </thead>
-                                <tbody>         
+                                <tbody>       
                                     <tr>
                                         @if (Auth::user())
                                         <td><input type="checkbox" class="checkthis" /></td>
                                         @endif
                                         <td>1</td>
-                                        <td>File Daftar pegawai</td>
-                                        <td>PDF</td>
-                                        <td>-</td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Unduh"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-download"></span></button></p></td>
-                                        
-                                        @if (Auth::user())
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p>
+                                        <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
+                                        <td>21 April 2016</td>
+                                        <td>published</td>
+                                        @if(Auth::user())  
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p>
                                         </td>
                                         <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
                                         </td>
                                         @endif
-                                    </tr>     
+                                    </tr>    
                                     <tr>
-                                        @if (Auth::user())
+                                       	@if (Auth::user())
                                         <td><input type="checkbox" class="checkthis" /></td>
                                         @endif
-                                        <td>2</td>
-                                        <td>Materi Penilian</td>
-                                        <td>DOCX</td>
-                                        <td>bisa disunting</td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Unduh"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-download"></span></button></p></td>
-                                        
-                                        @if (Auth::user())
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p>
+                                        <td>1</td>
+                                        <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
+                                        <td>21 April 2016</td>
+                                        <td>draft</td>
+                                        @if(Auth::user())  
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p>
                                         </td>
                                         <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
                                         </td>
@@ -82,14 +78,12 @@
                                         @if (Auth::user())
                                         <td><input type="checkbox" class="checkthis" /></td>
                                         @endif
-                                      	<td>3</td>
-                                       	<td>FIle</td>
-                                        <td>DOCX</td>
-                                        <td>-</td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Unduh"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-download"></span></button></p></td>
-                                       
-                                        @if (Auth::user())
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p>
+                                        <td>1</td>
+                                        <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
+                                        <td>21 April 2016</td>
+                                        <td>draft</td>
+                                        @if(Auth::user())  
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p>
                                         </td>
                                         <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
                                         </td>
@@ -99,38 +93,35 @@
                                         @if (Auth::user())
                                         <td><input type="checkbox" class="checkthis" /></td>
                                         @endif
-                                        <td>4</td>
-                                        <td>File</td>
-                                        <td>PPTX</td>
-                                        <td>-</td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Unduh"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-download"></span></button></p></td>
-                                       
-                                        @if (Auth::user())
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p>
+                                        <td>1</td>
+                                        <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
+                                        <td>21 April 2016</td>
+                                        <td>draft</td>
+                                        @if(Auth::user())  
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p>
                                         </td>
                                         <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
                                         </td>
                                         @endif
-                                    </tr> 
+                                    </tr>     
                                     <tr>
                                         @if (Auth::user())
                                         <td><input type="checkbox" class="checkthis" /></td>
                                         @endif
-                                        <td>5</td>
-                                        <td>File</td>
-                                        <td>PDF</td>
-                                        <td>-</td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Unduh"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-download"></span></button></p></td>
-                                       
-                                        @if (Auth::user())
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p>
+                                        <td>1</td>
+                                        <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
+                                        <td>21 April 2016</td>
+                                        <td>draft</td>
+                                        @if(Auth::user())  
+                                        <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p>
                                         </td>
                                         <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
                                         </td>
                                         @endif
-                                    </tr>    
-                                </tbody>                 
+                                    </tr>
+                                </tbody>             
                             </table>
+
                         	<div class="clearfix"></div>
                             <ul class="pagination pull-right">
                               <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
@@ -140,16 +131,16 @@
                               <li><a href="#">4</a></li>
                               <li><a href="#">5</a></li>
                               <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
-                            </ul>                            
-                        </div>                          
+                            </ul>
+                        </div>                              
                     </div>
-                    @if (Auth::user())
+                    @if(Auth::user())           
     				<form>
                         <span>
-                        <a href="{{ url('/content/upload') }}">
-                        <label class="btn btn-default">
-                        <i class="fa fa-upload"></i>upload file
-                        </label></a>
+                            <a href="{{ url('content/addagenda') }}" target="blank">
+                            <label class="btn btn-default"><i class="fa fa-calendar-check-o"></i>Tambah kegiatan
+                            </label>
+                            </a>
                         </span>
                     </form>
                     @endif
@@ -212,4 +203,5 @@
      
 
     </section>
+
 @endsection

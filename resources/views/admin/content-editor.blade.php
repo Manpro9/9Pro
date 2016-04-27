@@ -86,7 +86,12 @@
                             <a href="#" target="blank"><label class="btn btn-default"><i class="fa fa-check"></i>Publish
                                 </label></a>
                             </span>
+                            <span >                        
+                            <a href="#" target="blank"><label class="btn btn-default"><i class="fa fa-check"></i>Simpan
+                                </label></a>
+                            </span>
                         </form>
+                        
                    	</div>
         </div>
 

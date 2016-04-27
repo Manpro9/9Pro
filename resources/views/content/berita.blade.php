@@ -30,6 +30,11 @@
 	                        <i class="fa fa-bullhorn"></i>Update Berita Baru
 	                    </label>
 	                </a>
+	                <a href="{{ url('content/panelberita') }}">
+                    	<label class="btn btn-default">
+	                        <i class="fa fa-bullhorn"></i>Panel Berita
+	                    </label>
+	                </a>
                 </span>
             </form>
             @endif
