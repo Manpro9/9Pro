@@ -11,18 +11,23 @@
       <span class="icon-bar"></span>
     </a>
 
-    <div class="navbar-custom-menu">
+     <div class="navbar-custom-menu">
       @if (Auth::user())
         <ul class="nav navbar-nav">
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-user" style="color:white;margin-top:30%;"></i>
+              <img src="{{ asset('public/images/dist/user2-160x160.jpg') }}" class="user-image" alt="User Image">
               <span class="hidden-xs">{{ Auth::user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
+              
+              
               <li class="user-footer">
+                <div class="pull-left">
+                  <p>Akhiri sesi sekarang?</p>
+                </div>
                 <div class="pull-right">
-                  <a href="{{ url('/logout') }}" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="{{ url('/logout') }}" class="btn btn-info btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -35,8 +40,8 @@
         </ul>
       @else
         <ul>
-          <span>
-          <a href="login"><i class="fa fa-user" style="color:white;margin-top:30%;"></i><span style="color:white;"> Login &nbsp;&nbsp;</span></a>
+          <span >
+          <a href="login" class="login-btn"><i class="fa fa-user" style="margin-top:30%;"></i><span > Login &nbsp;&nbsp;</span></a>
         </ul>
       @endif
     </div>
