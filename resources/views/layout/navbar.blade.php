@@ -11,7 +11,7 @@
       <span class="icon-bar"></span>
     </a>
 
-    <div class="navbar-custom-menu">
+     <div class="navbar-custom-menu">
       @if (Auth::user())
         <ul class="nav navbar-nav">
           <li class="dropdown user user-menu">
