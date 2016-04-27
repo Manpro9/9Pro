@@ -20,31 +20,14 @@
               <span class="hidden-xs">{{ Auth::user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
-              <li class="user-header">
-                <img src="{{ asset('public/images/dist/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
-                  <p>
-                    {{ Auth::user()->name }}
-                  </p>
-              </li>
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
-              </li>
+              
+              
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <p>Akhiri sesi sekarang?</p>
                 </div>
                 <div class="pull-right">
-                  <a href="{{ url('/logout') }}" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="{{ url('/logout') }}" class="btn btn-info btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -57,8 +40,8 @@
         </ul>
       @else
         <ul>
-          <span>
-          <a href="login"><i class="fa fa-user" style="color:white;margin-top:30%;"></i><span style="color:white;"> Login &nbsp;&nbsp;</span></a>
+          <span >
+          <a href="login" class="login-btn"><i class="fa fa-user" style="margin-top:30%;"></i><span > Login &nbsp;&nbsp;</span></a>
         </ul>
       @endif
     </div>
