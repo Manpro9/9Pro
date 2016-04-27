@@ -47,6 +47,10 @@ Route::group(['middleware' => ['web']], function () {
 	    return view('content.users');
 	});
 
+	Route::get('/profil', function() {
+	    return view('content.profil');
+	});
+
 	Route::get('/detailartikel', function() {
 	    return view('content.detailartikel');
 	});
