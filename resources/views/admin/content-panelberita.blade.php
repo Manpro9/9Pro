@@ -137,7 +137,7 @@
                     @if(Auth::user())           
     				<form>
                         <span>
-                            <a href="{{ url('content/addagenda') }}" target="blank">
+                            <a href="{{ url('content/panelberita') }}" target="blank">
                             <label class="btn btn-default"><i class="fa fa-calendar-check-o"></i>Tambah berita
                             </label>
                             </a>
