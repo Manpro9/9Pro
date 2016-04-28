@@ -87,7 +87,7 @@
                                 </label></a>
                             </span>
                             <span >                        
-                            <a href="#" target="blank"><label class="btn btn-default"><i class="fa fa-check"></i>Simpan
+                            <a href="#" target="blank"><label class="btn btn-default"><i class="fa fa-check"></i>Simpan Sebagai Draft
                                 </label></a>
                             </span>
                         </form>
