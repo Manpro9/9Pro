@@ -11,15 +11,13 @@ use App\Artikel;
 class ArtikelController extends Controller
 {
 	public function delete_artikel(){
-		//echo $id;
 		Artikel::find(Input::get('id'))->delete();
-		return response()->json('success');
-		/*if (get('kategori') == 'Berita') {
-			$dataBerita = Artikel::where('type', 'berita')->orderBy('created_at', 'desc')->paginate(3);
-        	return view('content.berita', compact('dataBerita'));
-		} else if ($kategori == 'Kegiatan') {
-			$dataKegiatan = Artikel::where('type', 'kegiatan')->orderBy('created_at', 'desc')->paginate(3);
-        	return view('content.kegiatan', compact('dataKegiatan'));
-		}*/
+		return response()->json('success');	
+	}
+
+	public function gallery(){
+		$data = Artikel::where('type', '=', 'kegiatan')->paginate(8);
+
+		return view('content.gallery', compact('data'));
 	}    
 }

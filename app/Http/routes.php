@@ -40,9 +40,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/dokumen', function(){
 		return view('content.dokumen');
 	});
-	Route::get('/gallery', function() {
-	    return view('content.gallery');
-	});
+	Route::get('/gallery', 'ArtikelController@gallery');
 	Route::get('/users', function() {
 	    return view('content.users');
 	});
