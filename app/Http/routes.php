@@ -88,6 +88,8 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/content/panelkegiatan', function() {
 			return view('admin.content-panelkegiatan');
 		});
+		Route::post('/content/delete','ArtikelController@delete_artikel');
+
 	});
 
 	// Ajax

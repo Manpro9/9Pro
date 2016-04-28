@@ -7,13 +7,13 @@
 
 <!-- CUSTOM JS UNTUK BERITA -->
 @section('js')
-	<!-- ISIKAN DISINI -->
+	<script type="text/javascript" src="{{asset('public/js/admin/delete_artikel.js')}}"></script>
 @endsection
 
 <!-- CUSTOM CONTENT HEADER (JUDUL) BERITA -->
 @section('content-header')
   <h1>
-    Berita
+    <span>Berita</span>
     <small>Berita mengenai PSDM UKDW</small>
   </h1>
 @endsection
@@ -50,7 +50,7 @@
 			                        </figure>
 			                    </div>
 		                        <div class="col-md-6">
-		                            <h4 class="list-group-item-heading"> {{ $berita->title }} </h4>
+		                            <h4 class="list-group-item-heading title-delete"> {{ $berita->title }} </h4>
 		                            <p class="list-group-item-text">
 		                            	{{ $berita->description }}
 		                            </p>
@@ -58,7 +58,7 @@
 		                        @if (Auth::user())
 		                        <div class="col-md-3 text-center">
 		                            <button type="button" class="btn btn-info btn-lg btn-sm" href="/asdasd"> Edit </button>
-		                            <button type="button" class="btn btn-danger btn-lg btn-sm" href="/asdasd"> Delete </button>
+		                            <button type="button" class="btn btn-danger btn-lg btn-sm delete_artikel" href="/asdasd" value="{{ $berita->id }}"> Delete </button>
 		                        </div>
 		                       	@endif
 		                    </a>

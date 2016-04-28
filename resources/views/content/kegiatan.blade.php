@@ -7,13 +7,13 @@
 
 <!-- CUSTOM JS UNTUK KEGIATAN -->
 @section('js')
-    <!-- ISIKAN DISINI -->
+    <script type="text/javascript" src="{{asset('public/js/admin/delete_artikel.js')}}"></script>
 @endsection
 
 <!-- CUSTOM CONTENT HEADER (JUDUL) KEGIATAN -->
 @section('content-header')
   <h1>
-    Kegiatan
+    <span>Kegiatan</span>
     <small>Berita Kegiatan PSDM</small>
   </h1>
 @endsection
@@ -51,7 +51,7 @@
 			                        </figure>
 			                    </div>
 		                        <div class="col-md-6">
-		                            <h4 class="list-group-item-heading"> {{ $kegiatan->title }} </h4>
+		                            <h4 class="list-group-item-heading title-delete"> {{ $kegiatan->title }} </h4>
 		                            <p class="list-group-item-text">
 		                            	{{ $kegiatan->description }}
 		                            </p>
@@ -59,7 +59,7 @@
 		                        @if (Auth::user())
 		                        <div class="col-md-3 text-center">
 		                            <button type="button" class="btn btn-info btn-lg btn-sm" href="/asdasd"> Edit </button>
-		                            <button type="button" class="btn btn-danger btn-lg btn-sm" href="/asdasd"> Delete </button>
+		                            <button type="button" class="btn btn-danger btn-lg btn-sm delete_artikel" href="/asdasd" value="{{ $kegiatan->id }}"> Delete </button>
 		                        </div>		                        
 		                        @endif
 		                    </a>
