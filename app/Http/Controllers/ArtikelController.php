@@ -12,7 +12,7 @@ class ArtikelController extends Controller
 {
 	public function delete_artikel(){
 		//echo $id;
-		// Artikel::find(Input::get('id'))->delete();
+		Artikel::find(Input::get('id'))->delete();
 		return response()->json('success');
 		/*if (get('kategori') == 'Berita') {
 			$dataBerita = Artikel::where('type', 'berita')->orderBy('created_at', 'desc')->paginate(3);
