@@ -50,7 +50,7 @@
         </div>
 
         <div class="page-header">
-          <h1>Job Description</h1>
+          <h1>Tugas Pokok</h1>
         </div>
         <ul>
           <li>
@@ -82,6 +82,20 @@
             Mengevaluasi kepuasan karyawan sesuai bidang 
             kerjanya.
           </li>
+        </ul>
+        <div class="page-header">
+          <h1>Fungsi </h1>
+        </div>
+        <ul>
+          <ol>
+            Melakukan pengelolaan SDM.
+          </ol>
+          <ol>
+            Melaksanakan rekrutmen.
+          </ol>
+          <ol>
+            Melakukan perencanaan SDM masa depan.
+          </ol>
         </ul>
 
 		</div>
