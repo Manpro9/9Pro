@@ -36,6 +36,11 @@
           <i class="fa fa-picture-o"></i><span>Gallery</span>
         </a>
       </li>
+      <li>
+        <a href="{{ url('/profil') }}" class="hvr-sweep-to-right">
+          <i class="fa fa-university"></i><span>Tentang PSDM</span>
+        </a>
+      </li>
       @if (Auth::user())
       <li>
         <a href="{{ url('/users') }}" class="hvr-sweep-to-right">
