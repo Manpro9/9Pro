@@ -1,4 +1,4 @@
-$(document).on('click','.delete_artikel', function(){
+$(document).on('click','.delete_artikel', function(e){
 	var id = $(this).attr('value');
 	var $this = $(this);
 	var that = this;
@@ -10,6 +10,7 @@ $(document).on('click','.delete_artikel', function(){
 	});
 
 	if(confirm("Are you sure?")) {
+		e.preventDefault();
 		$.ajax({
 			dataType: 'JSON',
 			type: 'POST',

@@ -14,3 +14,14 @@ $("#mytable #checkall").click(function () {
     
     $("[data-toggle=tooltip]").tooltip();
 });
+
+$(document).on('click', '.delete-content-artikel', function(){
+    var from =  $(this).attr('from');
+    var role = $(this).attr('role');
+    var id = $(this).val();
+    
+    if (role == 'delete')
+        if (confirm('Are you sure?'))
+            window.location.href = from + '/delete/' + id;
+
+})

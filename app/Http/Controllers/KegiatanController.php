@@ -102,4 +102,14 @@ class KegiatanController extends Controller
         return view('admin.content-panelkegiatan', compact('artikel'));
     }
 
+    public function delete($id) {
+        try {
+            Artikel::find($id)->delete();
+
+            return redirect()->action('KegiatanController@panel');
+        } catch (Exception $e) {
+            
+        }
+    }
+
 }

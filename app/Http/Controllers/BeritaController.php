@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 use App\Http\Requests;
 use App\Artikel;
@@ -98,7 +99,16 @@ class BeritaController extends Controller
 
     public function panel() {
         $artikel = Artikel::where('type', '=', 'berita')->paginate(5);
-
         return view('admin.content-panelberita', compact('artikel'));
+    }
+
+    public function delete($id) {
+        try {
+            Artikel::find($id)->delete();
+
+            return redirect()->action('BeritaController@panel');
+        } catch (Exception $e) {
+            
+        }
     }
 }

@@ -54,9 +54,9 @@
                                             <td>{{ $data->title }}</td>
                                             <td>{{ $data->created_at->format('d M Y') }}</td>
                                             <td>{{ $data->status }}</td>
-                                            <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" value="{{ $data->id }}" ><span class="glyphicon glyphicon-pencil"></span></button></p>
+                                            <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" value="{{ $data->id }}"  ><span class="glyphicon glyphicon-pencil"></span></button></p>
                                             </td>
-                                            <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" value="{{ $data->id }}" ><span class="glyphicon glyphicon-trash"></span></button></p>
+                                            <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs delete-content-artikel" data-title="Delete" data-toggle="modal" data-target="#delete" value="{{ $data->id }}" from="berita" role="delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
                                             </td>
                                         </tr>
                                         <?php $counter++; ?>
@@ -79,7 +79,7 @@
                 </div>
             </div>
 
-                              <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+                              <!-- <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -131,7 +131,7 @@
 
 
 
-      		</div>
+      		</div> -->
      
 
     </section>
