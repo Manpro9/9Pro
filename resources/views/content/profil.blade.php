@@ -3,6 +3,7 @@
 <!-- CUSTOM CSS UNTUK BERITA -->
 @section('css')
 	<!-- ISIKAN DISINI -->
+  <link rel="stylesheet" href="{{ asset('public/css/content/profil/profil.css' )}}">
 @endsection
 
 <!-- CUSTOM JS UNTUK BERITA -->
@@ -57,7 +58,7 @@
         <div class="col-sm-12">
           <div class="col-sm-6">
             <h3 style="text-align:center;">Visi</h3>
-              <ul>
+              <ul class="isi-profil1">
                 <li>
                   Membantu rektor dalam proses pengelolaan SDM
                   UKDW baik PA maupun PPA. Pengelolaan yang 
@@ -91,7 +92,7 @@
           </div>
           <div class="col-sm-6">
             <h3 style="text-align:center;">Misi</h3>
-              <ul>
+              <ul class="isi-profil2">
                 <li>
                   Membantu rektor dalam proses pengelolaan SDM
                   UKDW baik PA maupun PPA. Pengelolaan yang 
@@ -133,7 +134,7 @@
         </div>
       </div>
       <div class="col-sm-8">
-        <ul>
+        <ul class="isi-profil3">
           <li>
             Membantu rektor dalam proses pengelolaan SDM
             UKDW baik PA maupun PPA. Pengelolaan yang 
@@ -173,16 +174,16 @@
         </div>
       </div>
       <div class="col-sm-8">
-        <ul>
-          <ol style="padding-left:0px;">
+        <ul class="isi-profil4">
+          <li style="padding-left:0px;">
             Melakukan pengelolaan SDM.
-          </ol>
-          <ol style="padding-left:0px;">
+          </li>
+          <li style="padding-left:0px;">
             Melaksanakan rekrutmen.
-          </ol>
-          <ol style="padding-left:0px;">
+          </li>
+          <li style="padding-left:0px;">
             Melakukan perencanaan SDM masa depan.
-          </ol>
+          </li>
         </ul>
           </br></br>
       </div>

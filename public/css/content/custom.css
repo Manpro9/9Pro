@@ -314,3 +314,24 @@ table tr td:last-child {
   background-color: red;
   
 }
+
+#isi-logo{
+  padding: 2% ;
+}
+
+.sidebar-logo{
+  margin: 5% 7% 3% 5%;
+  background-color: #1c2427;
+}
+.sidebar-logo img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 45%;
+  height: 45%;
+}
+
+.sidebar-logo h4{
+  color: #a4adb1;
+  text-align: center;
+}
