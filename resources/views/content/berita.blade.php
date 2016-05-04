@@ -43,7 +43,8 @@
                 	<h1 class="text-center">Berita teratas</h1>
                 	<div class="list-group">
                 		@foreach($dataBerita as $berita)
-	                		<a href="#" class="list-group-item">
+                		<?php $title = str_slug($berita['title']); ?>
+	                		<a href="{{ route('berita.show', $title) }}" class="list-group-item">
 			                  	<div class="media col-md-3">
 			                        <figure class="pull-left">
 			                            <img class="media-object img-rounded img-responsive"  src="{{ asset($berita->image) }}" alt="gambar berita" >

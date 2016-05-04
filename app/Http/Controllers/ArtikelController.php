@@ -9,7 +9,22 @@ use App\Http\Requests;
 use App\Artikel;
 
 class ArtikelController extends Controller
-{
+{	
+	public function show($title) {
+
+		$all = Artikel::where('type', '=', 'kegiatan')->get();
+		foreach ($all as $data) {
+			if (str_slug($data->title) == $title) {
+				$tempId = $data->id;
+				break;	
+			}
+		}
+		
+		$artikel = Artikel::where('id', '=', $tempId)->get();
+			
+		return view('content.detailartikel', compact('artikel'));
+	}
+
 	public function delete_artikel(){
 		Artikel::find(Input::get('id'))->delete();
 		return response()->json('success');	

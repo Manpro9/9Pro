@@ -13,57 +13,38 @@
 
 <!-- CUSTOM CONTENT HEADER (JUDUL) BERITA -->
 @section('content-header')
-  <h1>
-    Jenis Artikel
-    <small>Detail Artikel</small>
-  </h1>
+	@foreach($artikel as $data)
+	<h1>
+		{{ ucfirst($data->type) }}
+		<!-- <small>Detail Artikel</small> -->
+	</h1>
+	@endforeach
 @endsection
 
 <!-- CUSTOM CONTENT UNTUK BERITA -->
 @section('content')
 
-
+		@foreach($artikel as $data)
 		<div class="box-content">
 			  <div class="page-header">
-				  <h1>Entah Berhasil atau Gagal Memotret Gerhana, Belitung Telah Berpesta <small class="date">Mar 31, 2016</small></h1>
+				  <h1>{{ $data->title }} <small class="date">{{ $data->created_at->format('d M Y') }}</small></h1>
 			  </div>     
         <div class="col-sm-8">
               <div class="carousel-inner">
                 <div class="item active">
-                  <img src="{{ asset('public/images/02.jpg') }}" alt="gambar1" style="width:100%;">
+                  <img src="{{ asset($data->image) }}" alt="gambar1" style="width:100%;">
                 </div>
               </div>
         </div>
 
 			  <div class="row-fluid">            
 				  <div class="span4">
-					<h3>Sample text and paragraphs</h3>
-					<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi.
-					</p>
-					<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi.
-					</p>
-					<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi.
-					</p>
-					<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi.
-					</p>
-					<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi.
-					</p>
-					<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi.
-					</p>
-					<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi.
-					</p>
-
+				  	{{ $data->content }}
 				  </div>
 			  </div>
 			  
 		</div>
+		@endforeach
 
 		<div class="container"> <!-- Untuk Posting Comment -->
 			<div class="row">

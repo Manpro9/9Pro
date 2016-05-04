@@ -54,10 +54,11 @@ Route::group(['middleware' => ['web']], function () {
 	});
 
 
-	//Route untuk tampilkan detail Berita, Pengumuman, Kegiatan
+	//Route untuk tampilkan detail Berita, Pengumuman, Kegiatan, Gallery
 	Route::get('/berita/{id}', ['as' => 'berita.show', 'uses' => 'BeritaController@show' ]);
 	Route::get('/pengumuman/{id}', ['as' => 'pengumuman.show', 'uses' => 'PengumumanController@show' ]);
 	Route::get('/kegiatan/{id}', ['as' => 'kegiatan.show', 'uses' => 'KegiatanController@show' ]);
+	Route::get('/artikel/{title}', ['as' => 'artikel.show', 'uses' => 'ArtikelController@show']);
 
 	// Auth (Login / Logout)
 	Route::get('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@showLoginForm']);

@@ -47,10 +47,19 @@ class KegiatanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($title)
     {
-        $kegiatan = Artikel::find($id);
-        // return view('content.pengumuman', compact('kegiatan'));
+        $all = Artikel::where('type', '=', 'kegiatan')->get();
+        foreach ($all as $data) {
+            if (str_slug($data->title) == $title) {
+                $tempId = $data->id;
+                break;  
+            }
+        }
+        
+        $artikel = Artikel::where('id', '=', $tempId)->get();
+            
+        return view('content.detailartikel', compact('artikel'));
     }
 
     /**

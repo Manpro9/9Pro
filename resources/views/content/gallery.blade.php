@@ -27,7 +27,11 @@
         <div class="container">
             <div class="row">
                 @foreach($data as $gallery)
-                <div class="col-md-3 col-sm-4 col-xs-6"><img id="gallery" class="img-responsive" src="{{ asset($gallery->image) }}" />
+                <div class="col-md-3 col-sm-4 col-xs-6">
+                    <?php $title = str_slug($gallery['title']); ?>
+                    <a href="{{ route('kegiatan.show', $title) }}">
+                        <img id="gallery" class="img-responsive" src="{{ asset($gallery->image) }}" />
+                    </a>
                 <p class="deskripsifoto">{{ $gallery->description }}</p>
                 </div>
                 @endforeach

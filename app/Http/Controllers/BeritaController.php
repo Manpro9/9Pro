@@ -47,10 +47,19 @@ class BeritaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($title)
     {
-        $berita = Artikel::find($id);
-        // return view('content.berita', compact('berita'));
+        $all = Artikel::where('type', '=', 'berita')->get();
+        foreach ($all as $data) {
+            if (str_slug($data->title) == $title) {
+                $tempId = $data->id;
+                break;  
+            }
+        }
+        
+        $artikel = Artikel::where('id', '=', $tempId)->get();
+            
+        return view('content.detailartikel', compact('artikel'));
     }
 
     /**

@@ -9,24 +9,27 @@ $(document).on('click','.delete_artikel', function(){
         }
 	});
 
-	$.ajax({
-		dataType: 'JSON',
-		type: 'POST',
-		url: 'content/delete',
-		data:
-		{
-			'id' : id
-		},
-		success: function(data){
-			alert('success');
-			$(that).closest('a').fadeOut('slow', function(){$(that).closest('a').remove()})
-			
-		},
-		error: function(){
-			alert('error');
-		}
-	});
+	if(confirm("Are you sure?")) {
+		$.ajax({
+			dataType: 'JSON',
+			type: 'POST',
+			url: 'content/delete',
+			data:
+			{
+				'id' : id
+			},
+			success: function(data){
+				alert('success');
+				$(that).closest('a').fadeOut('slow', function(){$(that).closest('a').remove()})
+				
+			},
+			error: function(){
+				alert('error');
+			}
+		});
 
-	//window.location.href='content/delete/'+ id +'/'+ kategori;
+		//window.location.href='content/delete/'+ id +'/'+ kategori;
+	}
+	
 });
 
