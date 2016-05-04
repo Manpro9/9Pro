@@ -95,4 +95,10 @@ class BeritaController extends Controller
     {
         //
     }
+
+    public function panel() {
+        $artikel = Artikel::where('type', '=', 'berita')->paginate(5);
+
+        return view('admin.content-panelberita', compact('artikel'));
+    }
 }

@@ -95,4 +95,11 @@ class KegiatanController extends Controller
     {
         //
     }
+
+    public function panel() {
+        $artikel = Artikel::where('type', '=', 'kegiatan')->paginate(5);
+
+        return view('admin.content-panelkegiatan', compact('artikel'));
+    }
+
 }

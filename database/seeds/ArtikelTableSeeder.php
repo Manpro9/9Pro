@@ -26,6 +26,7 @@ Quisque eget ultrices tellus, ac tempus sapien. In ac augue bibendum dui dictum 
 				'image' => '/public/images/berita/contoh_berita.jpg',
 				'type' => 'berita',
 				'content' => 'Content Berita ' . $i . ' ' . $content,
+				'status' => 'published',
 				'created_at' => DB::raw('NOW()'),
 				'updated_at' => DB::raw('NOW()'),
 				);
@@ -40,6 +41,7 @@ Quisque eget ultrices tellus, ac tempus sapien. In ac augue bibendum dui dictum 
 				'image' => '/public/images/pengumuman/contoh_pengumuman.jpg',
 				'type' => 'pengumuman',
 				'content' => 'Content Pengumuman ' . $i . ' ' . $content,
+				'status' => 'published',
 				'created_at' => DB::raw('NOW()'),
 				'updated_at' => DB::raw('NOW()'),
 				);
@@ -54,6 +56,7 @@ Quisque eget ultrices tellus, ac tempus sapien. In ac augue bibendum dui dictum 
 				'image' => '/public/images/kegiatan/contoh_kegiatan.jpg',
 				'type' => 'kegiatan',
 				'content' => 'Content Kegiatan ' . $i . ' ' . $content,
+				'status' => 'published',
 				'created_at' => DB::raw('NOW()'),
 				'updated_at' => DB::raw('NOW()'),
 				);

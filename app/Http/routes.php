@@ -81,12 +81,8 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/content/addagenda', function() {
 			return view('admin.content-addagenda');
 		});
-		Route::get('/content/panelberita', function() {
-			return view('admin.content-panelberita');
-		});
-		Route::get('/content/panelkegiatan', function() {
-			return view('admin.content-panelkegiatan');
-		});
+		Route::get('/content/panelberita', 'BeritaController@panel');
+		Route::get('/content/panelkegiatan', 'KegiatanController@panel');
 		Route::post('/content/delete','ArtikelController@delete_artikel');
 
 	});

@@ -31,110 +31,43 @@
                         <div class="table-responsive">
 							<table id="mytable" class="table table-bordred table-striped">
                                 <thead>
-                                    @if (Auth::user())
                                     <th><input type="checkbox" id="checkall" /></th>
-                                    @endif
                                     <th>No.</th>
                                     <th>Artikel</th>
                                     <th>Tanggal</th>
                                    	<th>Keterangan</th>
-                                    @if (Auth::user())
                                     <th>Edit</th>
                                     <th>Delete</th>
-                                    @endif
                                 </thead>
-                                <tbody>       
-                                    <tr>
-                                        @if (Auth::user())
-                                        <td><input type="checkbox" class="checkthis" /></td>
-                                        @endif
-                                        <td>1</td>
-                                        <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-                                        <td>21 April 2016</td>
-                                        <td>published</td>
-                                        @if(Auth::user())  
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p>
-                                        </td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
-                                        </td>
-                                        @endif
-                                    </tr>    
-                                    <tr>
-                                       	@if (Auth::user())
-                                        <td><input type="checkbox" class="checkthis" /></td>
-                                        @endif
-                                        <td>1</td>
-                                        <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-                                        <td>21 April 2016</td>
-                                        <td>draft</td>
-                                        @if(Auth::user())  
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p>
-                                        </td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
-                                        </td>
-                                        @endif
-                                    </tr>
-                                    <tr>
-                                        @if (Auth::user())
-                                        <td><input type="checkbox" class="checkthis" /></td>
-                                        @endif
-                                        <td>1</td>
-                                        <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-                                        <td>21 April 2016</td>
-                                        <td>draft</td>
-                                        @if(Auth::user())  
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p>
-                                        </td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
-                                        </td>
-                                        @endif
-                                    </tr>     
-                                    <tr>
-                                        @if (Auth::user())
-                                        <td><input type="checkbox" class="checkthis" /></td>
-                                        @endif
-                                        <td>1</td>
-                                        <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-                                        <td>21 April 2016</td>
-                                        <td>draft</td>
-                                        @if(Auth::user())  
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p>
-                                        </td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
-                                        </td>
-                                        @endif
-                                    </tr>     
-                                    <tr>
-                                        @if (Auth::user())
-                                        <td><input type="checkbox" class="checkthis" /></td>
-                                        @endif
-                                        <td>1</td>
-                                        <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-                                        <td>21 April 2016</td>
-                                        <td>draft</td>
-                                        @if(Auth::user())  
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p>
-                                        </td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
-                                        </td>
-                                        @endif
-                                    </tr>
+                                <tbody>
+                                    <?php 
+                                        if(isset($_GET['page']))
+                                            $count = $_GET['page']; 
+                                        else
+                                            $count = 1;
+
+                                        $counter = 5 * $count - 4; ?>
+                                    @foreach($artikel as $data)       
+                                        <tr>
+                                            <td><input type="checkbox" class="checkthis" /></td>
+                                            <td>{{ $counter }}</td>
+                                            <td>{{ $data->title }}</td>
+                                            <td>{{ $data->created_at->format('d M Y') }}</td>
+                                            <td>{{ $data->status }}</td>
+                                            <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" value="{{ $data->id }}" ><span class="glyphicon glyphicon-pencil"></span></button></p>
+                                            </td>
+                                            <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" value="{{ $data->id }}" ><span class="glyphicon glyphicon-trash"></span></button></p>
+                                            </td>
+                                        </tr>
+                                        <?php $counter++; ?>
+                                    @endforeach    
                                 </tbody>             
                             </table>
 
                         	<div class="clearfix"></div>
-                            <ul class="pagination pull-right">
-                              <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
-                              <li class="active"><a href="#">1</a></li>
-                              <li><a href="#">2</a></li>
-                              <li><a href="#">3</a></li>
-                              <li><a href="#">4</a></li>
-                              <li><a href="#">5</a></li>
-                              <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
-                            </ul>
+                            {{ $artikel->links() }}
                         </div>                              
-                    </div>
-                    @if(Auth::user())           
+                    </div>         
     				<form>
                         <span>
                             <a href="{{ url('content/panelberita') }}" target="blank">
@@ -142,8 +75,7 @@
                             </label>
                             </a>
                         </span>
-                    </form>
-                    @endif
+                    </form> 
                 </div>
             </div>
 
