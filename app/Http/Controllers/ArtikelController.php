@@ -10,6 +10,9 @@ use App\Artikel;
 
 class ArtikelController extends Controller
 {	
+	public function index() {
+		return view('admin.content-create');
+	}
 
 	public function show($title) {
 
@@ -24,6 +27,39 @@ class ArtikelController extends Controller
 		$artikel = Artikel::where('id', '=', $tempId)->get();
 			
 		return view('content.detailartikel', compact('artikel'));
+	}
+
+	public function create(Request $request) {
+		$title = $request->title;
+		$desc = $request->desc;
+		$type = $request->type;
+		$content = $request->temp_content;
+		$status = $request->temp_status;
+
+		if (Input::hasFile('image')) {
+			// storing image
+			$file = $request->file('image');
+			$destinationPath = public_path() . '/images/' . $type;
+            $extension = $file->getClientOriginalExtension();
+            $fileName = $type . "_" . str_slug($title) . "." . $extension;
+            $file->move($destinationPath, $fileName);
+            $pathFile = "\\public\\images\\" . $type . "\\" . $fileName;
+		} else
+			$pathFile = "\\public\\images\\ukdw_icon.jpg";
+
+		$artikel = new Artikel;
+		$artikel->title = $title;
+		$artikel->description = $desc;
+		$artikel->image = $pathFile;
+		$artikel->type = $type;
+		$artikel->content = $content;
+		$artikel->status = $status;
+		$artikel->save();
+
+		if ($type == 'berita')
+   			return redirect()->action('BeritaController@index');
+   		else if ($type == 'kegiatan')
+   			return redirect()->action('KegiatanController@index');
 	}
 
 	public function delete_artikel(){

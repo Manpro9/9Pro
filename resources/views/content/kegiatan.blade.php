@@ -26,7 +26,7 @@
         	@if (Auth::user())
             <form style="text-align: right">
                 <span>
-                    <a href="{{ url('content/edit') }}">
+                    <a href="{{ url('content/create') }}">
                     	<label class="btn btn-default">
 	                        <i class="fa fa-bullhorn"></i>Update Kegiatan Baru
 	                    </label>

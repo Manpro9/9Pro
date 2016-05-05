@@ -69,9 +69,12 @@ Route::group(['middleware' => ['web']], function () {
 
 	// Route untuk Admin
 	Route::group(['middleware' => 'auth'], function(){
-		Route::get('/content/edit', function() {
-			return view('admin.content-editor');
-		});
+		// show create form
+		Route::get('/content/create', 'ArtikelController@index');
+
+		// creating artikel
+		Route::post('/content/create', 'ArtikelController@create');
+		
 		Route::get('/content/upload', function() {
 			return view('admin.content-upload');
 		});
