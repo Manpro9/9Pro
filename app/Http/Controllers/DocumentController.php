@@ -8,5 +8,7 @@ use App\Http\Requests;
 
 class DocumentController extends Controller
 {
-    //
+    public function index() {
+    	return view('admin.content-upload');
+    }
 }

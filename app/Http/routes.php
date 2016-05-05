@@ -69,14 +69,11 @@ Route::group(['middleware' => ['web']], function () {
 	Route::group(['middleware' => 'auth'], function(){
 		// show create form
 		Route::get('/content/create', 'ArtikelController@index');
+		Route::get('/content/upload', 'DocumentController@index');
 
 		// creating artikel
 		Route::post('/content/create', 'ArtikelController@create');
 		
-		Route::get('/content/upload', function() {
-			return view('admin.content-upload');
-		});
-
 		// creating user
 		Route::get('/content/adduser', 'UserController@show_form');
 		Route::post('/content/adduser', 'UserController@create');
