@@ -36,32 +36,22 @@
                                 <th class="text-center">Action</th>
                             </tr>
                     </thead>
+                            @foreach($users as $user)
                             <tr>
                                 <td>1</td>
-                                <td>Adit</td>
-                                <td>adittt</td>
-                                <td>102</td>
-                                <td>psdmukdw@gmail.com</td>
-                                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->username }}</td>
+                                <td>{{ $user->id }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td class="text-center">
+                                    <a class='btn btn-info btn-xs' href="#">
+                                        <span class="glyphicon glyphicon-edit"></span> Edit
+                                    </a> 
+                                    <a href="#" class="btn btn-danger btn-xs">
+                                        <span class="glyphicon glyphicon-remove"></span> Del
+                                    </a></td>
                             </tr>
-                            
-                            <tr>
-                                <td>2</td>
-                                <td>Adit</td>
-                               	<td>adittt</td>
-                                <td>103</td>
-                                <td>psdmukdw@gmail.com</td>
-                                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                            </tr>
-                            
-                            <tr>
-                                <td>3</td>
-                                <td>Adit</td>
-                                <td>adittt</td>
-                                <td>103</td>
-                                <td>psdmukdw@gmail.com</td>
-                                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                            </tr>
+                            @endforeach
                 </table>
             </div>
         </div>

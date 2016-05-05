@@ -12,12 +12,28 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         $user = array (
-			'name' => 'admin',
+			'name' => 'Admin PSDM',
+            'username' => 'Admin',
 			'email' => 'admin@admin.com',
 			'password' => bcrypt('psdm2016'),
+            'auth_level' => 1,
 			'created_at' => DB::raw('NOW()'),
 			'updated_at' => DB::raw('NOW()'),
 			);
 		DB::table('users')->insert($user);
+
+
+        for ($i=1; $i <= 5 ; $i++) { 
+           $user = array (
+            'name' => $i,
+            'username' => 'Username ' . $i,
+            'email' => $i. '@'. $i .'.com',
+            'password' => bcrypt($i),
+            'auth_level' => 2,
+            'created_at' => DB::raw('NOW()'),
+            'updated_at' => DB::raw('NOW()'),
+            );
+        DB::table('users')->insert($user);
+        }
     }
 }
