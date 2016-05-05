@@ -87,7 +87,7 @@
                     
                 </br>
                 <div class="form-group" style="text-align: right">
-                    <button type="submit" class="btn btn-default btn-edit-artikel" role="publish" value="{{ $data->id }}"><i class="fa fa-check"></i>Publish</button>
+                    <button type="submit" class="btn btn-default btn-edit-artikel" role="published" value="{{ $data->id }}"><i class="fa fa-check"></i>Publish</button>
                     <button type="submit" class="btn btn-default btn-edit-artikel" role="draft" value="{{ $data->id }}"><i class="fa fa-check"></i>Simpan Sebagai Draft</button>
                	    <input type="hidden" id="tempContent" name="temp_content">
                     <input type="hidden" id="tempStatus" name="temp_status">

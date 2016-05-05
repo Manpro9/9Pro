@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 use App\Http\Requests;
 use App\Artikel;
@@ -16,7 +17,9 @@ class KegiatanController extends Controller
      */
     public function index()
     {
-        $dataKegiatan = Artikel::where('type', 'kegiatan')->orderBy('created_at', 'desc')->paginate(3);
+        $dataKegiatan = Artikel::where('type', 'kegiatan')
+                                ->where('status', 'published')
+                                ->orderBy('created_at', 'desc')->paginate(3);
         return view('content.kegiatan', compact('dataKegiatan'));
     }
 

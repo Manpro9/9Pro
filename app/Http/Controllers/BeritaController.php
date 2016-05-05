@@ -17,7 +17,9 @@ class BeritaController extends Controller
      */
     public function index()
     {
-        $dataBerita = Artikel::where('type', 'berita')->orderBy('created_at', 'desc')->paginate(3);
+        $dataBerita = Artikel::where('type', 'berita')
+                                ->where('status', 'published')
+                                ->orderBy('created_at', 'desc')->paginate(3);
         return view('content.berita', compact('dataBerita'));
     }
 

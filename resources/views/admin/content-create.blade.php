@@ -24,7 +24,7 @@
 <!-- CUSTOM CONTENT UNTUK CONTENT EDITOR -->
 @section('content')
 	<!-- ISIKAN DISINI -->
-    {!! Form::model(['method' => 'post', 'files' => true, 'action' => 'ArtikelController@create']) !!}
+    {!! Form::open(['method' => 'post', 'files' => true]) !!}
 	<section class="content">
         <div class="container">
         	<div class="form-group">
@@ -73,7 +73,7 @@
                     
                 </br>
                 <div class="form-group" style="text-align: right">
-                    <button type="submit" class="btn btn-default btn-create-artikel" role="publish"><i class="fa fa-check"></i>Publish</button>
+                    <button type="submit" class="btn btn-default btn-create-artikel" role="published"><i class="fa fa-check"></i>Publish</button>
                     <button type="submit" class="btn btn-default btn-create-artikel" role="draft"><i class="fa fa-check"></i>Simpan Sebagai Draft</button>
                	    <input type="hidden" id="tempContent" name="temp_content">
                     <input type="hidden" id="tempStatus" name="temp_status">

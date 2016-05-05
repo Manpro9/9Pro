@@ -39,7 +39,7 @@
 
 			  <div class="row-fluid">            
 				  <div class="span4">
-				  	{{ $data->content }}
+				  	<?php echo $data['content'] ?>
 				  </div>
 			  </div>
 			  
