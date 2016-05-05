@@ -1,8 +1,41 @@
+$(document).on('click', '.btn-edit-artikel', function(e) {
+    var role = $(this).attr('role');
+    var content  = $('#summernote').summernote('code');
+
+    $('#tempContent').val(content);
+    $('#tempStatus').val(role);
+
+    if ($('#document-name').val() == '') {
+        alert('Judul Tidak Boleh Kosong');
+        e.preventDefault();
+    }
+        
+    if ($('#document-desc').val() == '') {
+        alert('Deskripsi Tidak Boleh Kosong');
+        e.preventDefault();
+    }
+    if (content == '') {
+        alert('Konten Tidak Boleh Kosong');
+        e.preventDefault();
+    }
+    
+})
+
 $(document).ready(function() {
   $('#summernote').summernote({
+      placeholder: 'Write here...',
 	  height: 200,                 
 	  minHeight: null,          
-	  maxHeight: null               
+	  maxHeight: null,
+      toolbar: [
+        // [groupName, [list of button]]
+        ['style', ['bold', 'italic', 'underline', 'clear']],
+        ['font', ['strikethrough', 'superscript', 'subscript']],
+        ['fontsize', ['fontsize']],
+        ['color', ['color']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['height', ['height']]
+      ]               
 	});
 });
 

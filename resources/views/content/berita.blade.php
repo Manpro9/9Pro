@@ -58,8 +58,8 @@
 		                        </div>
 		                        @if (Auth::user())
 		                        <div class="col-md-3 text-center">
-		                            <button type="button" class="btn btn-info btn-lg btn-sm" href="/asdasd"> Edit </button>
-		                            <button type="button" class="btn btn-danger btn-lg btn-sm delete_artikel" href="/asdasd" value="{{ $berita->id }}"> Delete </button>
+		                            <button type="button" class="btn btn-info btn-lg btn-sm edit_artikel" href="#" value="{{ $berita->id }}"  from="berita" role="edit"> Edit </button>
+		                            <button type="button" class="btn btn-danger btn-lg btn-sm delete_artikel" href="#" value="{{ $berita->id }}"> Delete </button>
 		                        </div>
 		                       	@endif
 		                    </a>

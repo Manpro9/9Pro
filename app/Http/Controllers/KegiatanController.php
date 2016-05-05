@@ -70,7 +70,9 @@ class KegiatanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $artikel = Artikel::where('id', '=', $id)->get();
+
+        return view ('admin.content-edit-artikel', compact('artikel'));
     }
 
     /**
