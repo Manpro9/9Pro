@@ -87,10 +87,13 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/content/panelberita', 'BeritaController@panel');
 		Route::get('/content/panelkegiatan', 'KegiatanController@panel');
 
-		// delete 
+		// delete artikel
 		Route::get('/content/berita/delete/{id}', ['as' => 'berita.delete', 'uses' => 'BeritaController@delete' ]);
 		Route::get('/content/kegiatan/delete/{id}', ['as' => 'kegiatan.delete', 'uses' => 'KegiatanController@delete' ]);
 		Route::post('/content/delete','ArtikelController@delete_artikel');
+
+		// delete user
+		Route::get('/delete/{id}', ['as' => 'user.delete', 'uses' => 'UserController@delete' ]);
 
 		// show detail edit
 		Route::get('/berita/edit/{id}', ['as' => 'berita.edit', 'uses' => 'BeritaController@edit' ]);

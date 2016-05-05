@@ -7,7 +7,7 @@
 
 <!-- CUSTOM JS UNTUK USERS -->
 @section('js')
-    <!-- ISIKAN DISINI -->
+    <script type="text/javascript" src="{{ asset('public/js/admin/users.js') }}"></script>
 @endsection
 
 <!-- CUSTOM CONTENT HEADER (JUDUL) USERS -->
@@ -44,12 +44,12 @@
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td class="text-center">
-                                    <a class='btn btn-info btn-xs' href="#">
+                                    <button class="btn btn-info btn-xs content-users" value="{{ $user->id }}" role="edit">
                                         <span class="glyphicon glyphicon-edit"></span> Edit
-                                    </a> 
-                                    <a href="#" class="btn btn-danger btn-xs">
+                                    </button>
+                                    <button class="btn btn-danger btn-xs content-users" value="{{ $user->id }}" role="delete">
                                         <span class="glyphicon glyphicon-remove"></span> Del
-                                    </a></td>
+                                    </button>
                             </tr>
                             @endforeach
                 </table>
