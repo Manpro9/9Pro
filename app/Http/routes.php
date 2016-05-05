@@ -76,9 +76,11 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/content/upload', function() {
 			return view('admin.content-upload');
 		});
-		Route::get('/content/adduser', function() {
-			return view('admin.content-adduser');
-		});
+
+		// creating user
+		Route::get('/content/adduser', 'UserController@show_form');
+		Route::post('/content/adduser', 'UserController@create');
+
 		Route::get('/content/addagenda', function() {
 			return view('admin.content-addagenda');
 		});

@@ -15,13 +15,14 @@
 @section('content-header')
   <h1>
     Pengaturan user
-    <small>Tambah dan edit user</small>
+    <small>Tambah</small>
   </h1>
 @endsection
 
 <!-- CUSTOM CONTENT UNTUK CONTENT EDITOR -->
 @section('content')
 	<!-- ISIKAN DISINI -->
+    {!! Form::open(['method' => 'post']) !!}
     <section class="content">
         <div class="container"> <br />
             <div class="row">
@@ -33,28 +34,26 @@
                                                                                                                    
                                 <div class="form-group">
                                     <label for="document-name">Name User:</label>
-                                        <input type="text" class="form-control" id="document-name" placeholder="">
+                                        <input type="text" class="form-control" id="document-name" placeholder="" name="name">
                                 </div>
                                 <div class="form-group">
                                     <label for="keterangan">Username:</label>
-                                        <input type="text" class="form-control" id="document-name" placeholder="">
+                                        <input type="text" class="form-control" id="document-username" placeholder="" name="username">
                                 </div>
                                 <div class="form-group">
                                     <label for="tanggal">E-mail:</label>
-                                        <input type="text" class="form-control" id="document-name" placeholder="">
+                                        <input type="text" class="form-control" id="document-email" placeholder="" name="email">
                                 </div>
                                 <div class="form-group">
                                     <label for="tanggal">Password:</label>
-                                        <input type="text" class="form-control" id="document-name" placeholder="">
+                                        <input type="text" class="form-control" id="document-password" placeholder="" name="password">
                                 </div>
                                                         
-                                    <form style="text-align: right">
-                                        <span >
-                                            <a href="#" target="blank"><label class="btn btn-default">
-                                            <i class="fa fa-check"></i>Simpan
-                                            </label></a>
-                                        </span>
-                                    </form>
+                                <div class="form-group" style="text-align: right">
+                                    <button type="submit">
+                                        <i class="fa fa-check"></i>Simpan
+                                    </button>
+                                </div>
 
                                             
                             </div>
@@ -65,5 +64,5 @@
         </div>
       
     </section>
-	
+	{!! Form::close() !!}
 @endsection
