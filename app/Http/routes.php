@@ -81,6 +81,10 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/content/adduser', 'UserController@show_form');
 		Route::post('/content/adduser', 'UserController@create');
 
+		// edit user
+		Route::get('/edit/user/{id}', ['as' => 'user.edit', 'uses' => 'UserController@edit' ]);
+		Route::post('/edit/user/{id}', ['as' => 'user.update', 'uses' => 'UserController@update' ]);
+
 		Route::get('/content/addagenda', function() {
 			return view('admin.content-addagenda');
 		});
