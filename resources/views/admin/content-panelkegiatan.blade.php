@@ -70,8 +70,8 @@
                     </div>         
                     <form>
                         <span>
-                            <a href="{{ url('content/panelberita') }}" target="blank">
-                            <label class="btn btn-default"><i class="fa fa-calendar-check-o"></i>Tambah berita
+                            <a href="{{ url('content/create') }}">
+                            <label class="btn btn-default"><i class="fa fa-calendar-check-o"></i>Tambah kegiatan
                             </label>
                             </a>
                         </span>

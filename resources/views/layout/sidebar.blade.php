@@ -54,11 +54,13 @@
       </li>
      
       @if (Auth::user())
-      <li>
-        <a href="{{ url('/users') }}" class="hvr-sweep-to-right">
-          <i class="fa fa-users"></i><span>Manage User</span>
-        </a>
-      </li>
+        @if(Auth::user()->auth_level == 1)
+        <li>
+          <a href="{{ url('/users') }}" class="hvr-sweep-to-right">
+            <i class="fa fa-users"></i><span>Manage User</span>
+          </a>
+        </li>
+        @endif
       @endif
   </section>
 </aside>

@@ -75,8 +75,7 @@ class DocumentController extends Controller
             $request->session()->flash('error_message', 'Terdapat kesalahan. Silahkan coba beberapa saat lagi.');
             return redirect()->action('DocumentController@show');
         }
-        
-        // return response()->download($pathToFile);
+
     }
 
     public function delete(Request $request, $id) {

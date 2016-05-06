@@ -40,17 +40,18 @@
                 {{ $data->links() }}
                 
                 @if(Auth::user())
-                <form>
-                    <span >
-                        <a href="{{ url('/content/upload') }}">
-                        <label class="btn btn-default">
-                            <i class="fa fa-upload"></i>upload file
-                        </label>
-                        </a>
-                    </span>
-                </form>
-                @endif                                    
-                        
+                    @if(Auth::user()->auth_level == 1)
+                    <form>
+                        <span >
+                            <a href="{{ url('/content/upload') }}">
+                            <label class="btn btn-default">
+                                <i class="fa fa-upload"></i>upload file
+                            </label>
+                            </a>
+                        </span>
+                    </form>
+                    @endif                                    
+                @endif
                         
             </div>
         </div>

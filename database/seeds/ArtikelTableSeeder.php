@@ -33,21 +33,6 @@ Quisque eget ultrices tellus, ac tempus sapien. In ac augue bibendum dui dictum 
 			DB::table('artikel')->insert($berita);
 		}
 
-		// Pengumuman
-    	for($i = 1; $i <= 20; $i++) {
-	        $pengumuman = array (
-				'title' => 'Ini Judul Pengumuman' . $i,
-				'description' => 'Ini contoh deskripsi singkat di artikel Pengumuman ' . $i,
-				'image' => '/public/images/pengumuman/contoh_pengumuman.jpg',
-				'type' => 'pengumuman',
-				'content' => 'Content Pengumuman ' . $i . ' ' . $content,
-				'status' => 'published',
-				'created_at' => DB::raw('NOW()'),
-				'updated_at' => DB::raw('NOW()'),
-				);
-			DB::table('artikel')->insert($pengumuman);
-		}
-
 		// Kegiatan
     	for($i = 1; $i <= 20; $i++) {
 	        $kegiatan = array (

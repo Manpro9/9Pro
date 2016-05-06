@@ -47,24 +47,32 @@
                                 $counter = 5 * $count - 4; ?>
 							<table id="mytable" class="table table-bordred table-striped">
                                 <thead>
-                                    @if (Auth::user())
-                                    <th><input type="checkbox" id="checkall" /></th>
+                                    @if(Auth::user())
+                                        @if (Auth::user()->auth_level == 1)
+                                        <th><input type="checkbox" id="checkall" /></th>
+                                        @endif
                                     @endif
                                     <th>No.</th>
                                     <th>Judul</th>
                                     <th>Jenis File</th>
                                     <th>Keterangan</th>
-                                    <th>Download</th>
                                     @if (Auth::user())
-                                    <th>re-Upload</th>
-                                    <th>Delete</th>
+                                    <th>Download</th>
+                                    @endif
+                                    @if(Auth::user())
+                                        @if (Auth::user()->auth_level == 1)
+                                        <th>re-Upload</th>
+                                        <th>Delete</th>
+                                        @endif
                                     @endif
                                 </thead>
                                 <tbody> 
                                     @foreach($documents as $document)        
                                     <tr>
-                                        @if (Auth::user())
-                                        <td><input type="checkbox" class="checkthis" /></td>
+                                        @if(Auth::user())
+                                            @if (Auth::user()->auth_level == 1)
+                                            <td><input type="checkbox" class="checkthis" /></td>
+                                            @endif
                                         @endif
                                         <td>{{ $counter }}</td>
                                         <td>{{ $document->title }}</td>
@@ -78,22 +86,23 @@
                                                 </a>
                                             </p>
                                         </td>
-                                        
-                                        @if (Auth::user())
-                                        <td>
-                                            <p>
-                                                <button class="btn btn-primary btn-xs  re-document" value="{{ $document->id }}" role="re_upload">
-                                                    <span class="glyphicon glyphicon-open"></span>
-                                                </button>
-                                            </p>
-                                        </td>
-                                        <td>
-                                            <p>
-                                                <button class="btn btn-danger btn-xs delete-document" value="{{ $document->id }}" role="delete">
-                                                    <span class="glyphicon glyphicon-trash"></span>
-                                                </button>
-                                            </p>
-                                        </td>
+                                        @if(Auth::user())
+                                            @if (Auth::user()->auth_level == 1)
+                                            <td>
+                                                <p>
+                                                    <button class="btn btn-primary btn-xs  re-document" value="{{ $document->id }}" role="re_upload">
+                                                        <span class="glyphicon glyphicon-open"></span>
+                                                    </button>
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p>
+                                                    <button class="btn btn-danger btn-xs delete-document" value="{{ $document->id }}" role="delete">
+                                                        <span class="glyphicon glyphicon-trash"></span>
+                                                    </button>
+                                                </p>
+                                            </td>
+                                            @endif
                                         @endif
                                     </tr> 
                                     <?php $counter++; ?>
@@ -104,15 +113,17 @@
                             {{ $documents->links() }}                        
                         </div>                          
                     </div>
-                    @if (Auth::user()->auth_level == 1)
-    				<form>
-                        <span>
-                        <a href="{{ url('/content/upload') }}">
-                        <label class="btn btn-default">
-                        <i class="fa fa-upload"></i>upload file
-                        </label></a>
-                        </span>
-                    </form>
+                    @if(Auth::user())
+                        @if (Auth::user()->auth_level == 1)
+        				<form>
+                            <span>
+                            <a href="{{ url('/content/upload') }}">
+                            <label class="btn btn-default">
+                            <i class="fa fa-upload"></i>upload file
+                            </label></a>
+                            </span>
+                        </form>
+                        @endif
                     @endif
                 </div>
             </div>

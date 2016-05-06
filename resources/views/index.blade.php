@@ -73,7 +73,6 @@
         <ul class="nav nav-pills nav-justified">
             <li class="ajax-artikel active" style="text-align:center;"><a>Berita</a></li>
             <li class="ajax-artikel" style="text-align:center;"><a>Kegiatan</a></li>
-            <li class="ajax-artikel" style="text-align:center;"><a>Pengumuman</a></li>
         </ul>
         <br>
         <div id="content-artikel-ajax">

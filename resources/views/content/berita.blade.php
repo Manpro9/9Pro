@@ -22,21 +22,23 @@
 @section('content')
 	<section class="content">
         <div class="container">
-            @if (Auth::user())
-            <form style="text-align: right">
-                <span>
-                    <a href="{{ url('content/create') }}">
-                    	<label class="btn btn-default">
-	                        <i class="fa fa-bullhorn"></i>Update Berita Baru
-	                    </label>
-	                </a>
-	                <a href="{{ url('content/panelberita') }}">
-                    	<label class="btn btn-default">
-	                        <i class="fa fa-bullhorn"></i>Panel Berita
-	                    </label>
-	                </a>
-                </span>
-            </form>
+        	@if(Auth::user())
+	            @if (Auth::user()->auth_level == 1)
+	            <form style="text-align: right">
+	                <span>
+	                    <a href="{{ url('content/create') }}">
+	                    	<label class="btn btn-default">
+		                        <i class="fa fa-bullhorn"></i>Update Berita Baru
+		                    </label>
+		                </a>
+		                <a href="{{ url('content/panelberita') }}">
+	                    	<label class="btn btn-default">
+		                        <i class="fa fa-bullhorn"></i>Panel Berita
+		                    </label>
+		                </a>
+	                </span>
+	            </form>
+	            @endif
             @endif
             <div class="row">
             	<div class="well">
@@ -56,12 +58,14 @@
 		                            	{{ $berita->description }}
 		                            </p>
 		                        </div>
-		                        @if (Auth::user())
-		                        <div class="col-md-3 text-center">
-		                            <button type="button" class="btn btn-info btn-lg btn-sm edit_artikel" href="#" value="{{ $berita->id }}"  from="berita" role="edit"> Edit </button>
-		                            <button type="button" class="btn btn-danger btn-lg btn-sm delete_artikel" href="#" value="{{ $berita->id }}"> Delete </button>
-		                        </div>
-		                       	@endif
+		                        @if(Auth::user())
+			                        @if (Auth::user()->auth_level == 1)
+			                        <div class="col-md-3 text-center">
+			                            <button type="button" class="btn btn-info btn-lg btn-sm edit_artikel" href="#" value="{{ $berita->id }}"  from="berita" role="edit"> Edit </button>
+			                            <button type="button" class="btn btn-danger btn-lg btn-sm delete_artikel" href="#" value="{{ $berita->id }}"> Delete </button>
+			                        </div>
+			                       	@endif
+			                    @endif
 		                    </a>
 		                @endforeach
                	 	</div>

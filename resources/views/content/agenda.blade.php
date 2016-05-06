@@ -31,94 +31,61 @@
                         <div class="table-responsive">
 							<table id="mytable" class="table table-bordred table-striped">
                                 <thead>
-                                    @if (Auth::user())
-                                    <th><input type="checkbox" id="checkall" /></th>
+                                    @if(Auth::user())
+                                        @if (Auth::user()->auth_level == 1)
+                                        <th><input type="checkbox" id="checkall" /></th>
+                                        @endif
                                     @endif
                                     <th>No.</th>
                                     <th>Tanggal</th>
                                     <th>Nama Kegiatan</th>
                                    	<th>Keterangan</th>
-                                    @if (Auth::user())
-                                    <th>Edit</th>
-                                    <th>Delete</th>
+                                    @if(Auth::user())
+                                        @if (Auth::user()->auth_level == 1)
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+                                        @endif
                                     @endif
                                 </thead>
                                 <tbody>       
                                     <tr>
-                                        @if (Auth::user())
-                                        <td><input type="checkbox" class="checkthis" /></td>
+                                        @if(Auth::user())
+                                            @if (Auth::user()->auth_level == 1)
+                                            <td><input type="checkbox" class="checkthis" /></td>
+                                            @endif
                                         @endif
                                         <td>1</td>
                                         <td>21 April 2016</td>
                                         <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
                                         <td>isometric.mohsin@gmail.com</td>
-                                        @if(Auth::user())  
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p>
-                                        </td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
-                                        </td>
+                                        @if(Auth::user())
+                                            @if(Auth::user()->auth_level == 1)  
+                                            <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p>
+                                            </td>
+                                            <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
+                                            </td>
+                                            @endif
                                         @endif
                                     </tr>    
                                     <tr>
-                                       	@if (Auth::user())
-                                        <td><input type="checkbox" class="checkthis" /></td>
+                                        @if(Auth::user())
+                                            @if (Auth::user()->auth_level == 1)
+                                            <td><input type="checkbox" class="checkthis" /></td>
+                                            @endif
                                         @endif
-                                        <td>2</td>
-                                        <td>21 April 2016</td>
-                                        <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-                                       	<td>isometric.mohsin@gmail.com</td>
-                                        @if(Auth::user())  
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p>
-                                        </td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
-                                        </td>
-                                        @endif
-                                    </tr>
-                                    <tr>
-                                        @if (Auth::user())
-                                        <td><input type="checkbox" class="checkthis" /></td>
-                                        @endif
-                                        <td>3</td>
+                                        <td>1</td>
                                         <td>21 April 2016</td>
                                         <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
                                         <td>isometric.mohsin@gmail.com</td>
-                                        @if(Auth::user())  
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p>
-                                        </td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
-                                        </td>
+                                        @if(Auth::user())
+                                            @if(Auth::user()->auth_level == 1)  
+                                            <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p>
+                                            </td>
+                                            <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
+                                            </td>
+                                            @endif
                                         @endif
-                                    </tr>     
-                                    <tr>
-                                        @if (Auth::user())
-                                        <td><input type="checkbox" class="checkthis" /></td>
-                                        @endif
-                                      	<td>4</td>
-                                        <td>21 April 2016</td>
-                                        <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-                                        <td>isometric.mohsin@gmail.com</td>
-                                        @if(Auth::user())  
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p>
-                                        </td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
-                                        </td>
-                                        @endif
-                                    </tr>     
-                                    <tr>
-                                        @if (Auth::user())
-                                        <td><input type="checkbox" class="checkthis" /></td>
-                                        @endif
-                                       	<td>5</td>
-                                        <td>21 April 2016</td>
-                                        <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-                                        <td>isometric.mohsin@gmail.com</td>
-                                        @if(Auth::user())  
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p>
-                                        </td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
-                                        </td>
-                                        @endif
-                                    </tr>
+                                    </tr>  
                                 </tbody>             
                             </table>
 
@@ -134,15 +101,17 @@
                             </ul>
                         </div>                              
                     </div>
-                    @if(Auth::user())           
-    				<form>
-                        <span>
-                            <a href="{{ url('content/addagenda') }}" target="blank">
-                            <label class="btn btn-default"><i class="fa fa-calendar-check-o"></i>Tambah Agenda baru
-                            </label>
-                            </a>
-                        </span>
-                    </form>
+                    @if(Auth::user())
+                        @if(Auth::user()->auth_level == 1)           
+        				<form>
+                            <span>
+                                <a href="{{ url('content/addagenda') }}" target="blank">
+                                <label class="btn btn-default"><i class="fa fa-calendar-check-o"></i>Tambah Agenda baru
+                                </label>
+                                </a>
+                            </span>
+                        </form>
+                        @endif
                     @endif
                 </div>
             </div>
