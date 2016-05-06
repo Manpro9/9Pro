@@ -78,4 +78,25 @@ class DocumentController extends Controller
         
         // return response()->download($pathToFile);
     }
+
+    public function delete(Request $request, $id) {
+        $document = Documents::where('id', '=', $id)->first();
+        if (count($document) > 0) {
+            try {
+                $document->delete();
+                $path = $document->path;
+                if (File::exists($path))
+                    File::delete($path);
+                $request->session()->flash('success_message', 'File berhasil dihapus.');
+                return redirect()->action('DocumentController@show');
+            } catch (Exception $e) {
+                $request->session()->flash('error_message', 'Terdapat kesalahan. Silahkan coba beberapa saat lagi.');
+                return redirect()->action('DocumentController@show');
+            }
+        } else {
+            $request->session()->flash('error_message', 'Terdapat kesalahan. Silahkan coba beberapa saat lagi.');
+            return redirect()->action('DocumentController@show');
+        }
+            
+    }
 }

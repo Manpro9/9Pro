@@ -29,7 +29,11 @@
                 @if(Session::has('error_message'))
                   <div class="alert alert-danger">
                     <strong>Warning!</strong> {{ Session::get('error_message') }}
-                  </div>       
+                  </div>    
+                @elseif (Session::has('success_message'))
+                  <div class="alert alert-info">
+                    <strong>Success!</strong> {{ Session::get('success_message') }}
+                  </div>   
                 @endif                                       
                     <div class="col-md-12">
                     	<h4>Dokumen arsip</h4>

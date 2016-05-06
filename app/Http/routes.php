@@ -69,6 +69,16 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/content/create', 'ArtikelController@index');
 		Route::get('/content/upload', 'DocumentController@index');
 
+		// show panel
+		Route::get('/content/panelberita', 'BeritaController@panel');
+		Route::get('/content/panelkegiatan', 'KegiatanController@panel');
+
+		// show detail edit
+		Route::get('/berita/edit/{id}', ['as' => 'berita.edit', 'uses' => 'BeritaController@edit' ]);
+		Route::get('/kegiatan/edit/{id}', ['as' => 'kegiatan.edit', 'uses' => 'KegiatanController@edit' ]);
+		Route::get('/content/berita/edit/{id}', ['as' => 'berita.edit', 'uses' => 'BeritaController@edit' ]);
+		Route::get('/content/kegiatan/edit/{id}', ['as' => 'kegiatan.edit', 'uses' => 'KegiatanController@edit' ]);
+
 		// creating artikel
 		Route::post('/content/create', 'ArtikelController@create');
 		
@@ -86,13 +96,11 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/edit/user/{id}', ['as' => 'user.edit', 'uses' => 'UserController@edit' ]);
 		Route::post('/edit/user/{id}', ['as' => 'user.update', 'uses' => 'UserController@update' ]);
 
-		Route::get('/content/addagenda', function() {
-			return view('admin.content-addagenda');
-		});
-
-		// show panel
-		Route::get('/content/panelberita', 'BeritaController@panel');
-		Route::get('/content/panelkegiatan', 'KegiatanController@panel');
+		// update
+		Route::get('/berita/edit/{id}/update', ['as' => 'berita.update', 'uses' => 'ArtikelController@update' ]);
+		Route::get('/kegiatan/edit/{id}/update', ['as' => 'kegiatan.update', 'uses' => 'ArtikelController@update' ]);
+		Route::post('/berita/edit/{id}/update', ['as' => 'berita.update', 'uses' => 'ArtikelController@update' ]);
+		Route::post('/kegiatan/edit/{id}/update', ['as' => 'kegiatan.update', 'uses' => 'ArtikelController@update' ]);
 
 		// delete artikel
 		Route::get('/content/berita/delete/{id}', ['as' => 'berita.delete', 'uses' => 'BeritaController@delete' ]);
@@ -100,20 +108,15 @@ Route::group(['middleware' => ['web']], function () {
 		Route::post('/content/delete','ArtikelController@delete_artikel');
 
 		// delete user
-		Route::get('/delete/{id}', ['as' => 'user.delete', 'uses' => 'UserController@delete' ]);
+		Route::get('/delete/document/{id}', ['as' => 'document.delete', 'uses' => 'DocumentController@delete' ]);
 
-		// show detail edit
-		Route::get('/berita/edit/{id}', ['as' => 'berita.edit', 'uses' => 'BeritaController@edit' ]);
-		Route::get('/kegiatan/edit/{id}', ['as' => 'kegiatan.edit', 'uses' => 'KegiatanController@edit' ]);
-		Route::get('/content/berita/edit/{id}', ['as' => 'berita.edit', 'uses' => 'BeritaController@edit' ]);
-		Route::get('/content/kegiatan/edit/{id}', ['as' => 'kegiatan.edit', 'uses' => 'KegiatanController@edit' ]);
+		// delete file
 
-		// update
-		Route::get('/berita/edit/{id}/update', ['as' => 'berita.update', 'uses' => 'ArtikelController@update' ]);
-		Route::get('/kegiatan/edit/{id}/update', ['as' => 'kegiatan.update', 'uses' => 'ArtikelController@update' ]);
-		Route::post('/berita/edit/{id}/update', ['as' => 'berita.update', 'uses' => 'ArtikelController@update' ]);
-		Route::post('/kegiatan/edit/{id}/update', ['as' => 'kegiatan.update', 'uses' => 'ArtikelController@update' ]);
 
+
+		Route::get('/content/addagenda', function() {	
+			return view('admin.content-addagenda');
+		});
 	});
 
 	// Ajax
