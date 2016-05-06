@@ -28,6 +28,13 @@
                     <div class="col-md-12">
                     	<h4>Dokumen arsip</h4>
                         <div class="table-responsive">
+                            <?php 
+                                if(isset($_GET['page']))
+                                    $count = $_GET['page']; 
+                                else
+                                    $count = 1;
+
+                                $counter = 5 * $count - 4; ?>
 							<table id="mytable" class="table table-bordred table-striped">
                                 <thead>
                                     @if (Auth::user())
@@ -43,68 +50,18 @@
                                     <th>Delete</th>
                                     @endif
                                 </thead>
-                                <tbody>         
+                                <tbody> 
+                                    @foreach($documents as $document)        
                                     <tr>
                                         @if (Auth::user())
                                         <td><input type="checkbox" class="checkthis" /></td>
                                         @endif
-                                        <td>1</td>
-                                        <td>File Daftar pegawai</td>
-                                        <td>PDF</td>
-                                        <td>-</td>
+                                        <td>{{ $counter }}</td>
+                                        <td>{{ $document->title }}</td>
+                                        <td>{{ $document->type }}</td>
+                                        <td>{{ $document->description }}</td>
                                         <td><p data-placement="top" data-toggle="tooltip" title="Unduh"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-download"></span></button></p></td>
                                         
-                                        @if (Auth::user())
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p>
-                                        </td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
-                                        </td>
-                                        @endif
-                                    </tr>     
-                                    <tr>
-                                        @if (Auth::user())
-                                        <td><input type="checkbox" class="checkthis" /></td>
-                                        @endif
-                                        <td>2</td>
-                                        <td>Materi Penilian</td>
-                                        <td>DOCX</td>
-                                        <td>bisa disunting</td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Unduh"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-download"></span></button></p></td>
-                                        
-                                        @if (Auth::user())
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p>
-                                        </td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
-                                        </td>
-                                        @endif
-                                    </tr>
-                                    <tr>
-                                        @if (Auth::user())
-                                        <td><input type="checkbox" class="checkthis" /></td>
-                                        @endif
-                                      	<td>3</td>
-                                       	<td>FIle</td>
-                                        <td>DOCX</td>
-                                        <td>-</td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Unduh"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-download"></span></button></p></td>
-                                       
-                                        @if (Auth::user())
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p>
-                                        </td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
-                                        </td>
-                                        @endif
-                                    </tr>     
-                                    <tr>
-                                        @if (Auth::user())
-                                        <td><input type="checkbox" class="checkthis" /></td>
-                                        @endif
-                                        <td>4</td>
-                                        <td>File</td>
-                                        <td>PPTX</td>
-                                        <td>-</td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Unduh"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-download"></span></button></p></td>
-                                       
                                         @if (Auth::user())
                                         <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p>
                                         </td>
@@ -112,35 +69,12 @@
                                         </td>
                                         @endif
                                     </tr> 
-                                    <tr>
-                                        @if (Auth::user())
-                                        <td><input type="checkbox" class="checkthis" /></td>
-                                        @endif
-                                        <td>5</td>
-                                        <td>File</td>
-                                        <td>PDF</td>
-                                        <td>-</td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Unduh"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-download"></span></button></p></td>
-                                       
-                                        @if (Auth::user())
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Upload"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-open"></span></button></p>
-                                        </td>
-                                        <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
-                                        </td>
-                                        @endif
-                                    </tr>    
+                                    <?php $counter++; ?>
+                                    @endforeach    
                                 </tbody>                 
                             </table>
                         	<div class="clearfix"></div>
-                            <ul class="pagination pull-right">
-                              <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
-                              <li class="active"><a href="#">1</a></li>
-                              <li><a href="#">2</a></li>
-                              <li><a href="#">3</a></li>
-                              <li><a href="#">4</a></li>
-                              <li><a href="#">5</a></li>
-                              <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
-                            </ul>                            
+                            {{ $documents->links() }}                        
                         </div>                          
                     </div>
                     @if (Auth::user())

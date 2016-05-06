@@ -37,9 +37,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/agenda', function() {
 	    return view('content.agenda');
 	});
-	Route::get('/dokumen', function(){
-		return view('content.dokumen');
-	});
+	Route::get('/dokumen', 'DocumentController@show');
 	Route::get('/gallery', 'ArtikelController@gallery');
 	Route::get('/users', 'UserController@index');
 

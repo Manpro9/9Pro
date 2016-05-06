@@ -23,15 +23,22 @@ class DocumentController extends Controller
 			// storing file
 			$file = $request->file('file');
 			$extension = $file->getClientOriginalExtension();
-			$destinationPath = public_path() . '/documents/' . $extension;
             $fileName = $request->title . "." . $extension;
+            if ($type == 'gambar') {
+                $destinationPath = public_path() . '/documents/images/' . $extension;
+                $pathFile = "\\public\\documents\\images\\" . $extension . "\\" . $fileName; 
+            } else if ($type == 'dokumen') {
+                $destinationPath = public_path() . '/documents/' . $extension;
+                $pathFile = "\\public\\documents\\" . $extension . "\\" . $fileName; 
+            }
+            
             $file->move($destinationPath, $fileName);
-            $pathFile = "\\public\\documents\\" . $extension . "\\" . $fileName; 
+            
 
             $document = new Documents;
 
             $document->title = $title;
-            $document->type = $type;
+            $document->type = $extension;
             $document->description = $desc;
             $document->path = $pathFile;
             $document->save();
@@ -43,7 +50,11 @@ class DocumentController extends Controller
     	else {
     		$request->session()->flash('error_message', 'Terdapat kesalahan. Silahkan coba beberapa saat lagi.');
     		return redirect()->action('DocumentController@index');
-    	}
-    		
+    	}	
+    }
+
+    public function show() {
+    	$documents = Documents::paginate(5);
+    	return view('content.dokumen', compact('documents'));
     }
 }
