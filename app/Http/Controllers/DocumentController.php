@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Input;
 
 use App\Http\Requests;
 use App\Documents;
+use File;
 
 class DocumentController extends Controller
 {
@@ -26,10 +27,10 @@ class DocumentController extends Controller
             $fileName = $request->title . "." . $extension;
             if ($type == 'gambar') {
                 $destinationPath = public_path() . '/documents/images/' . $extension;
-                $pathFile = "\\public\\documents\\images\\" . $extension . "\\" . $fileName; 
+                $pathFile = "public\\documents\\images\\" . $extension . "\\" . $fileName; 
             } else if ($type == 'dokumen') {
                 $destinationPath = public_path() . '/documents/' . $extension;
-                $pathFile = "\\public\\documents\\" . $extension . "\\" . $fileName; 
+                $pathFile = "public\\documents\\" . $extension . "\\" . $fileName; 
             }
             
             $file->move($destinationPath, $fileName);
@@ -56,5 +57,25 @@ class DocumentController extends Controller
     public function show() {
     	$documents = Documents::paginate(5);
     	return view('content.dokumen', compact('documents'));
+    }
+
+    public function download(Request $request, $id) {
+        $document = Documents::where('id', '=', $id)->first();
+        if ( count($document) > 0) {
+            $path = $document->path;
+
+            if (File::exists($path))
+                return response()->download($path);
+            else {
+                $request->session()->flash('error_message', 'File tidak ditemukan.');
+                return redirect()->action('DocumentController@show');
+            }
+
+        } else {
+            $request->session()->flash('error_message', 'Terdapat kesalahan. Silahkan coba beberapa saat lagi.');
+            return redirect()->action('DocumentController@show');
+        }
+        
+        // return response()->download($pathToFile);
     }
 }

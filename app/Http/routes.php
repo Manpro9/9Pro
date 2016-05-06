@@ -79,6 +79,9 @@ Route::group(['middleware' => ['web']], function () {
 		// uploading document
 		Route::post('/content/upload', 'DocumentController@create');
 
+		// downloading document
+		Route::get('document/download/{id}', ['as' => 'document.download', 'uses' => 'DocumentController@download']);
+
 		// edit user
 		Route::get('/edit/user/{id}', ['as' => 'user.edit', 'uses' => 'UserController@edit' ]);
 		Route::post('/edit/user/{id}', ['as' => 'user.update', 'uses' => 'UserController@update' ]);
