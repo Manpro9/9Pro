@@ -17,6 +17,7 @@ class CreateTableDocuments extends Migration
             $table->string('title');
             $table->string('type');
             $table->string('description');
+            $table->string('path');
             $table->timestamps();
         });
     }

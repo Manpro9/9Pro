@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Documents extends Model
 {
-    protected $table = 'document';
-    protected $fillable = ['title', 'type', 'description'];
+    protected $table = 'documents';
+    protected $fillable = ['title', 'type', 'description', 'path'];
 }

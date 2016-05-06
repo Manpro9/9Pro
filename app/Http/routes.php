@@ -78,6 +78,9 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/content/adduser', 'UserController@show_form');
 		Route::post('/content/adduser', 'UserController@create');
 
+		// uploading document
+		Route::post('/content/upload', 'DocumentController@create');
+
 		// edit user
 		Route::get('/edit/user/{id}', ['as' => 'user.edit', 'uses' => 'UserController@edit' ]);
 		Route::post('/edit/user/{id}', ['as' => 'user.update', 'uses' => 'UserController@update' ]);
