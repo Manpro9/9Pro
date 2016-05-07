@@ -90,14 +90,14 @@
                                             @if (Auth::user()->auth_level == 1)
                                             <td>
                                                 <p>
-                                                    <button class="btn btn-primary btn-xs  re-document" value="{{ $document->id }}" role="re_upload">
+                                                    <button class="btn btn-primary btn-xs document-role" value="{{ $document->id }}" role="re_upload">
                                                         <span class="glyphicon glyphicon-open"></span>
                                                     </button>
                                                 </p>
                                             </td>
                                             <td>
                                                 <p>
-                                                    <button class="btn btn-danger btn-xs delete-document" value="{{ $document->id }}" role="delete">
+                                                    <button class="btn btn-danger btn-xs document-role" value="{{ $document->id }}" role="delete">
                                                         <span class="glyphicon glyphicon-trash"></span>
                                                     </button>
                                                 </p>

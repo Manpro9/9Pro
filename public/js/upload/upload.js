@@ -29,3 +29,12 @@ $(document).on('click', '.submit-upload', function(e) {
     }
 
 })
+
+$(document).on('change', '.type', function(e) {
+    role = $(this).attr('role');
+
+    if (role == 'dokumen')
+        $('.file').attr('accept', '');
+    else if (role == 'gambar')
+        $('.file').attr('accept', 'image/png, image/jpg, image/jpeg');
+})

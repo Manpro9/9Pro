@@ -89,6 +89,10 @@ Route::group(['middleware' => ['web']], function () {
 		// downloading document
 		Route::get('document/download/{id}', ['as' => 'document.download', 'uses' => 'DocumentController@download']);
 
+		// re-upload document
+		Route::get('reupload/document/{id}', ['as' => 'document.show_form_reupload', 'uses' => 'DocumentController@show_form_reupload']);
+		Route::post('reupload/document/{id}', ['as' => 'document.re_upload', 'uses' => 'DocumentController@re_upload']);
+
 		// edit user
 		Route::get('/edit/user/{id}', ['as' => 'user.edit', 'uses' => 'UserController@edit' ]);
 		Route::post('/edit/user/{id}', ['as' => 'user.update', 'uses' => 'UserController@update' ]);

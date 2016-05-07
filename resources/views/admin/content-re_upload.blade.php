@@ -14,8 +14,8 @@
 <!-- CUSTOM CONTENT HEADER (JUDUL) CONTENT EDITOR -->
 @section('content-header')
   <h1>
-    Upload
-    <small>Unggah Media</small>
+    Re-Upload
+    <small>Upload Ulang Media</small>
   </h1>
 @endsection
 
@@ -39,22 +39,22 @@
                   {!! Form::open(['method' => 'post', 'files' => true]) !!}
                     <div class="panel panel-default">
                         
-                        <div class="panel-heading"><strong>Upload file</strong> <small> </small></div>
+                        <div class="panel-heading"><strong>Re-Upload file</strong> <small> </small></div>
                             <div class="panel-body">
                                 
                                 <form role="form" style="text-align:center">                    
                                     <label class="radio-inline">
-                                        <input type="radio" name="type" value="dokumen" class="type" role="dokumen" checked>Upload Dokumen
+                                        <input type="radio" name="type" value="dokumen" class="type" role="dokumen" checked>Re-Upload Dokumen
                                     </label>
                                 </form>
                                                      
                                 <div class="form-group">
                                     <label for="document-name">Name File:</label>
-                                        <input type="text" class="form-control title" id="document-name" placeholder="Wajib diisi" name="title">
+                                        <input type="text" class="form-control title" id="document-name" placeholder="Wajib diisi" name="title" value="{{ $document->title }}">
                                 </div>
                                	<div class="form-group">
                                     <label for="keterangan">Keterangan:</label>
-                                        <input type="text" class="form-control desc" id="document-name" placeholder="Wajib diisi" name="desc">
+                                        <input type="text" class="form-control desc" id="document-name" placeholder="Wajib diisi" name="desc" value="{{ $document->description }}">
                                 </div>
                                                         
                                 <label class="control-label">Select File <span style="color: red">(file .pdf)</span></label>

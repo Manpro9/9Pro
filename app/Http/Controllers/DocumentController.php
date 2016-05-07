@@ -25,28 +25,18 @@ class DocumentController extends Controller
 			$file = $request->file('file');
 			$extension = $file->getClientOriginalExtension();
 
-            if ($type == 'dokumen') {
-                if (strtolower($extension) == 'jpg' || strtolower($extension) == 'jpeg' || strtolower($extension) == 'png') {
-                    $request->session()->flash('error_message', 'Salah memasukkan file di kategori dokumen');
-                    return redirect()->action('DocumentController@index');
-                }
-            } else if ($type == 'gambar') {
-                if (strtolower($extension) != 'jpg' || strtolower($extension) != 'jpeg' || strtolower($extension) != 'png') {
-                    $request->session()->flash('error_message', 'File untuk kategori gambar hanya bisa .jpg / .jpeg / .png');
-                    return redirect()->action('DocumentController@index');
-                }
+            
+            if (strtolower($extension) != 'pdf') {
+                $request->session()->flash('error_message', 'File harus .pdf');
+                return redirect()->action('DocumentController@index');
             } else {
                 $fileName = $request->title . "." . $extension;
-                if ($type == 'gambar') {
-                    $destinationPath = public_path() . '/documents/images/' . $extension;
-                    $pathFile = "public\\documents\\images\\" . $extension . "\\" . $fileName; 
-                } else if ($type == 'dokumen') {
-                    $destinationPath = public_path() . '/documents/' . $extension;
-                    $pathFile = "public\\documents\\" . $extension . "\\" . $fileName; 
-                }
+
+                $destinationPath = public_path() . '/documents';
+                $pathFile = "public\\documents\\" . $fileName; 
+
                 
                 $file->move($destinationPath, $fileName);
-                
 
                 $document = new Documents;
 
@@ -109,5 +99,69 @@ class DocumentController extends Controller
             return redirect()->action('DocumentController@show');
         }
             
+    }
+
+    public function show_form_reupload(Request $request, $id) {
+        try {
+            $document = Documents::find($id);
+            return view ('admin.content-re_upload', compact('document'));
+        } catch (Exception $e) {
+            $request->session()->flash('error_message', 'Terdapat kesalahan. Silahkan coba beberapa saat lagi.');
+            return redirect()->action('DocumentController@show');
+        }   
+    }
+
+    public function re_upload(Request $request, $id) {
+        try {
+            $document = Documents::find($id);
+            
+            if (count($document) > 0) {
+                if (Input::hasFile('file')) {
+                    $title = $request->title;
+                    $type = $request->type;
+                    $desc = $request->desc;
+
+                    // storing file
+                    $file = $request->file('file');
+                    $extension = $file->getClientOriginalExtension();
+
+                    
+                    if (strtolower($extension) != 'pdf') {
+                        $request->session()->flash('error_message', 'File harus .pdf');
+                        return redirect()->action('DocumentController@index');
+                    } else {
+                        // hapus file lama
+                        $prevFile = $document->path;
+                        if (File::exists($prevFile))
+                            File::delete($prevFile);
+
+                        $fileName = $request->title . "." . $extension;
+
+                        $destinationPath = public_path() . '/documents';
+                        $pathFile = "public\\documents\\" . $fileName; 
+
+                        $file->move($destinationPath, $fileName);
+
+                        Documents::find($id)->update([
+                            'title' => $title,
+                            'type' => $extension,
+                            'description' => $desc,
+                            'path' => $pathFile,
+                            ]);
+
+                        $request->session()->flash('success_message', 'Re-Upload dokumen berhasil!');
+                        return redirect()->action('DocumentController@show');
+                    }
+                }
+                else {
+                    $request->session()->flash('error_message', 'Terdapat kesalahan. Silahkan coba beberapa saat lagi.');
+                    return redirect()->action('DocumentController@index');
+                }   
+            }
+
+        } catch (Exception $e) {
+            $request->session()->flash('error_message', 'Terdapat kesalahan. Silahkan coba beberapa saat lagi.');
+            return redirect()->action('DocumentController@show');
+        }   
     }
 }
