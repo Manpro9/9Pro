@@ -89,7 +89,6 @@
 						          {{ $comment->message }}
 						        </p>
 						      </div>
-						      <p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-reply"></i> reply</a></p>
 						    </div>
 						  </div>
 						</div>

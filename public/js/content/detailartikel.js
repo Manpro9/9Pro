@@ -45,7 +45,6 @@ $(document).on('click', '.ajax-comment', function(e) {
 					returnHTML = returnHTML + 					data.message;
 					returnHTML = returnHTML + 				'</p>';
 					returnHTML = returnHTML + 			'</div>';
-					returnHTML = returnHTML + 			'<p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-reply"></i> reply</a></p>';
 					returnHTML = returnHTML + 		'</div>';
 					returnHTML = returnHTML + 	'</div>';
 					returnHTML = returnHTML + '</div>';
