@@ -45,6 +45,9 @@
                                     $count = 1;
 
                                 $counter = 5 * $count - 4; ?>
+                            @if (count($documents) <= 0)
+                                <p>Saat ini tidak ada dokumen yang tersedia.</p>
+                            @else
 							<table id="mytable" class="table table-bordred table-striped">
                                 <thead>
                                     @if(Auth::user())
@@ -66,7 +69,7 @@
                                         @endif
                                     @endif
                                 </thead>
-                                <tbody> 
+                                <tbody>
                                     @foreach($documents as $document)        
                                     <tr>
                                         @if(Auth::user())
@@ -106,9 +109,10 @@
                                         @endif
                                     </tr> 
                                     <?php $counter++; ?>
-                                    @endforeach    
+                                    @endforeach 
                                 </tbody>                 
                             </table>
+                            @endif
                         	<div class="clearfix"></div>
                             {{ $documents->links() }}                        
                         </div>                          
