@@ -24,6 +24,15 @@
 	<section class="content">
 		<div class="container">
             <div class="row col-md-6 col-md-offset-2 custyle">
+                @if(Session::has('error_message'))
+                    <div class="alert alert-danger">
+                        <strong>Warning!</strong> {{ Session::get('error_message') }}
+                    </div>
+                @elseif (Session::has('success_message'))
+                    <div class="alert alert-info">
+                        <strong>Success!</strong> {{ Session::get('success_message') }}
+                    </div>
+                @endif
                 <table class="table table-striped custab" >
                     <thead>
                         <a href="{{ url('content/adduser') }}" class="btn btn-primary btn-xs pull-right"><b>+</b>Tambah User</a>

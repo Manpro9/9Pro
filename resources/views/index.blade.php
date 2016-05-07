@@ -18,6 +18,11 @@
   <section class="content" style="padding-top:0%;">
     <div class="container">
       <div class="row">
+        @if(Session::has('error_message'))
+            <div class="alert alert-danger">
+                <strong>Warning!</strong> {{ Session::get('error_message') }}
+            </div>
+        @endif
         <div class="col-sm-9">
           <div id="Carousel1" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
