@@ -17,38 +17,45 @@ class DocumentController extends Controller
 
     public function create(Request $request) {
     	if (Input::hasFile('file')) {
-    		$title = $request->title;
-    		$type = $request->type;
-    		$desc = $request->desc;
+            $title = $request->title;
+            $type = $request->type;
+            $desc = $request->desc;
+            $file = $request->file('file');
+            $extension = $file->getClientOriginalExtension();
 
-			// storing file
-			$file = $request->file('file');
-			$extension = $file->getClientOriginalExtension();
+            $check = Documents::where('title', '=', $title)->get();
 
-            
-            if (strtolower($extension) != 'pdf') {
-                $request->session()->flash('error_message', 'File harus .pdf');
+            if (count($check) > 0) {
+                $request->session()->flash('error_message', 'Nama file sudah dipakai. Silahkan ganti dengan nama lain.');
+                $request->session()->flash('flash_title', $title);
+                $request->session()->flash('flash_desc', $desc);
                 return redirect()->action('DocumentController@index');
             } else {
-                $fileName = $request->title . "." . $extension;
+                if (strtolower($extension) != 'pdf') {
+                    $request->session()->flash('error_message', 'File harus .pdf');
+                    return redirect()->action('DocumentController@index');
+                } else {
+                    // storing file
+                    $fileName = $request->title . "." . $extension;
 
-                $destinationPath = public_path() . '/documents';
-                $pathFile = "public\\documents\\" . $fileName; 
+                    $destinationPath = public_path() . '/documents';
+                    $pathFile = "public\\documents\\" . $fileName; 
 
-                
-                $file->move($destinationPath, $fileName);
+                    
+                    $file->move($destinationPath, $fileName);
 
-                $document = new Documents;
+                    $document = new Documents;
 
-                $document->title = $title;
-                $document->type = $extension;
-                $document->description = $desc;
-                $document->path = $pathFile;
-                $document->save();
+                    $document->title = $title;
+                    $document->type = $extension;
+                    $document->description = $desc;
+                    $document->path = $pathFile;
+                    $document->save();
 
-                $request->session()->flash('success_message', 'Upload dokumen berhasil!');
-                return redirect()->action('DocumentController@index');
-            }
+                    $request->session()->flash('success_message', 'Upload dokumen berhasil!');
+                    return redirect()->action('DocumentController@index');
+                }
+            }     
     	}
     	else {
     		$request->session()->flash('error_message', 'Terdapat kesalahan. Silahkan coba beberapa saat lagi.');

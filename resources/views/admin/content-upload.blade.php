@@ -50,11 +50,20 @@
                                                      
                                 <div class="form-group">
                                     <label for="document-name">Name File:</label>
+                                      @if(Session::has('flash_title'))
+                                        <input type="text" class="form-control title" id="document-name" placeholder="Wajib diisi" name="title" value="{{ Session::get('flash_title') }}">
+                                      @else
                                         <input type="text" class="form-control title" id="document-name" placeholder="Wajib diisi" name="title">
+                                      @endif
                                 </div>
                                	<div class="form-group">
                                     <label for="keterangan">Keterangan:</label>
-                                        <input type="text" class="form-control desc" id="document-name" placeholder="Wajib diisi" name="desc">
+                                        @if(Session::has('flash_desc'))
+                                          <input type="text" class="form-control desc" id="document-name" placeholder="Wajib diisi" name="desc" value="{{ Session::get('flash_desc') }}">
+                                        @else
+                                          <input type="text" class="form-control desc" id="document-name" placeholder="Wajib diisi" name="desc">
+                                        @endif
+                                        
                                 </div>
                                                         
                                 <label class="control-label">Select File <span style="color: red">(file .pdf)</span></label>
