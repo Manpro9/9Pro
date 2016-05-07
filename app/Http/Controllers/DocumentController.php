@@ -24,29 +24,41 @@ class DocumentController extends Controller
 			// storing file
 			$file = $request->file('file');
 			$extension = $file->getClientOriginalExtension();
-            $fileName = $request->title . "." . $extension;
-            if ($type == 'gambar') {
-                $destinationPath = public_path() . '/documents/images/' . $extension;
-                $pathFile = "public\\documents\\images\\" . $extension . "\\" . $fileName; 
-            } else if ($type == 'dokumen') {
-                $destinationPath = public_path() . '/documents/' . $extension;
-                $pathFile = "public\\documents\\" . $extension . "\\" . $fileName; 
+
+            if ($type == 'dokumen') {
+                if (strtolower($extension) == 'jpg' || strtolower($extension) == 'jpeg' || strtolower($extension) == 'png') {
+                    $request->session()->flash('error_message', 'Salah memasukkan file di kategori dokumen');
+                    return redirect()->action('DocumentController@index');
+                }
+            } else if ($type == 'gambar') {
+                if (strtolower($extension) != 'jpg' || strtolower($extension) != 'jpeg' || strtolower($extension) != 'png') {
+                    $request->session()->flash('error_message', 'File untuk kategori gambar hanya bisa .jpg / .jpeg / .png');
+                    return redirect()->action('DocumentController@index');
+                }
+            } else {
+                $fileName = $request->title . "." . $extension;
+                if ($type == 'gambar') {
+                    $destinationPath = public_path() . '/documents/images/' . $extension;
+                    $pathFile = "public\\documents\\images\\" . $extension . "\\" . $fileName; 
+                } else if ($type == 'dokumen') {
+                    $destinationPath = public_path() . '/documents/' . $extension;
+                    $pathFile = "public\\documents\\" . $extension . "\\" . $fileName; 
+                }
+                
+                $file->move($destinationPath, $fileName);
+                
+
+                $document = new Documents;
+
+                $document->title = $title;
+                $document->type = $extension;
+                $document->description = $desc;
+                $document->path = $pathFile;
+                $document->save();
+
+                $request->session()->flash('success_message', 'Upload dokumen berhasil!');
+                return redirect()->action('DocumentController@index');
             }
-            
-            $file->move($destinationPath, $fileName);
-            
-
-            $document = new Documents;
-
-            $document->title = $title;
-            $document->type = $extension;
-            $document->description = $desc;
-            $document->path = $pathFile;
-            $document->save();
-
-            $request->session()->flash('success_message', 'Upload dokumen berhasil!');
-    		return redirect()->action('DocumentController@index');
-
     	}
     	else {
     		$request->session()->flash('error_message', 'Terdapat kesalahan. Silahkan coba beberapa saat lagi.');

@@ -44,7 +44,7 @@
                                 
                                 <form role="form" style="text-align:center">
                                     <label class="radio-inline">
-                                        <input type="radio" name="type" value="gambar" class="type">Upload Gambar
+                                        <input type="radio" name="type" value="gambar" class="type" checked>Upload Gambar
                                     </label>
                                                                     
                                     <label class="radio-inline">
