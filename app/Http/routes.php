@@ -46,6 +46,9 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/profil', function() {
 	    return view('content.profil');
 	});
+	Route::get('/notfound', function() {
+	    return view('content.error404');
+	});
 
 	//Route untuk tampilkan detail Berita, Pengumuman, Kegiatan, Gallery
 	Route::get('/berita/{id}', ['as' => 'berita.show', 'uses' => 'BeritaController@show' ]);
