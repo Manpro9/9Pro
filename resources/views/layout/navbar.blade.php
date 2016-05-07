@@ -16,12 +16,10 @@
         <ul class="nav navbar-nav">
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{ asset('public/images/dist/user2-160x160.jpg') }}" class="user-image" alt="User Image">
-              <span class="hidden-xs">{{ Auth::user()->name }}</span>
+              <i class="fa fa-user"></i>
+              <span class="hidden-xs"> {{ Auth::user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
-              
-              
               <li class="user-footer">
                 <div class="pull-left">
                   <p>Akhiri sesi sekarang?</p>
@@ -39,9 +37,13 @@
           </li>
         </ul>
       @else
-        <ul>
-          <span >
-          <a href="login" class="login-btn"><i class="fa fa-user" style="margin-top:30%;"></i><span > Login &nbsp;&nbsp;</span></a>
+        <ul class="nav navbar-nav">
+          <li class="dropdown user user-menu">
+          <a href="login" class="login-btn">
+            <i class="fa fa-user"></i>
+            <span > Login</span>
+          </a>
+        </li>
         </ul>
       @endif
     </div>

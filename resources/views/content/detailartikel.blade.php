@@ -25,48 +25,46 @@
 @section('content')
 
 		@foreach($artikel as $data)
-		<div class="box-content">
-			  <div class="page-header">
-				  <h1>{{ $data->title }} <small class="date">{{ $data->created_at->format('d M Y') }}</small></h1>
-			  </div>     
-        <div class="col-sm-8">
-              <div class="carousel-inner">
-                <div class="item active">
-                  <img src="{{ asset($data->image) }}" alt="gambar1" style="width:100%;">
-                </div>
-              </div>
-        </div>
 
-			  <div class="row-fluid">            
+		<div class="container">
+			<div class="box-content">
+				<div class="page-header">
+				  <h1>{{ $data->title }} <small class="date">{{ $data->created_at->format('d M Y') }}</small></h1>
+			  	</div>
+			  	<div class="col-sm-4">
+	              <div class="carousel-inner">
+	                <div class="item active">
+	                  <img src="{{ asset($data->image) }}" alt="gambar1" style="width:300px; height:250px; margin-bottom:10px;">
+	                </div>
+	              </div>
+        		</div>
+        		<div class="row-fluid">            
 				  <div class="span4">
 				  	<?php echo $data['content'] ?>
 				  </div>
 			  </div>
-			  
+			</div>
 		</div>
+		</br></br>
 		@endforeach
 
 		<div class="container"> <!-- Untuk Posting Comment -->
-			<div class="row">
-				<h3>Post komentar anda di sini</h3>
+			<div>
+				<h3>Post komentar Anda di sini</h3>
 			</div>
-		    
-		    <div class="row">
-		    
-		    <div class="col-md-6">
-		    						<div class="widget-area no-padding blank">
-										<div class="status-upload">
-											<form>
-												<textarea placeholder="Apa komentar anda?" ></textarea>
-
-												<button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Komentari</button>
-											</form>
-										</div><!-- Status Upload  -->
-									</div><!-- Widget Area -->
-								</div>
-		        
+			<div class="row">
+		    	<div class="col-md-6">
+					<div class="widget-area no-padding blank" style="margin-top:0px;">
+						<div class="status-upload">
+							<form>
+								<textarea placeholder="Apa komentar anda?" ></textarea>
+								<button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Komentari</button>
+							</form>
+						</div><!-- Status Upload  -->
+					</div><!-- Widget Area -->
+				</div>
 		    </div>
-		</div>
+		</div></br>
 
 		<div class="container">
 		  <div class="row">
@@ -129,6 +127,5 @@
 		    </div>
 		  </div>
 		</div>
-
 
 @endsection

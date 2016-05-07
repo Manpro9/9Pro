@@ -68,7 +68,7 @@
       </div>  
       </br></br>
       <div class="row">
-      <div class="col-sm-9">
+      <div class="col-sm-7">
         <h3><b>KATEGORI</b></h3>
         <ul class="nav nav-pills nav-justified">
             <li class="ajax-artikel active" style="text-align:center;"><a>Berita</a></li>
@@ -78,6 +78,8 @@
         <div id="content-artikel-ajax">
           @include('artikel-ajax')
         </div>
+    </div>
+    <div class="col-sm-2">
     </div>
     <div class="col-sm-3">
           <h4 style="text-align: left; margin-bottom:0px;"><b>Daftar Agenda - bulan dan tahun yg aktif </b></h4>
