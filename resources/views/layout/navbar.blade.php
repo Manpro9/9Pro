@@ -37,7 +37,6 @@
           </li>
         </ul>
       @else
-<<<<<<< HEAD
         <ul class="nav navbar-nav">
           <li class="dropdown user user-menu">
           <a href="login" class="login-btn">
@@ -45,11 +44,6 @@
             <span > Login</span>
           </a>
         </li>
-=======
-        <ul>
-          <span >
-          <a href="{{ url('/login') }}" class="login-btn"><i class="fa fa-user" style="margin-top:30%;"></i><span > Login &nbsp;&nbsp;</span></a>
->>>>>>> 82bdf6977c3a57db17c7dfb0533e198c68bd4904
         </ul>
       @endif
     </div>
