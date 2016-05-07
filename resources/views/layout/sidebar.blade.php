@@ -10,16 +10,16 @@
     </div>
   </a>
 
-    <form action="#" method="get" class="sidebar-form">
+    {!! Form::open(['method' => 'post', 'class' => 'sidebar-form', 'route' => 'artikel.search']) !!}
       <div class="input-group">
-        <input type="text" name="q" class="form-control" placeholder="Search...">
+        <input type="text" class="form-control" placeholder="Search..." name="str_search">
             <span class="input-group-btn">
               <button type="submit" name="search" id="search-btn" class="btn btn-flat">
                 <i class="fa fa-search"></i>
               </button>
             </span>
       </div>
-    </form>
+    {!! Form::close() !!}
 
     <ul class="sidebar-menu">
        <li>

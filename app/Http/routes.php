@@ -34,9 +34,6 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/berita', 'BeritaController@index');
 	Route::get('/pengumuman', 'PengumumanController@index');
 	Route::get('/kegiatan', 'KegiatanController@index');
-	Route::get('/search', function() {
-	    return view('content.search');
-	});
 
 	Route::get('/agenda', function() {
 	    return view('content.agenda');
@@ -59,6 +56,12 @@ Route::group(['middleware' => ['web']], function () {
 
 	// Validating Login
 	Route::post('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@login']);
+
+	// search
+	Route::get('/search', function() {
+	    return redirect('/');
+	}); 
+	Route::post('/search', ['as' => 'artikel.search', 'uses' => 'ArtikelController@search']);
 
 	// Route untuk Admin
 	Route::group(['middleware' => 'auth'], function(){

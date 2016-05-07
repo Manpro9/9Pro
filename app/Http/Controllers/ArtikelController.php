@@ -127,6 +127,16 @@ class ArtikelController extends Controller
 				return redirect()->action('IndexController@index');
 			}
 		}
-		
-	}    
+	}
+
+	public function search(Request $request) {
+		$search = '%' . $request->str_search . '%'; 
+
+		$dataTitle = Artikel::where('title', 'like', $search)->get();
+		$dataDescription = Artikel::where('description', 'like', $search)->get();
+		$dataContent = Artikel::where('content', 'like', $search)->get();
+
+		$request->session()->flash('search_query', $request->str_search);
+		return view('content.search', compact('dataTitle', 'dataDescription', 'dataContent'));
+	}   
 }

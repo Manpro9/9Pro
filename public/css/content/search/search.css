@@ -2,8 +2,8 @@ table {
     width:100%;
 }
 table, th, td {
-    
     border-collapse: collapse;
+
 }
 th, td {
     padding: 5px;
@@ -25,4 +25,14 @@ table#t01 tr:nth-child(odd) {
 table#t01 th    {
     background-color: black;
     color: white;
+}
+
+.data-search {
+    text-decoration: none;
+    color: black;
+}
+
+.data-search:hover {
+    cursor: pointer;
+    color: #4F4A4A;
 }
