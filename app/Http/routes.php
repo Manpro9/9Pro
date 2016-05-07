@@ -48,7 +48,6 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/berita/{id}', ['as' => 'berita.show', 'uses' => 'BeritaController@show' ]);
 	Route::get('/pengumuman/{id}', ['as' => 'pengumuman.show', 'uses' => 'PengumumanController@show' ]);
 	Route::get('/kegiatan/{id}', ['as' => 'kegiatan.show', 'uses' => 'KegiatanController@show' ]);
-	Route::get('/artikel/{title}', ['as' => 'artikel.show', 'uses' => 'ArtikelController@show']);
 
 	// Auth (Login / Logout)
 	Route::get('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@showLoginForm']);
@@ -62,6 +61,10 @@ Route::group(['middleware' => ['web']], function () {
 	    return redirect('/');
 	}); 
 	Route::post('/search', ['as' => 'artikel.search', 'uses' => 'ArtikelController@search']);
+
+	// comment di artikel
+	Route::post('/berita/comment', ['as' => 'berita.comment', 'uses' => 'ArtikelController@comment']);
+	Route::post('/kegiatan/comment', ['as' => 'kegiatan/comment', 'uses' => 'ArtikelController@comment']);
 
 	// Route untuk Admin
 	Route::group(['middleware' => 'auth'], function(){

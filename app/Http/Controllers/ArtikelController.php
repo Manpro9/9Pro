@@ -7,26 +7,13 @@ use Illuminate\Support\Facades\Input;
 use App\Http\Requests;
 
 use App\Artikel;
+use App\Comments;
+use App\User;
 
 class ArtikelController extends Controller
 {	
 	public function index() {
 		return view('admin.content-create');
-	}
-
-	public function show($title) {
-
-		$all = Artikel::where('type', '=', 'kegiatan')->get();
-		foreach ($all as $data) {
-			if (str_slug($data->title) == $title) {
-				$tempId = $data->id;
-				break;	
-			}
-		}
-		
-		$artikel = Artikel::where('id', '=', $tempId)->get();
-			
-		return view('content.detailartikel', compact('artikel'));
 	}
 
 	public function create(Request $request) {
@@ -138,5 +125,41 @@ class ArtikelController extends Controller
 
 		$request->session()->flash('search_query', $request->str_search);
 		return view('content.search', compact('dataTitle', 'dataDescription', 'dataContent'));
+	}
+
+	public function comment() {
+		$title = Input::get('title');
+		$name = Input::get('name');
+		$message = Input::get('message');
+
+		$checkArtikel = Artikel::where('title', '=', $title)->first();
+
+		if (count($checkArtikel) > 0) {
+			$id = $checkArtikel->id;
+
+			$checkUsername = User::where('name', '=', $name)->first();
+
+			if (count($checkUsername) <= 0)
+				$username = 'Anonymous';
+			else 
+				$username = $checkUsername->username;
+
+			try {
+				$comment = new Comments;
+
+				$comment->artikel_id = $id;
+				$comment->username = $username;
+				$comment->message = $message;
+				$comment->save();
+
+				$date = date('d M Y');
+				return response()->json(array('status' => 'success', 'username' => $username, 'date' => $date, 'message' => $message));
+			} catch (Exception $e) {
+				return response()->json(array('status' => 'failed'));
+			}
+
+			
+		} else 
+			return response()->json(array('status' => 'failed'));
 	}   
 }

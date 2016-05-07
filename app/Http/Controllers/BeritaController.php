@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 
 use App\Http\Requests;
 use App\Artikel;
+use App\Comments;
 
 class BeritaController extends Controller
 {
@@ -52,6 +53,7 @@ class BeritaController extends Controller
      */
     public function show($title)
     {
+        $tempId = null;
         $all = Artikel::where('type', '=', 'berita')->get();
         foreach ($all as $data) {
             if (str_slug($data->title) == $title) {
@@ -60,9 +62,17 @@ class BeritaController extends Controller
             }
         }
         
-        $artikel = Artikel::where('id', '=', $tempId)->get();
+        if ($tempId != null) {
+            $artikel = Artikel::where('id', '=', $tempId)->get();
+
+            $comments = Artikel::join('comments', function($join) use($tempId) {
+                $join->on('artikel.id', '=', 'comments.artikel_id')
+                    ->where('artikel.id', '=', $tempId);
+            })->orderBy('comments.created_at', 'desc')->get();
+            return view('content.detailartikel', compact('artikel', 'comments'));
+        } else
+            return redirect()->action('IndexController@index');
             
-        return view('content.detailartikel', compact('artikel'));
     }
 
     /**

@@ -52,6 +52,7 @@ class KegiatanController extends Controller
      */
     public function show($title)
     {
+        $tempId = null;
         $all = Artikel::where('type', '=', 'kegiatan')->get();
         foreach ($all as $data) {
             if (str_slug($data->title) == $title) {
@@ -59,10 +60,20 @@ class KegiatanController extends Controller
                 break;  
             }
         }
+
+        if ($tempId != null) {
+            $artikel = Artikel::where('id', '=', $tempId)->get();
+
+            $comments = Artikel::join('comments', function($join) use($tempId) {
+                $join->on('artikel.id', '=', 'comments.artikel_id')
+                    ->where('artikel.id', '=', $tempId);
+            })->orderBy('comments.created_at', 'desc')->get();
+                
+            return view('content.detailartikel', compact('artikel', 'comments'));
+        } else
+            return redirect()->action('IndexController@index');
         
-        $artikel = Artikel::where('id', '=', $tempId)->get();
-            
-        return view('content.detailartikel', compact('artikel'));
+        
     }
 
     /**
