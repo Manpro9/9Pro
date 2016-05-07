@@ -28,8 +28,14 @@
             <div class="row">
                 @foreach($data as $gallery)
                 <div class="col-md-3 col-sm-4 col-xs-6">
-                    <?php $title = str_slug($gallery['title']); ?>
-                    <a href="{{ route('kegiatan.show', $title) }}">
+                    <?php 
+                        $title = str_slug($gallery['title']);
+                        if ($gallery['type'] == 'berita')
+                            $route = 'berita.show';
+                        else if ($gallery['type'] == 'kegiatan')
+                            $route = 'kegiatan.show';
+                         ?>
+                    <a href="{{ route($route, $title) }}">
                         <img id="gallery" class="img-responsive" src="{{ asset($gallery->image) }}" />
                     </a>
                 <p class="deskripsifoto">{{ $gallery->description }}</p>

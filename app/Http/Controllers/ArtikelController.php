@@ -68,7 +68,9 @@ class ArtikelController extends Controller
 	}
 
 	public function gallery(){
-		$data = Artikel::where('type', '=', 'kegiatan')->paginate(8);
+		$data = Artikel::where('status', '=', 'published')
+						->orderBy('created_at', 'desc')
+						->paginate(8);
 
 		return view('content.gallery', compact('data'));
 	}
