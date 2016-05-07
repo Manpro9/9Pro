@@ -66,6 +66,9 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('/berita/comment', ['as' => 'berita.comment', 'uses' => 'ArtikelController@comment']);
 	Route::post('/kegiatan/comment', ['as' => 'kegiatan/comment', 'uses' => 'ArtikelController@comment']);
 
+	// kritik & saran
+	Route::post('/send/message', 'IndexController@send_message');
+
 	// Route untuk Admin
 	Route::group(['middleware' => 'auth'], function(){
 		// show create form

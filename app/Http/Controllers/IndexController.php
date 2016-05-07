@@ -30,4 +30,16 @@ class IndexController extends Controller
 
     	return response()->json(array('success' => true, 'html' => $returnHTML));
     }
+
+    public function send_message() {
+        $email = Input::get('email');
+        $message = Input::get('message');
+        
+        // fungsi udah jadi, tinggal uncomment aja
+        // $data = array('email' => $email, 'message' => $message);
+        // Mail::send('return_view_messange', $data, function($message){
+        //     $message->to('email_tujuan@email', 'Some Guy Coba')->subject('Welcome!');
+        // });
+        return response()->json('success');
+    }
 }
