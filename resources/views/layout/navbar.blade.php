@@ -41,7 +41,7 @@
       @else
         <ul>
           <span >
-          <a href="login" class="login-btn"><i class="fa fa-user" style="margin-top:30%;"></i><span > Login &nbsp;&nbsp;</span></a>
+          <a href="{{ url('/login') }}" class="login-btn"><i class="fa fa-user" style="margin-top:30%;"></i><span > Login &nbsp;&nbsp;</span></a>
         </ul>
       @endif
     </div>
