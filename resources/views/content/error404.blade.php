@@ -1,12 +1,10 @@
 @extends('layout.master')
 
-<!-- CUSTOM CSS UNTUK GALLERY -->
 @section('css')
     <link rel="stylesheet" href="{{ asset('public/css/404.css' )}}">
 @endsection
 
 
-<!-- CUSTOM CONTENT UNTUK GALLERY -->
 @section('content')
 <body marginwidth="0" marginheight="0">
     <div id="block_error">
