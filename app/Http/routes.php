@@ -27,6 +27,9 @@ Route::group(['middleware' => ['web']], function () {
 	// Route untuk halaman index (home)
     Route::get('/', 'IndexController@index');
 
+    // Ajax
+	Route::post('/index/artikel/ajax', 'IndexController@artikel_ajax');
+
 	// Route untuk Content
 	Route::get('/berita', 'BeritaController@index');
 	Route::get('/pengumuman', 'PengumumanController@index');
@@ -34,21 +37,15 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/search', function() {
 	    return view('content.search');
 	});
+
 	Route::get('/agenda', function() {
 	    return view('content.agenda');
 	});
 	Route::get('/dokumen', 'DocumentController@show');
 	Route::get('/gallery', 'ArtikelController@gallery');
-	Route::get('/users', 'UserController@index');
-
 	Route::get('/profil', function() {
 	    return view('content.profil');
 	});
-
-	Route::get('/detailartikel', function() {
-	    return view('content.detailartikel');
-	});
-
 
 	//Route untuk tampilkan detail Berita, Pengumuman, Kegiatan, Gallery
 	Route::get('/berita/{id}', ['as' => 'berita.show', 'uses' => 'BeritaController@show' ]);
@@ -108,19 +105,19 @@ Route::group(['middleware' => ['web']], function () {
 		Route::post('/content/delete','ArtikelController@delete_artikel');
 
 		// delete user
-		Route::get('/delete/document/{id}', ['as' => 'document.delete', 'uses' => 'DocumentController@delete' ]);
+		Route::get('/delete/{id}', ['as' => 'delete.user', 'uses' => 'UserController@delete']);
 
 		// delete file
+		Route::get('/delete/document/{id}', ['as' => 'document.delete', 'uses' => 'DocumentController@delete' ]);
+		
+		// show user (admin)
+		Route::get('/users', 'UserController@index');
 
-
-
+		// add agenda
 		Route::get('/content/addagenda', function() {	
 			return view('admin.content-addagenda');
 		});
 	});
-
-	// Ajax
-	Route::post('/index/artikel/ajax', 'IndexController@artikel_ajax');
 
 	// Resource Route
 	Route::resource('berita', 'BeritaController');
