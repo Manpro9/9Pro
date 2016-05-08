@@ -15,7 +15,7 @@
 @section('content-header')
   <h1>
     Pengaturan Agenda
-    <small>Tambah Agenda</small>
+    <small>Edit Agenda</small>
   </h1>
 @endsection
 
@@ -28,20 +28,20 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <div class="panel panel-default">
-                        <div class="panel-heading"><strong>Agenda Terbaru PSDM</strong> <small> </small></div>
+                        <div class="panel-heading"><strong>Edit Agenda PSDM</strong> <small> </small></div>
                         <div class="panel-body">                                                                                         
                             <div class="form-group">
                                <label for="document-name">Name Agenda:</label>
-                                     <input type="text" class="form-control" id="document-name" placeholder="Wajib diisi" name="name">
+                                     <input type="text" class="form-control" id="document-name" placeholder="Wajib diisi" name="name" value="{{ $agenda->title }}">
                             </div>
                             <div class="form-group">
                                 <label for="keterangan">Keterangan:</label>
-                                    <input type="text" class="form-control" id="document-desc" placeholder="Wajib diisi" name="desc">
+                                    <input type="text" class="form-control" id="document-desc" placeholder="Wajib diisi" name="desc" value="{{ $agenda->description }}">
                             </div>
                             <div class="form-group">
                                 <label for="tanggal">Tanggal Mulai:</label>
                                 <div class="input-group date" data-provide="datepicker">
-                                    <input type="text" class="form-control" id="dpd1" placeholder="Wajib diisi" name="start">
+                                    <input type="text" class="form-control" id="dpd1" placeholder="Wajib diisi" name="start" value="{{ $agenda->start }}">
                                     <div class="input-group-addon">
                                         <span class="fa fa-calendar"></span>
                                     </div>
@@ -50,7 +50,7 @@
                             <div class="form-group">
                                 <label for="tanggal">Tanggal Selesai:</label>
                                 <div class="input-group date" data-provide="datepicker">
-                                    <input type="text" class="form-control" id="dpd2" placeholder="Wajib diisi" name="end">
+                                    <input type="text" class="form-control" id="dpd2" placeholder="Wajib diisi" name="end"  value="{{ $agenda->end }}">
                                     <div class="input-group-addon">
                                         <span class="fa fa-calendar"></span>
                                     </div>

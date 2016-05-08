@@ -8,7 +8,7 @@
 <!-- CUSTOM JS UNTUK AGENDA -->
 @section('js')
     <!-- ISIKAN DISINI -->
-    <script src="{{ asset('public/js/agenda/agenda.js')}}"></script>
+    <script src="{{ asset('public/js/content/artikel.js')}}"></script>
   	
 @endsection
 

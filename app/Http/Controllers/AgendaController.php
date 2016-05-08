@@ -46,4 +46,58 @@ class AgendaController extends Controller
             return redirect()->action('AgendaController@show');
     	}
     }
+
+    public function edit(Request $request, $id) {
+        try {
+            $agenda = Agenda::find($id);
+
+            if (count($agenda) > 0) {
+                // convert lagi jadi hari/bulan/tahun
+                $agenda->start = date('d/m/Y', strtotime($agenda->start));
+                $agenda->end = date('d/m/Y', strtotime($agenda->end));
+
+                return view('admin.content-edit-agenda', compact('agenda'));
+            } else {
+                $request->session()->flash('error_message', 'Terdapat kesalahan. Silahkan coba beberapa saat lagi.');
+                return redirect()->action('AgendaController@show');
+            }
+        } catch (Exception $e) {
+            $request->session()->flash('error_message', 'Terdapat kesalahan. Silahkan coba beberapa saat lagi.');
+            return redirect()->action('AgendaController@show');
+        }
+        
+    }
+
+    public function update(Request $request, $id) {
+        $name = $request->name;
+        $description = $request->desc;
+        $start = $request->start;
+        $end = $request->end;
+
+        // harus di convert terlebih dahulu
+        $start = strtr($start, '/', '-');
+        $end = strtr($end, '/', '-');
+
+        try {
+            $agenda = Agenda::find($id);
+
+            if (count($agenda) == 1) {
+                Agenda::find($id)->update([
+                    'title' => $name,
+                    'description' => $description,
+                    'start' => date('Y-m-d', strtotime($start)),
+                    'end' => date('Y-m-d', strtotime($end))
+                    ]);
+
+                $request->session()->flash('success_message', 'Agenda berhasil diubah!');
+                return redirect()->action('AgendaController@show');
+            } else {
+                $request->session()->flash('error_message', 'Terdapat kesalahan. Silahkan coba beberapa saat lagi.');
+                return redirect()->action('AgendaController@show');
+            }
+        } catch (Exception $e) {
+            $request->session()->flash('error_message', 'Terdapat kesalahan. Silahkan coba beberapa saat lagi.');
+            return redirect()->action('AgendaController@show');
+        }
+    }
 }

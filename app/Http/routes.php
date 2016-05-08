@@ -131,6 +131,10 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/content/addagenda', 'AgendaController@show_form');
 		Route::post('/content/addagenda', 'AgendaController@create');
 
+		// edit agenda
+		Route::get('/angeda/edit/{id}', ['as' => 'agenda.edit', 'uses' => 'AgendaController@edit' ]);
+		Route::post('/angeda/edit/{id}', ['as' => 'agenda.update', 'uses' => 'AgendaController@update' ]);
+
 	});
 
 	// Resource Route

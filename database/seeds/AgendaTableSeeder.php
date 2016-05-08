@@ -15,8 +15,8 @@ class AgendaTableSeeder extends Seeder
            $user = array (
             'title' => 'Judul Agenda ke-' . $i,
             'description' => 'Ini Contoh Deskripsi ke- ' . $i,
-            'start' => '2016-05-0' . $i,
-            'end' => '2016-05-0' . $i,
+            'start' => '2016-06-0' . $i,
+            'end' => '2016-06-0' . $i,
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
             );
@@ -27,8 +27,8 @@ class AgendaTableSeeder extends Seeder
            $user = array (
             'title' => 'Judul Agenda ke-' . $i,
             'description' => 'Ini Contoh Deskripsi ke- ' . $i,
-            'start' => '2016-05-' . $i,
-            'end' => '2016-05-' . $i,
+            'start' => '2016-06-' . $i,
+            'end' => '2016-06-' . $i,
             'created_at' => DB::raw('NOW()'),
             'updated_at' => DB::raw('NOW()'),
             );
