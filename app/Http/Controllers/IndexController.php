@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Input;
 
 use App\Http\Requests;
 use App\Artikel;
+use App\Agenda;
 
 class IndexController extends Controller
 {
@@ -44,9 +45,17 @@ class IndexController extends Controller
     }
 
     public function get_calendar_data() {
-        $myEvents = [];
-        array_push($myEvents, "2016-05-23");
-        array_push($myEvents, "2016-05-25");
-        return response()->json(array('myEvents' => $myEvents));
+        $data = Agenda::all();
+
+        if (count($data) > 0) {
+            $myEvents = [];
+            foreach($data as $d) 
+                array_push($myEvents, $d->start);
+            return response()->json(array('myEvents' => $myEvents));
+        } else {
+            $myEvents = [];
+             return response()->json(array('myEvents' => $myEvents));
+        }
+        
     }
 }

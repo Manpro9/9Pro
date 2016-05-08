@@ -22,7 +22,7 @@
 <!-- CUSTOM CONTENT UNTUK CONTENT EDITOR -->
 @section('content')
 	<!-- ISIKAN DISINI -->
-    {!! Form::open(['method' => 'post']) !!}
+    {!! Form::open(['method' => 'post', 'id' => 'myForm']) !!}
     <section class="content">
         <div class="container"> <br />
             <div class="row">
