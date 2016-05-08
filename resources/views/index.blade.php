@@ -4,6 +4,7 @@
 @section('css')
   <link rel="stylesheet" type="text/css" href="{{ asset('public/css/content/index/index.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('public/css/content/index/slider.css' )}}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('public/calendar/css/responsive-calendar.css') }}">
 
 @endsection
 
@@ -11,6 +12,11 @@
 @section('js')
     <script type="text/javascript" src="{{ asset('public/js/slider/slider.js')}}"></script>
     <script type="text/javascript" src="{{ asset('public/js/index/ajax-artikel.js') }}"></script>
+@endsection
+
+@section('jsInsideBody')
+  <script type="text/javascript" src="{{ asset('public/calendar/js/responsive-calendar.min.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('public/calendar/js/calendar.js') }}"></script>
 @endsection
 
 <!-- CUSTOM CONTENT UNTUK INDEX -->
@@ -67,7 +73,27 @@
           <h4 style="text-align:left; margin-bottom:0px;"><b>AGENDA</b></h4>
         </br>
             <div class="col-sm-12">
-              kalender
+              <!-- Responsive calendar - START -->
+              <div class="responsive-calendar">
+                <div class="controls">
+                    <a class="pull-left" data-go="prev"><div class="btn btn-info"><i class="fa fa-angle-double-left" aria-hidden="true"></i></div></a>
+                    <h4><span data-head-year></span> <span data-head-month></span></h4>
+                    <a class="pull-right" data-go="next"><div class="btn btn-info"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div></a>
+                </div><hr/>
+                <div class="day-headers">
+                  <div class="day header">Min</div>
+                  <div class="day header">Sen</div>
+                  <div class="day header">Sel</div>
+                  <div class="day header">Rab</div>
+                  <div class="day header">Kam</div>
+                  <div class="day header">Jum</div>
+                  <div class="day header">Sab</div>     
+                </div>
+                <div class="days" data-group="days">
+                  <!-- the place where days will be generated -->
+                </div>
+              </div>
+              <!-- Responsive calendar - END -->
             </div>
         </div>
       </div>  

@@ -69,6 +69,9 @@ Route::group(['middleware' => ['web']], function () {
 	// kritik & saran
 	Route::post('/send/message', 'IndexController@send_message');
 
+	// get calendar data
+	Route::post('/get_calendar_data', 'IndexController@get_calendar_data');
+
 	// Route untuk Admin
 	Route::group(['middleware' => 'auth'], function(){
 		// show create form

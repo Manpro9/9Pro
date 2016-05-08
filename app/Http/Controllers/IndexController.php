@@ -42,4 +42,11 @@ class IndexController extends Controller
         // });
         return response()->json('success');
     }
+
+    public function get_calendar_data() {
+        $myEvents = [];
+        array_push($myEvents, "2016-05-23");
+        array_push($myEvents, "2016-05-25");
+        return response()->json(array('myEvents' => $myEvents));
+    }
 }
