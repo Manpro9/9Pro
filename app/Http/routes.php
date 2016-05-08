@@ -35,9 +35,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/pengumuman', 'PengumumanController@index');
 	Route::get('/kegiatan', 'KegiatanController@index');
 
-	Route::get('/agenda', function() {
-	    return view('content.agenda');
-	});
+	Route::get('/agenda', 'AgendaController@show');
 	Route::get('/dokumen', 'DocumentController@show');
 	Route::get('/gallery', 'ArtikelController@gallery');
 	Route::get('/profil', function() {
@@ -130,9 +128,9 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/users', 'UserController@index');
 
 		// add agenda
-		Route::get('/content/addagenda', function() {	
-			return view('admin.content-addagenda');
-		});
+		Route::get('/content/addagenda', 'AgendaController@show_form');
+		Route::post('/content/addagenda', 'AgendaController@create');
+
 	});
 
 	// Resource Route

@@ -12,7 +12,14 @@ class CreateTableAgenda extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('agenda', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title');
+            $table->string('description');
+            $table->date('start');
+            $table->date('end');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -22,6 +29,6 @@ class CreateTableAgenda extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('agenda');
     }
 }

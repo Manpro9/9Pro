@@ -25,10 +25,22 @@
 	<!-- ISIKAN DISINI -->
 	    <section class="content">
     		<div class="container">
-                <div class="row">                                              
+                <div class="row">
+                @if(Session::has('error_message'))
+                    <div class="alert alert-danger">
+                        <strong>Warning!</strong> {{ Session::get('error_message') }}
+                    </div>
+                @elseif (Session::has('success_message'))
+                    <div class="alert alert-info">
+                        <strong>Success!</strong> {{ Session::get('success_message') }}
+                    </div>
+                @endif                                              
                     <div class="col-md-12">
                         <h4>Daftar agenda kegiatan PSDM</h4>
                         <div class="table-responsive">
+                            @if(count($agenda) <= 0)
+                                <p>Saat ini tidak ada agenda.</p>
+                            @else
 							<table id="mytable" class="table table-bordred table-striped">
                                 <thead>
                                     @if(Auth::user())
@@ -47,58 +59,43 @@
                                         @endif
                                     @endif
                                 </thead>
-                                <tbody>       
+                                <tbody>
+                                    <?php 
+                                        if(isset($_GET['page']))
+                                            $count = $_GET['page']; 
+                                        else
+                                            $count = 1;
+
+                                        $counter = 5 * $count - 4; 
+                                    ?>
+                                    @foreach($agenda as $data)   
                                     <tr>
                                         @if(Auth::user())
                                             @if (Auth::user()->auth_level == 1)
                                             <td><input type="checkbox" class="checkthis" /></td>
                                             @endif
                                         @endif
-                                        <td>1</td>
-                                        <td>21 April 2016</td>
-                                        <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-                                        <td>isometric.mohsin@gmail.com</td>
+                                        <td>{{ $counter }}</td>
+                                        <td>{{ $data->start }}</td>
+                                        <td>{{ $data->title }}</td>
+                                        <td>{{ $data->description }}</td>
                                         @if(Auth::user())
                                             @if(Auth::user()->auth_level == 1)  
-                                            <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p>
+                                            <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" value="{{ $data->id }}" role="edit"><span class="glyphicon glyphicon-pencil"></span></button></p>
                                             </td>
-                                            <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
-                                            </td>
-                                            @endif
-                                        @endif
-                                    </tr>    
-                                    <tr>
-                                        @if(Auth::user())
-                                            @if (Auth::user()->auth_level == 1)
-                                            <td><input type="checkbox" class="checkthis" /></td>
-                                            @endif
-                                        @endif
-                                        <td>1</td>
-                                        <td>21 April 2016</td>
-                                        <td>CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-                                        <td>isometric.mohsin@gmail.com</td>
-                                        @if(Auth::user())
-                                            @if(Auth::user()->auth_level == 1)  
-                                            <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p>
-                                            </td>
-                                            <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
+                                            <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" value="{{ $data->id }}" role="delete" ><span class="glyphicon glyphicon-trash"></span></button></p>
                                             </td>
                                             @endif
                                         @endif
-                                    </tr>  
+                                    </tr>     
+                                    <?php $counter++; ?>
+                                    @endforeach
+                                    @endif
                                 </tbody>             
                             </table>
 
                         	<div class="clearfix"></div>
-                            <ul class="pagination pull-right">
-                              <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
-                              <li class="active"><a href="#">1</a></li>
-                              <li><a href="#">2</a></li>
-                              <li><a href="#">3</a></li>
-                              <li><a href="#">4</a></li>
-                              <li><a href="#">5</a></li>
-                              <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
-                            </ul>
+                            {{ $agenda->links() }}
                         </div>                              
                     </div>
                     @if(Auth::user())
