@@ -100,4 +100,23 @@ class AgendaController extends Controller
             return redirect()->action('AgendaController@show');
         }
     }
+
+    public function delete(Request $request, $id) {
+        try {
+            $agenda = Agenda::find($id);
+
+            if (count($agenda) == 1) {
+                Agenda::find($id)->delete();
+
+                $request->session()->flash('success_message', 'Agenda berhasil dihapus!');
+                return redirect()->action('AgendaController@show');
+            } else {
+                $request->session()->flash('error_message', 'Terdapat kesalahan. Silahkan coba beberapa saat lagi.');
+                return redirect()->action('AgendaController@show');
+            }
+        } catch (Exception $e) {
+            $request->session()->flash('error_message', 'Terdapat kesalahan. Silahkan coba beberapa saat lagi.');
+            return redirect()->action('AgendaController@show');
+        }
+    }
 }

@@ -135,6 +135,8 @@ Route::group(['middleware' => ['web']], function () {
 		Route::get('/angeda/edit/{id}', ['as' => 'agenda.edit', 'uses' => 'AgendaController@edit' ]);
 		Route::post('/angeda/edit/{id}', ['as' => 'agenda.update', 'uses' => 'AgendaController@update' ]);
 
+		Route::get('/angeda/delete/{id}', ['as' => 'agenda.delete', 'uses' => 'AgendaController@delete' ]);
+
 	});
 
 	// Resource Route

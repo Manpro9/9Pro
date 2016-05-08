@@ -23,6 +23,7 @@ $(document).on('click', '.role-agenda', function(e){
         if (confirm('Are you sure?'))
             window.location.href = 'angeda/edit/' + id;
     } else if (role == 'delete') {
-
+        if (confirm('Are you sure?'))
+            window.location.href = 'angeda/delete/' + id;
     }
 })
