@@ -50,10 +50,18 @@ $(document).on('click', '.ajax-comment', function(e) {
 					returnHTML = returnHTML + '</div>';
 					returnHTML = returnHTML + '</article>';
 
-					$('.comment-block').first().before(returnHTML);
-					$('.comment-sign').removeClass('fa-spinner fa-pulse');
-					$('.comment-sign').addClass('fa-share');
-					$('.comment-word').text('Komentari');
+					if($('.comment-block').find().length) {
+						$('.comment-block').last().after(returnHTML);
+						$('.comment-sign').removeClass('fa-spinner fa-pulse');
+						$('.comment-sign').addClass('fa-share');
+						$('.comment-word').text('Komentari');
+					} else {
+						$('.comment-list').append(returnHTML);
+						$('.comment-sign').removeClass('fa-spinner fa-pulse');
+						$('.comment-sign').addClass('fa-share');
+						$('.comment-word').text('Komentari');
+					}
+					
 				}
 			},
 			error: function(){

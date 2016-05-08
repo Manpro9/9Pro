@@ -105,7 +105,7 @@
                         @if(Auth::user()->auth_level == 1)           
         				<form>
                             <span>
-                                <a href="{{ url('content/addagenda') }}" target="blank">
+                                <a href="{{ url('content/addagenda') }}">
                                 <label class="btn btn-default"><i class="fa fa-calendar-check-o"></i>Tambah Agenda baru
                                 </label>
                                 </a>
