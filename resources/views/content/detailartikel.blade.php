@@ -25,7 +25,10 @@
 @section('content')
 
 		@foreach($artikel as $data)
-
+		<?php 
+			$image = substr($data['image'], 1);
+            $image = strtr($image, "\\", "/");
+		 ?>
 		<div class="container">
 			<div class="box-content">
 				<div class="page-header">

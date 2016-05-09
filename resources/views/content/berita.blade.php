@@ -52,9 +52,8 @@
             			 ?>
 	                		<a href="{{ route('berita.show', $title) }}" class="list-group-item">
 			                  	<div class="media col-md-3">
-			                        <figure class="pull-left">
-			                            <img class="media-object img-rounded img-responsive" style="height:150px;" src="{{ asset($berita->image) }}" alt="gambar berita" >
-			                            <img class="media-object img-rounded img-responsive"  src="{{ asset($image) }}" alt="gambar berita" >
+			                        <figure class="pull-left">  
+			                            <img class="media-object img-rounded img-responsive" style="height:150px;"   src="{{ asset($image) }}" alt="gambar berita" >
 			                        </figure>
 			                    </div>
 		                        <div class="col-md-6">

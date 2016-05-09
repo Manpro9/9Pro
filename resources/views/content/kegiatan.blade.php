@@ -47,14 +47,15 @@
                 	<div class="list-group">
                 		@foreach($dataKegiatan as $kegiatan)
                 		<?php 
-	                		$title = str_slug($kegiatan['title']);
-	                		$image = substr($kegiatan['image'], 1);
+                			$title = str_slug($kegiatan['title']);
+							$image = substr($kegiatan['image'], 1);
 							$image = strtr($image, "\\", "/"); 
-						?>
+
+            			?>
 	                		<a href="{{ route('kegiatan.show', $title) }}" class="list-group-item">
 			                  	<div class="media col-md-3">
 			                        <figure class="pull-left">
-			                            <img class="media-object img-rounded img-responsive" style="height:150px;" src="{{ asset($kegiatan->image) }}" alt="gambar kegiatan" >
+			                            <img class="media-object img-rounded img-responsive" style="height:150px;" src="{{ asset($image) }}" alt="gambar kegiatan" >
 			                        </figure>
 			                    </div>
 		                        <div class="col-md-6">
