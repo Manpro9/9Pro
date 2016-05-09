@@ -28,12 +28,12 @@
 	                <span>
 	                    <a href="{{ url('content/create') }}">
 	                    	<label class="btn btn-default">
-		                        <i class="fa fa-bullhorn"></i>Update Berita Baru
+		                        <i class="fa fa-bullhorn"></i> Buat Berita Baru
 		                    </label>
 		                </a>
 		                <a href="{{ url('content/panelberita') }}">
 	                    	<label class="btn btn-default">
-		                        <i class="fa fa-bullhorn"></i>Panel Berita
+		                        <i class="fa fa-bullhorn"></i> Panel Berita
 		                    </label>
 		                </a>
 	                </span>
@@ -49,7 +49,7 @@
 	                		<a href="{{ route('berita.show', $title) }}" class="list-group-item">
 			                  	<div class="media col-md-3">
 			                        <figure class="pull-left">
-			                            <img class="media-object img-rounded img-responsive"  src="{{ asset($berita->image) }}" alt="gambar berita" >
+			                            <img class="media-object img-rounded img-responsive" style="height:150px;" src="{{ asset($berita->image) }}" alt="gambar berita" >
 			                        </figure>
 			                    </div>
 		                        <div class="col-md-6">
@@ -61,8 +61,8 @@
 		                        @if(Auth::user())
 			                        @if (Auth::user()->auth_level == 1)
 			                        <div class="col-md-3 text-center">
-			                            <button type="button" class="btn btn-info btn-lg btn-sm edit_artikel" href="#" value="{{ $berita->id }}"  from="berita" role="edit"> Edit </button>
-			                            <button type="button" class="btn btn-danger btn-lg btn-sm delete_artikel" href="#" value="{{ $berita->id }}"> Delete </button>
+			                            <button type="button" class="btn btn-info btn-lg btn-sm edit_artikel" href="#" value="{{ $berita->id }}"  from="berita" role="edit"> Ubah </button>
+			                            <button type="button" class="btn btn-danger btn-lg btn-sm delete_artikel" href="#" value="{{ $berita->id }}"> Hapus </button>
 			                        </div>
 			                       	@endif
 			                    @endif

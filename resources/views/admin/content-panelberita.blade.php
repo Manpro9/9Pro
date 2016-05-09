@@ -31,13 +31,12 @@
                         <div class="table-responsive">
 							<table id="mytable" class="table table-bordred table-striped">
                                 <thead>
-                                    <th><input type="checkbox" id="checkall" /></th>
                                     <th>No.</th>
                                     <th>Artikel</th>
                                     <th>Tanggal</th>
                                    	<th>Keterangan</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
+                                    <th>Ubah</th>
+                                    <th>Hapus</th>
                                 </thead>
                                 <tbody>
                                     <?php 
@@ -49,7 +48,6 @@
                                         $counter = 5 * $count - 4; ?>
                                     @foreach($artikel as $data)       
                                         <tr>
-                                            <td><input type="checkbox" class="checkthis" /></td>
                                             <td>{{ $counter }}</td>
                                             <td>{{ $data->title }}</td>
                                             <td>{{ $data->created_at->format('d M Y') }}</td>
@@ -71,7 +69,7 @@
     				<form>
                         <span>
                             <a href="{{ url('content/create') }}">
-                            <label class="btn btn-default"><i class="fa fa-calendar-check-o"></i>Tambah berita
+                            <label class="btn btn-default"><i class="fa fa-calendar-check-o"></i> Tambah berita
                             </label>
                             </a>
                         </span>

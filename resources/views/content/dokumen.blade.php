@@ -50,60 +50,53 @@
                             @else
 							<table id="mytable" class="table table-bordred table-striped">
                                 <thead>
-                                    @if(Auth::user())
-                                        @if (Auth::user()->auth_level == 1)
-                                        <th><input type="checkbox" id="checkall" /></th>
-                                        @endif
-                                    @endif
                                     <th>No.</th>
-                                    <th>Judul</th>
-                                    <th>Jenis File</th>
-                                    <th>Keterangan</th>
+                                    <th><center>Judul</center></th>
+                                    <th><center>Jenis File</center></th>
+                                    <th><center>Keterangan</center></th>
                                     @if (Auth::user())
-                                    <th>Download</th>
+                                    <th><center>Unduh</center></th>
                                     @endif
                                     @if(Auth::user())
                                         @if (Auth::user()->auth_level == 1)
-                                        <th>re-Upload</th>
-                                        <th>Delete</th>
+                                        <th><center>Unggah Ulang</center></th>
+                                        <th><center>Hapus</center></th>
                                         @endif
                                     @endif
                                 </thead>
                                 <tbody>
                                     @foreach($documents as $document)        
                                     <tr>
-                                        @if(Auth::user())
-                                            @if (Auth::user()->auth_level == 1)
-                                            <td><input type="checkbox" class="checkthis" /></td>
-                                            @endif
-                                        @endif
                                         <td>{{ $counter }}</td>
                                         <td>{{ $document->title }}</td>
-                                        <td>{{ $document->type }}</td>
+                                        <td><center>{{ $document->type }}</center></td>
                                         <td>{{ $document->description }}</td>
                                         <td>
-                                            <p>
+                                            <center><p>
                                                 <?php $link = 'document/download/' . $document->id ?>
                                                 <a href="{{ url($link) }}" class="btn btn-primary btn-xs download-document" value="{{ $document->id }}" role="button">
                                                     <span class="glyphicon glyphicon-download"></span>
                                                 </a>
                                             </p>
+                                            </center>
                                         </td>
                                         @if(Auth::user())
                                             @if (Auth::user()->auth_level == 1)
                                             <td>
-                                                <p>
+                                                <center><p>
                                                     <button class="btn btn-primary btn-xs document-role" value="{{ $document->id }}" role="re_upload">
                                                         <span class="glyphicon glyphicon-open"></span>
                                                     </button>
                                                 </p>
+                                                </center>
                                             </td>
                                             <td>
-                                                <p>
+                                                <center><p>
                                                     <button class="btn btn-danger btn-xs document-role" value="{{ $document->id }}" role="delete">
                                                         <span class="glyphicon glyphicon-trash"></span>
                                                     </button>
                                                 </p>
+                                                </center>
                                             </td>
                                             @endif
                                         @endif
@@ -123,7 +116,7 @@
                             <span>
                             <a href="{{ url('/content/upload') }}">
                             <label class="btn btn-default">
-                            <i class="fa fa-upload"></i>upload file
+                            <i class="fa fa-upload"></i> Unggah file
                             </label></a>
                             </span>
                         </form>

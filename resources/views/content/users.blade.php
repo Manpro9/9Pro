@@ -62,10 +62,10 @@
                             <td>{{ $user->email }}</td>
                             <td class="text-center">
                                 <button class="btn btn-info btn-xs content-users" value="{{ $user->id }}" role="edit">
-                                    <span class="glyphicon glyphicon-edit"></span> Edit
+                                    <span class="glyphicon glyphicon-edit"></span> Ubah
                                 </button>
                                 <button class="btn btn-danger btn-xs content-users" value="{{ $user->id }}" role="delete">
-                                    <span class="glyphicon glyphicon-remove"></span> Del
+                                    <span class="glyphicon glyphicon-remove"></span> Hapus
                                 </button>
                         </tr>
                         <?php $counter++; ?>

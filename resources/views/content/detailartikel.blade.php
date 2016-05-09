@@ -31,10 +31,10 @@
 				<div class="page-header">
 				  <h1><span class="detail-title">{{ $data->title }}</span> <small class="date">{{ $data->created_at->format('d M Y') }}</small></h1>
 			  	</div>
-			  	<div class="col-sm-4">
+			  	<div class="col-sm-5">
 	              <div class="carousel-inner">
 	                <div class="item active">
-	                  <img src="{{ asset($data->image) }}" alt="gambar1" style="width:300px; height:250px; margin-bottom:10px;">
+	                  <img src="{{ asset($data->image) }}" alt="gambar1" style="width:370px; height:330px; margin-bottom:10px;">
 	                </div>
 	              </div>
         		</div>

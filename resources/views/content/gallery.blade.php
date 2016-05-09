@@ -36,7 +36,7 @@
                             $route = 'kegiatan.show';
                          ?>
                     <a href="{{ route($route, $title) }}">
-                        <img id="gallery" class="img-responsive" src="{{ asset($gallery->image) }}" />
+                        <img id="gallery" class="img-responsive" style="width: 220px; height: 171px;" src="{{ asset($gallery->image) }}" />
                     </a>
                 <p class="deskripsifoto">{{ $gallery->description }}</p>
                 </div>
@@ -51,7 +51,7 @@
                         <span >
                             <a href="{{ url('/content/upload') }}">
                             <label class="btn btn-default">
-                                <i class="fa fa-upload"></i>upload file
+                                <i class="fa fa-upload"></i> Unggah file
                             </label>
                             </a>
                         </span>

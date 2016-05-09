@@ -29,12 +29,12 @@
 	                <span>
 	                    <a href="{{ url('content/create') }}">
 	                    	<label class="btn btn-default">
-		                        <i class="fa fa-bullhorn"></i>Update Kegiatan Baru
+		                        <i class="fa fa-bullhorn"></i> Buat Kegiatan Baru
 		                    </label>
 		                </a>
 		                <a href="{{ url('content/panelkegiatan') }}">
 	                    	<label class="btn btn-default">
-		                        <i class="fa fa-bullhorn"></i>Panel Kegiatan
+		                        <i class="fa fa-bullhorn"></i> Panel Kegiatan
 		                    </label>
 		                </a>
 	                </span>
@@ -50,7 +50,7 @@
 	                		<a href="{{ route('kegiatan.show', $title) }}" class="list-group-item">
 			                  	<div class="media col-md-3">
 			                        <figure class="pull-left">
-			                            <img class="media-object img-rounded img-responsive"  src="{{ asset($kegiatan->image) }}" alt="gambar kegiatan" >
+			                            <img class="media-object img-rounded img-responsive" style="height:150px;" src="{{ asset($kegiatan->image) }}" alt="gambar kegiatan" >
 			                        </figure>
 			                    </div>
 		                        <div class="col-md-6">
@@ -62,8 +62,8 @@
 		                        @if(Auth::user())
 			                        @if (Auth::user()->auth_level == 1)
 			                        <div class="col-md-3 text-center">
-			                            <button type="button" class="btn btn-info btn-lg btn-sm edit_artikel" href="#" value="{{ $kegiatan->id }}"  from="kegiatan" role="edit"> Edit </button>
-			                            <button type="button" class="btn btn-danger btn-lg btn-sm delete_artikel" href="#" value="{{ $kegiatan->id }}"> Delete </button>
+			                            <button type="button" class="btn btn-info btn-lg btn-sm edit_artikel" href="#" value="{{ $kegiatan->id }}"  from="kegiatan" role="edit"> Ubah </button>
+			                            <button type="button" class="btn btn-danger btn-lg btn-sm delete_artikel" href="#" value="{{ $kegiatan->id }}"> Hapus </button>
 			                        </div>		                        
 			                        @endif
 			                    @endif
