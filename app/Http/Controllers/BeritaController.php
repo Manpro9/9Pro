@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use App\Http\Requests;
 use App\Artikel;
 use App\Comments;
+use File;
 
 class BeritaController extends Controller
 {
@@ -112,15 +113,29 @@ class BeritaController extends Controller
     }
 
     public function panel() {
-        $artikel = Artikel::where('type', '=', 'berita')->paginate(5);
+        $artikel = Artikel::where('type', '=', 'berita')->orderBy('created_at', 'desc')->paginate(5);
         return view('admin.content-panelberita', compact('artikel'));
     }
 
-    public function delete($id) {
+    public function delete(Request $request, $id) {
         try {
-            Artikel::find($id)->delete();
+            $berita = Artikel::where('id', '=', $id)->first();
 
-            return redirect()->action('BeritaController@panel');
+            if(count($berita) > 0) {
+                $berita->delete();
+                $path = $berita->image;
+                $path = strtr($path, "\\", "/");
+                $path = substr($path, 1);
+
+                if (File::exists($path))
+                    File::delete($path);
+
+                $request->session()->flash('success_message', 'Artikel berhasil dihapus.');
+                return redirect()->action('BeritaController@panel');
+            } else {
+                $request->session()->flash('error_message', 'Terdapat kesalahan. Silahkan coba beberapa saat lagi.');
+                return redirect()->action('BeritaController@panel');
+            }
         } catch (Exception $e) {
             
         }

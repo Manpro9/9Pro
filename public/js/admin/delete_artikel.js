@@ -20,12 +20,12 @@ $(document).on('click','.delete_artikel', function(e){
 				'id' : id
 			},
 			success: function(data){
-				alert('success');
+				alert(data);
 				$(that).closest('a').fadeOut('slow', function(){$(that).closest('a').remove()})
 				
 			},
 			error: function(){
-				alert('error');
+				console.log('error');
 			}
 		});
 

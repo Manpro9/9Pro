@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 
 use App\Http\Requests;
 use App\Artikel;
+use File;
 
 class KegiatanController extends Controller
 {
@@ -113,18 +114,33 @@ class KegiatanController extends Controller
     }
 
     public function panel() {
-        $artikel = Artikel::where('type', '=', 'kegiatan')->paginate(5);
+        $artikel = Artikel::where('type', '=', 'kegiatan')->orderBy('created_at', 'desc')->paginate(5);
 
         return view('admin.content-panelkegiatan', compact('artikel'));
     }
 
-    public function delete($id) {
+    public function delete(Request $request, $id) {
         try {
-            Artikel::find($id)->delete();
+            $kegiatan = Artikel::where('id', '=', $id)->first();
 
-            return redirect()->action('KegiatanController@panel');
+            if (count($kegiatan) > 0) {
+                $kegiatan->delete();
+                $path = $kegiatan->image;
+                $path = strtr($path, "\\", "/");
+                $path = substr($path, 1);
+
+                if (File::exists($path))
+                    File::delete($path);
+
+                $request->session()->flash('success_message', 'Artikel berhasil dihapus.');
+                return redirect()->action('KegiatanController@panel');
+            } else {
+                $request->session()->flash('error_message', 'Terdapat kesalahan. Silahkan coba beberapa saat lagi.');
+                return redirect()->action('KegiatanController@panel');
+            }
         } catch (Exception $e) {
-            
+            $request->session()->flash('error_message', 'Terdapat kesalahan. Silahkan coba beberapa saat lagi.');
+            return redirect()->action('KegiatanController@panel');
         }
     }
 

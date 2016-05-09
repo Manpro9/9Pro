@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Artikel;
 use App\Comments;
 use App\User;
+use File;
 
 class ArtikelController extends Controller
 {	
@@ -50,8 +51,23 @@ class ArtikelController extends Controller
 	}
 
 	public function delete_artikel(){
-		Artikel::find(Input::get('id'))->delete();
-		return response()->json('success');	
+		try {
+			$artikel = Artikel::find(Input::get('id'));
+
+			if (count($artikel) > 0) {
+				$artikel->delete();
+				$path = $artikel->image;
+                $path = strtr($path, "\\", "/");
+                $path = substr($path, 1);
+
+                if (File::exists($path))
+                    File::delete($path);
+                return response()->json('Success! Artikel berhasil dihapus.');
+			} else
+				return response()->json('Error! Silahkan coba beberapa saat lagi.');
+		} catch (Exception $e) {
+			return response()->json('Error! Silahkan coba beberapa saat lagi.');
+		}			
 	}
 
 	public function gallery(){
