@@ -8,7 +8,6 @@
 <!-- CUSTOM JS UNTUK DOKUMEN -->
 @section('js')
     <!-- ISIKAN DISINI -->
-    <script type="text/javascript" src="{{ asset('public/js/agenda/agenda.js') }}"></script>
     <script type="text/javascript" src="{{ asset('public/js/admin/dokumen.js') }}"></script>
 @endsection
 

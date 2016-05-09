@@ -25,7 +25,16 @@
     <!-- ISIKAN DISINI -->
         <section class="content">
             <div class="container">
-                <div class="row">                                              
+                <div class="row">  
+                    @if(Session::has('error_message'))
+                        <div class="alert alert-danger">
+                            <strong>Warning!</strong> {{ Session::get('error_message') }}
+                        </div>
+                    @elseif (Session::has('success_message'))
+                        <div class="alert alert-info">
+                            <strong>Success!</strong> {{ Session::get('success_message') }}
+                        </div>
+                    @endif                                            
                     <div class="col-md-12">
                         <h4>Panel Berita</h4>
                         <div class="table-responsive">

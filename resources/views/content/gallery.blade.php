@@ -34,9 +34,12 @@
                             $route = 'berita.show';
                         else if ($gallery['type'] == 'kegiatan')
                             $route = 'kegiatan.show';
-                         ?>
+
+                        $image = substr($gallery['image'], 1);
+                        $image = strtr($image, "\\", "/");    
+                     ?>
                     <a href="{{ route($route, $title) }}">
-                        <img id="gallery" class="img-responsive" src="{{ asset($gallery->image) }}" />
+                        <img id="gallery" class="img-responsive" src="{{ asset($image) }}" />
                     </a>
                 <p class="deskripsifoto">{{ $gallery->description }}</p>
                 </div>

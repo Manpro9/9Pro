@@ -58,7 +58,7 @@ class DocumentController extends Controller
                     $document->save();
 
                     $request->session()->flash('success_message', 'Upload dokumen berhasil!');
-                    return redirect()->action('DocumentController@index');
+                    return redirect()->action('DocumentController@show');
                 }
             }     
     	}
@@ -77,6 +77,7 @@ class DocumentController extends Controller
         $document = Documents::where('id', '=', $id)->first();
         if ( count($document) > 0) {
             $path = $document->path;
+            $path = strtr($path, "\\", "/");
 
             if (File::exists($path))
                 return response()->download($path);
@@ -98,6 +99,7 @@ class DocumentController extends Controller
             try {
                 $document->delete();
                 $path = $document->path;
+                $path = strtr($path, "\\", "/");
                 if (File::exists($path))
                     File::delete($path);
                 $request->session()->flash('success_message', 'File berhasil dihapus.');
