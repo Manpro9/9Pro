@@ -19,7 +19,6 @@ $(document).on('click', '.create-agenda', function(e){
 		alert('Tanggal Mulai Harus Lebih Besar Dari Tanggal Berakhir!')
 		e.preventDefault();
 	}
-	e.preventDefault();
 })
 
 
