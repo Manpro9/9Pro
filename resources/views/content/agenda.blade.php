@@ -43,19 +43,14 @@
                             @else
 							<table id="mytable" class="table table-bordred table-striped">
                                 <thead>
-                                    @if(Auth::user())
-                                        @if (Auth::user()->auth_level == 1)
-                                        <th><input type="checkbox" id="checkall" /></th>
-                                        @endif
-                                    @endif
                                     <th>No.</th>
                                     <th>Tanggal</th>
                                     <th>Nama Kegiatan</th>
                                    	<th>Keterangan</th>
                                     @if(Auth::user())
                                         @if (Auth::user()->auth_level == 1)
-                                        <th>Edit</th>
-                                        <th>Delete</th>
+                                        <th>Ubah</th>
+                                        <th>Hapus</th>
                                         @endif
                                     @endif
                                 </thead>
@@ -73,11 +68,6 @@
                                             $start = date('d/m/Y', strtotime($data['start']))
                                          ?>   
                                     <tr>
-                                        @if(Auth::user())
-                                            @if (Auth::user()->auth_level == 1)
-                                            <td><input type="checkbox" class="checkthis" /></td>
-                                            @endif
-                                        @endif
                                         <td>{{ $counter }}</td>
                                         <td>{{ $start }}</td>
                                         <td>{{ $data->title }}</td>
@@ -116,7 +106,7 @@
         				<form>
                             <span>
                                 <a href="{{ url('content/addagenda') }}">
-                                <label class="btn btn-default"><i class="fa fa-calendar-check-o"></i>Tambah Agenda baru
+                                <label class="btn btn-default"><i class="fa fa-calendar-check-o"></i> Tambah Agenda baru
                                 </label>
                                 </a>
                             </span>

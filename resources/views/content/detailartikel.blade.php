@@ -25,10 +25,7 @@
 @section('content')
 
 		@foreach($artikel as $data)
-		<?php 
-			$image = substr($data['image'], 1);
-            $image = strtr($image, "\\", "/");
-		 ?>
+
 		<div class="container">
 			<div class="box-content">
 				<div class="page-header">
@@ -37,11 +34,7 @@
 			  	<div class="col-sm-5">
 	              <div class="carousel-inner">
 	                <div class="item active">
-<<<<<<< HEAD
 	                  <img src="{{ asset($data->image) }}" alt="gambar1" style="width:370px; height:330px; margin-bottom:10px;">
-=======
-	                  <img src="{{ asset($image) }}" alt="gambar1" style="width:300px; height:250px; margin-bottom:10px;">
->>>>>>> 910fc56047fd956bb1d29447c71afdb3442ef41a
 	                </div>
 	              </div>
         		</div>

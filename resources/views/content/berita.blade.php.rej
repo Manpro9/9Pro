@@ -1,0 +1,9 @@
+diff a/resources/views/content/berita.blade.php b/resources/views/content/berita.blade.php	(rejected hunks)
+@@ -45,7 +45,6 @@
+                 	<h1 class="text-center">Berita teratas</h1>
+                 	<div class="list-group">
+                 		@foreach($dataBerita as $berita)
+-            			 ?>
+                 		<?php $title = str_slug($berita['title']); ?>
+ 	                		<a href="{{ route('berita.show', $title) }}" class="list-group-item">
+ 			                  	<div class="media col-md-3">
