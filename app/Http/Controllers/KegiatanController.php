@@ -114,7 +114,7 @@ class KegiatanController extends Controller
     }
 
     public function panel() {
-        $artikel = Artikel::where('type', '=', 'kegiatan')->paginate(5);
+        $artikel = Artikel::where('type', '=', 'kegiatan')->orderBy('created_at', 'desc')->paginate(5);
 
         return view('admin.content-panelkegiatan', compact('artikel'));
     }
