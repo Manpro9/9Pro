@@ -37,7 +37,7 @@
 			  	<div class="col-sm-5">
 	              <div class="carousel-inner">
 	                <div class="item active">
-	                  <img src="{{ asset($data->image) }}" alt="gambar1" style="width:370px; height:330px; margin-bottom:10px;">
+	                  <img src="{{ asset($image) }}" alt="gambar1" style="width:370px; height:330px; margin-bottom:10px;">
 	                </div>
 	              </div>
         		</div>
