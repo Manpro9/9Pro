@@ -49,13 +49,34 @@ class IndexController extends Controller
 
         if (count($data) > 0) {
             $myEvents = [];
-            foreach($data as $d) 
-                array_push($myEvents, $d->start);
+            foreach($data as $d) {
+                if ($d->start != $d->end) {
+                    $dates[] = $this->date_range($d->start, $d->end, "+1 day", "Y-m-d");
+                    foreach($dates as $row)
+                           foreach($row as $date)
+                                 array_push($myEvents, $date);
+                } else {
+                    array_push($myEvents, $d->start);
+                }
+            }   
             return response()->json(array('myEvents' => $myEvents));
         } else {
             $myEvents = [];
              return response()->json(array('myEvents' => $myEvents));
         }
-        
+    }
+
+    function date_range($first, $last, $step = '+1 day', $output_format = 'Y-m-d' ) {
+
+        $dates = array();
+        $current = strtotime($first);
+        $last = strtotime($last);
+
+        while( $current <= $last ) {
+
+            $dates[] = date($output_format, $current);
+            $current = strtotime($step, $current);
+        }
+        return $dates;
     }
 }
