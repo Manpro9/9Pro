@@ -45,19 +45,11 @@
                 	<h1 class="text-center">Berita teratas</h1>
                 	<div class="list-group">
                 		@foreach($dataBerita as $berita)
-                		<?php 
-                			$title = str_slug($berita['title']);
-							$image = substr($berita['image'], 1);
-							$image = strtr($image, "\\", "/");
-            			 ?>
+                		<?php $title = str_slug($berita['title']); ?>
 	                		<a href="{{ route('berita.show', $title) }}" class="list-group-item">
 			                  	<div class="media col-md-3">
 			                        <figure class="pull-left">
-<<<<<<< HEAD
 			                            <img class="media-object img-rounded img-responsive" style="height:150px;" src="{{ asset($berita->image) }}" alt="gambar berita" >
-=======
-			                            <img class="media-object img-rounded img-responsive"  src="{{ asset($image) }}" alt="gambar berita" >
->>>>>>> 910fc56047fd956bb1d29447c71afdb3442ef41a
 			                        </figure>
 			                    </div>
 		                        <div class="col-md-6">

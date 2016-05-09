@@ -46,20 +46,11 @@
                 	<h1 class="text-center">Kegiatan Terbaru</h1>
                 	<div class="list-group">
                 		@foreach($dataKegiatan as $kegiatan)
-                		<?php 
-                			$title = str_slug($kegiatan['title']);
-							$image = substr($kegiatan['image'], 1);
-							$image = strtr($image, "\\", "/"); 
-
-            			?>
+                		<?php $title = str_slug($kegiatan['title']); ?>
 	                		<a href="{{ route('kegiatan.show', $title) }}" class="list-group-item">
 			                  	<div class="media col-md-3">
 			                        <figure class="pull-left">
-<<<<<<< HEAD
 			                            <img class="media-object img-rounded img-responsive" style="height:150px;" src="{{ asset($kegiatan->image) }}" alt="gambar kegiatan" >
-=======
-			                            <img class="media-object img-rounded img-responsive"  src="{{ asset($image) }}" alt="gambar kegiatan" >
->>>>>>> 910fc56047fd956bb1d29447c71afdb3442ef41a
 			                        </figure>
 			                    </div>
 		                        <div class="col-md-6">
