@@ -4,7 +4,7 @@
   <a href="{{ url('/') }}" class="logo">
     <div class="sidebar-logo">
         <div id="isi-logo">
-          <img src="{{ asset('public/image/ukdw.gif') }}">
+          <img src="{{ asset('public/images/ukdw.gif') }}">
           <h4>Pengembangan Sumber Daya Manusia</h4>
         </div>
     </div>
