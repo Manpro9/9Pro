@@ -16,7 +16,7 @@
 
 @section('jsInsideBody')
   <script type="text/javascript" src="{{ asset('public/calendar/js/responsive-calendar.min.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('public/calendar/js/calendar.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('public/js/index/calendar.js') }}"></script>
 @endsection
 
 <!-- CUSTOM CONTENT UNTUK INDEX -->

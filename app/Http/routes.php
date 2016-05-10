@@ -71,7 +71,9 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('/get_calendar_data', 'IndexController@get_calendar_data');
 
 	// Route untuk Admin
-	Route::group(['middleware' => ['auth', 'authlevel:1']], function(){
+	// Route::group(['middleware' => ['auth', 'authlevel:1']], function(){ 
+	// masih salah middlewarenya
+	Route::group(['middleware' => 'auth'], function(){
 		// show create form
 		Route::get('/content/create', 'ArtikelController@index');
 		Route::get('/content/upload', 'DocumentController@index');
