@@ -32,7 +32,7 @@ $(document).ready( function() {
 						startFromSunday: true,
 						events : JSON.parse(dates),
 					});
-					console.log(data)
+					// console.log(data)
 				} else {
 					var $cal = $('.responsive-calendar');
 					$cal.responsiveCalendar({
