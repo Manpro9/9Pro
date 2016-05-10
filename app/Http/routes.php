@@ -70,6 +70,9 @@ Route::group(['middleware' => ['web']], function () {
 	// get calendar data
 	Route::post('/get_calendar_data', 'IndexController@get_calendar_data');
 
+	// get agenda calendar data
+	Route::post('/get_daftar_agenda_data', 'IndexController@get_daftar_agenda_data');
+
 	// Route untuk Admin
 	Route::group(['middleware' => ['auth', 'authlevel:1']], function(){ 
 		// show create form

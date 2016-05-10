@@ -79,4 +79,17 @@ class IndexController extends Controller
         }
         return $dates;
     }
+
+    public function get_daftar_agenda_data() {
+        $bulan = Input::get('bulan');
+        $tahun = Input::get('tahun');
+        try {
+            $data = Agenda::whereMonth('start', '=', $bulan)->whereYear('start', '=', $tahun)->get()->toJson();
+
+            return response()->json(array('status' => 'found', 'data' => $data));
+   
+        } catch (Exception $e) {
+            return response()->json(array('status' => 'error'));
+        } 
+    }
 }

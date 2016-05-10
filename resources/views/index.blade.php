@@ -15,7 +15,7 @@
 @endsection
 
 @section('jsInsideBody')
-  <script type="text/javascript" src="{{ asset('public/calendar/js/responsive-calendar.min.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('public/calendar/js/responsive-calendar.js') }}"></script>
   <script type="text/javascript" src="{{ asset('public/js/index/calendar.js') }}"></script>
 @endsection
 
@@ -76,9 +76,9 @@
               <!-- Responsive calendar - START -->
               <div class="responsive-calendar">
                 <div class="controls">
-                    <a class="pull-left" data-go="prev"><div class="btn btn-info"><i class="fa fa-angle-double-left" aria-hidden="true"></i></div></a>
-                    <h4><span data-head-year></span> <span data-head-month></span></h4>
-                    <a class="pull-right" data-go="next"><div class="btn btn-info"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div></a>
+                    <a class="pull-left change-month" data-go="prev"><div class="btn btn-info"><i class="fa fa-angle-double-left" aria-hidden="true"></i></div></a>
+                    <h4><span data-head-year class="thisYear"></span> <span data-head-month class="thisMonth"></span></h4>
+                    <a class="pull-right change-month" data-go="next"><div class="btn btn-info"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div></a>
                 </div><hr/>
                 <div class="day-headers">
                   <div class="day header">Min</div>
@@ -113,16 +113,12 @@
     <div class="col-sm-2">
     </div>
     <div class="col-sm-3">
-          <h4 style="text-align: left; margin-bottom:0px;"><b>Daftar Agenda - bulan dan tahun yg aktif </b></h4>
+          <h4 style="text-align: left; margin-bottom:0px;"><b>Daftar Agenda - <span class="active-month-ajax">bulan dan tahun yg aktif</span> </b></h4>
           <HR style="margin-top: 5px; margin-bottom: 15px;">
-          <p style="padding-left:20px; color:maroon;"><b>1-5 Februari 2016</b></p>
-          <h5 style="padding-left:40px;">Kuliah Minggu II</h5></br>
+          <!-- Jangan dihapus -->
+          <div class="month-agenda-ajax">
 
-          <p style="padding-left:20px; color:maroon;"><b>1-5 Februari 2016</b></p>
-          <h5 style="padding-left:40px;">Kuliah Minggu II</h5></br>
-
-          <p style="padding-left:20px; color:maroon;"><b>1-5 Februari 2016</b></p>
-          <h5 style="padding-left:40px;">Kuliah Minggu II</h5></br>
+          </div>
       </div>
   </div>
   </section>
