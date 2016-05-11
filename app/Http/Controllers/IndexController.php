@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Input;
 use App\Http\Requests;
 use App\Artikel;
 use App\Agenda;
+use Mail;
 
 class IndexController extends Controller
 {
