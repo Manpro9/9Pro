@@ -67,9 +67,9 @@
                                     @foreach($documents as $document)        
                                     <tr>
                                         <td>{{ $counter }}</td>
-                                        <td>{{ $document->title }}</td>
+                                        <td><center>{{ $document->title }}</center></td>
                                         <td><center>{{ $document->type }}</center></td>
-                                        <td>{{ $document->description }}</td>
+                                        <td><center>{{ $document->description }}</center></td>
                                         <td>
                                             <center><p>
                                                 <?php $link = 'document/download/' . $document->id ?>
