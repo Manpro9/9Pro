@@ -99,20 +99,30 @@
       </div>  
       </br></br>
       <div class="row">
-      <div class="col-sm-7">
-        <h3><b>KATEGORI</b></h3>
-        <ul class="nav nav-pills nav-justified">
+          <div class="col-sm-7">
+            <h3><b>KATEGORI</b></h3>
+             <ul class="nav nav-pills nav-justified">
             <li class="ajax-artikel active" style="text-align:center;"><a>Berita</a></li>
             <li class="ajax-artikel" style="text-align:center;"><a>Kegiatan</a></li>
-        </ul>
-        <br>
-        <div id="content-artikel-ajax">
-          @include('artikel-ajax')
-        </div>
-    </div>
-    <div class="col-sm-2">
-    </div>
-    <div class="col-sm-3">
+            </ul>
+            <br>
+              <div id="content-artikel-ajax">
+                 @include('artikel-ajax')
+              </div>
+          </div>
+                <div class="col-sm-2">
+                <h3><b>Tautan</b></h3>
+                    <a href="http://ukdw.ac.id/" target="blank"><button class="buttonT" style="vertical-align:middle"><span>UKDW </span></button></a>
+                    <a href="http://vhost.ti.ukdw.ac.id/~manpro7" target="blank"><button class="buttonT" style="vertical-align:middle"><span>Humas </span></button></a>
+                    <a href="#" ><button class="buttonT" style="vertical-align:middle"><span>Biro 1 </span></button></a>
+                    <a href="#" ><button class="buttonT" style="vertical-align:middle"><span>Biro 3 </span></button></a>
+                    <a href="#" ><button class="buttonT" style="vertical-align:middle"><span>PPP </span></button></a>
+                                        
+                </div>
+      
+
+
+      <div class="col-sm-3">
           <h4 style="text-align: left; margin-bottom:0px;"><b>Daftar Agenda - <span class="active-month-ajax">bulan dan tahun yg aktif</span> </b></h4>
           <HR style="margin-top: 5px; margin-bottom: 15px;">
           <!-- Jangan dihapus -->

@@ -7,6 +7,10 @@
   
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
+  <!--fav icon-->
+  <link rel="icon" href="public/images/favukdw.png" type="image/gif" sizes="16x16">
+
+
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
   
