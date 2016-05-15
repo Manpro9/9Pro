@@ -35,25 +35,25 @@
                 <div class="item active">
                   <img src="{{ asset('public/images/02.jpg') }}" alt="gambar1" style="width:100%;">
                   <div class="w3-display-middle w3-large w3-container w3-padding-hor-16 w3-black">
-                   Slide 1
+                   Kegiatan PSDM
                   </div>
                 </div>
                 <div class="item">
                   <img src="{{ asset('public/images/04.jpg') }}" alt="gambar2"  style="width:100%;">
                    <div class="w3-display-middle w3-large w3-container w3-padding-hor-16 w3-black">
-                   Slide 2
+                   Rapat Bersama Karyawan PSDM
                   </div>
                 </div>
                 <div class="item">
                   <img src="{{ asset('public/images/05.jpg') }}" alt="gambar3"  style="width:100%;">
                    <div class="w3-display-middle w3-large w3-container w3-padding-hor-16 w3-black">
-                   Slide 3
+                   Pembekalan Pegawai Pre Purna Tugas
                   </div>
                 </div>
                 <div class="item">
                   <img src="{{ asset('public/images/09.jpg') }}" alt="gambar4"  style="width:100%;">
                    <div class="w3-display-middle w3-large w3-container w3-padding-hor-16 w3-black">
-                   Slide 4
+                   Kegiatan PSDM Sepekan
                   </div>
                 </div> 
 
@@ -99,7 +99,7 @@
       </div>  
       </br></br>
       <div class="row">
-          <div class="col-sm-7">
+          <div class="col-sm-9">
             <h3><b>KATEGORI</b></h3>
              <ul class="nav nav-pills nav-justified">
             <li class="ajax-artikel active" style="text-align:center;"><a>Berita</a></li>
@@ -110,15 +110,7 @@
                  @include('artikel-ajax')
               </div>
           </div>
-                <div class="col-sm-2">
-                <h3><b>Tautan</b></h3>
-                    <a href="http://ukdw.ac.id/" target="blank"><button class="buttonT" style="vertical-align:middle"><span>UKDW </span></button></a>
-                    <a href="http://vhost.ti.ukdw.ac.id/~manpro7" target="blank"><button class="buttonT" style="vertical-align:middle"><span>Humas </span></button></a>
-                    <a href="#" ><button class="buttonT" style="vertical-align:middle"><span>Biro 1 </span></button></a>
-                    <a href="#" ><button class="buttonT" style="vertical-align:middle"><span>Biro 3 </span></button></a>
-                    <a href="#" ><button class="buttonT" style="vertical-align:middle"><span>PPP </span></button></a>
-                                        
-                </div>
+                
       
 
 

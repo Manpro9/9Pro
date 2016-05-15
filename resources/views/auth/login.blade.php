@@ -21,7 +21,7 @@
 <div class="login-box" id="login">
   <!-- ISIKAN DISINI -->
   <div class="login-logo">
-    <a href="#"><b>Admin</b> | PSDM UKDW</a>
+    <a href="{{ url('/') }}" class="logo"><b>Admin</b> | PSDM UKDW</a>
   </div>
   <!-- /.login-logo -->
   <div id="login" class="login-box-body">
@@ -60,7 +60,7 @@
         <!-- /.col -->
       </div>
     </form>
-    <a href="#">I forgot my password</a><br>
+    <a href="{{ url('/') }}" class="logo">Kembali ke halaman utama</a>
   </div>
 </div>
   
