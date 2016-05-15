@@ -11,49 +11,41 @@
       <span class="icon-bar"></span>
     </a>
 
-    <div class="navbar-custom-menu">
-      <ul class="nav navbar-nav">
-        <li class="dropdown user user-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <img src="{{ asset('public/images/dist/user2-160x160.jpg') }}" class="user-image" alt="User Image">
-            <span class="hidden-xs">Admin</span>
-          </a>
-          <ul class="dropdown-menu">
-            <li class="user-header">
-              <img src="{{ asset('public/images/dist/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
-                <p>
-                  Admin
-                </p>
-              </li>
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
-              </li>
+     <div class="navbar-custom-menu">
+      @if (Auth::user())
+        <ul class="nav navbar-nav">
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-user"></i>
+              <span class="hidden-xs user-login"> {{ Auth::user()->name }}</span>
+            </a>
+            <ul class="dropdown-menu">
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <p>Akhiri sesi sekarang?</p>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="{{ url('/logout') }}" class="btn btn-info btn-flat">Sign out</a>
                 </div>
               </li>
-          </ul>
+            </ul>
+          </li>
+          <!-- LI DIBAWAH JANGAN DIHAPUS -->
+          <!-- *UNTUK ADMIN -->
+          <li>
+            <!-- JANGAN DI HAPUS -->
+          </li>
+        </ul>
+      @else
+        <ul class="nav navbar-nav">
+          <li class="dropdown user user-menu">
+          <a href="login" class="login-btn">
+            <i class="fa fa-user"></i>
+            <span > Login</span>
+          </a>
         </li>
-        <!-- LI DIBAWAH JANGAN DIHAPUS -->
-        <!-- *UNTUK ADMIN -->
-        <li>
-          <!-- JANGAN DI HAPUS -->
-        </li>
-      </ul>
+        </ul>
+      @endif
     </div>
 
   </nav>

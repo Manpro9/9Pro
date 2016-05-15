@@ -7,7 +7,7 @@
 
 <!-- CUSTOM JS UNTUK USERS -->
 @section('js')
-    <!-- ISIKAN DISINI -->
+    <script type="text/javascript" src="{{ asset('public/js/admin/users.js') }}"></script>
 @endsection
 
 <!-- CUSTOM CONTENT HEADER (JUDUL) USERS -->
@@ -24,8 +24,17 @@
 	<section class="content">
 		<div class="container">
             <div class="row col-md-6 col-md-offset-2 custyle">
+                @if(Session::has('error_message'))
+                    <div class="alert alert-danger">
+                        <strong>Warning!</strong> {{ Session::get('error_message') }}
+                    </div>
+                @elseif (Session::has('success_message'))
+                    <div class="alert alert-info">
+                        <strong>Success!</strong> {{ Session::get('success_message') }}
+                    </div>
+                @endif
                 <table class="table table-striped custab" >
-                     <thead>
+                    <thead>
                         <a href="{{ url('content/adduser') }}" class="btn btn-primary btn-xs pull-right"><b>+</b>Tambah User</a>
                             <tr>
                                 <th>No</th>
@@ -36,34 +45,35 @@
                                 <th class="text-center">Action</th>
                             </tr>
                     </thead>
-                            <tr>
-                                <td>1</td>
-                                <td>Adit</td>
-                                <td>adittt</td>
-                                <td>102</td>
-                                <td>psdmukdw@gmail.com</td>
-                                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                            </tr>
-                            
-                            <tr>
-                                <td>2</td>
-                                <td>Adit</td>
-                               	<td>adittt</td>
-                                <td>103</td>
-                                <td>psdmukdw@gmail.com</td>
-                                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                            </tr>
-                            
-                            <tr>
-                                <td>3</td>
-                                <td>Adit</td>
-                                <td>adittt</td>
-                                <td>103</td>
-                                <td>psdmukdw@gmail.com</td>
-                                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
-                            </tr>
+                    <?php 
+                        if(isset($_GET['page']))
+                            $count = $_GET['page']; 
+                        else
+                            $count = 1;
+
+                        $counter = $count * 10 - 9; 
+                    ?>
+                        @foreach($users as $user)
+                        <tr>
+                            <td>{{ $counter }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->username }}</td>
+                            <td>{{ $user->id }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td class="text-center">
+                                <button class="btn btn-info btn-xs content-users" value="{{ $user->id }}" role="edit">
+                                    <span class="glyphicon glyphicon-edit"></span> Ubah
+                                </button>
+                                <button class="btn btn-danger btn-xs content-users" value="{{ $user->id }}" role="delete">
+                                    <span class="glyphicon glyphicon-remove"></span> Hapus
+                                </button>
+                        </tr>
+                        <?php $counter++; ?>
+                        @endforeach
                 </table>
+                {{ $users->links() }}
             </div>
+
         </div>
     
 

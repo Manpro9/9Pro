@@ -23,6 +23,7 @@
 	<!-- ISIKAN DISINI -->
 	<section class="content">
         <div class="container">
+            @if (Auth::user())
             <form style="text-align: right">
                 <span>
                     <a href="{{ url('content/edit') }}">
@@ -32,9 +33,10 @@
 	                </a>
                 </span>
             </form>
+            @endif
             <div class="row">
             	<div class="well">
-                	<h1 class="text-center">Berita teratas</h1>
+                	<h1 class="text-center">Pengumuman Terbaru</h1>
                 	<div class="list-group">
                 		@foreach($dataPengumuman as $pengumuman)
 	                		<a href="#" class="list-group-item">
@@ -49,9 +51,12 @@
 		                            	{{ $pengumuman->description }}
 		                            </p>
 		                        </div>
+		                        @if (Auth::user())
 		                        <div class="col-md-3 text-center">
-		                            <button type="button" class="btn btn-default btn-lg btn-block"> Edit </button>
+		                            <button type="button" class="btn btn-info btn-lg btn-sm" href="/asdasd"> Edit </button>
+		                            <button type="button" class="btn btn-danger btn-lg btn-sm" href="/asdasd"> Delete </button>
 		                        </div>
+		                        @endif
 		                    </a>
 	                    @endforeach
 	                </div>

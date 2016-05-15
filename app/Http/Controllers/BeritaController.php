@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 use App\Http\Requests;
 use App\Artikel;
+use App\Comments;
+use File;
 
 class BeritaController extends Controller
 {
@@ -16,7 +19,9 @@ class BeritaController extends Controller
      */
     public function index()
     {
-        $dataBerita = Artikel::where('type', 'berita')->orderBy('created_at', 'desc')->paginate(3);
+        $dataBerita = Artikel::where('type', 'berita')
+                                ->where('status', 'published')
+                                ->orderBy('created_at', 'desc')->paginate(3);
         return view('content.berita', compact('dataBerita'));
     }
 
@@ -47,10 +52,28 @@ class BeritaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($title)
     {
-        $berita = Artikel::find($id);
-        // return view('content.berita', compact('berita'));
+        $tempId = null;
+        $all = Artikel::where('type', '=', 'berita')->get();
+        foreach ($all as $data) {
+            if (str_slug($data->title) == $title) {
+                $tempId = $data->id;
+                break;  
+            }
+        }
+        
+        if ($tempId != null) {
+            $artikel = Artikel::where('id', '=', $tempId)->get();
+
+            $comments = Artikel::join('comments', function($join) use($tempId) {
+                $join->on('artikel.id', '=', 'comments.artikel_id')
+                    ->where('artikel.id', '=', $tempId);
+            })->orderBy('comments.created_at', 'desc')->get();
+            return view('content.detailartikel', compact('artikel', 'comments'));
+        } else
+            return redirect()->action('IndexController@index');
+            
     }
 
     /**
@@ -61,7 +84,9 @@ class BeritaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $artikel = Artikel::where('id', '=', $id)->get();
+
+        return view ('admin.content-edit-artikel', compact('artikel'));
     }
 
     /**
@@ -85,5 +110,34 @@ class BeritaController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function panel() {
+        $artikel = Artikel::where('type', '=', 'berita')->orderBy('created_at', 'desc')->paginate(5);
+        return view('admin.content-panelberita', compact('artikel'));
+    }
+
+    public function delete(Request $request, $id) {
+        try {
+            $berita = Artikel::where('id', '=', $id)->first();
+
+            if(count($berita) > 0) {
+                $berita->delete();
+                $path = $berita->image;
+                $path = strtr($path, "\\", "/");
+                $path = substr($path, 1);
+
+                if (File::exists($path))
+                    File::delete($path);
+
+                $request->session()->flash('success_message', 'Artikel berhasil dihapus.');
+                return redirect()->action('BeritaController@panel');
+            } else {
+                $request->session()->flash('error_message', 'Terdapat kesalahan. Silahkan coba beberapa saat lagi.');
+                return redirect()->action('BeritaController@panel');
+            }
+        } catch (Exception $e) {
+            
+        }
     }
 }

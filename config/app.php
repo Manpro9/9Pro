@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Jakarta',
 
     /*
     |--------------------------------------------------------------------------
@@ -91,7 +91,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY', 'klIbYF8XxNdtHR6R2kF9YGJ4x023mMpx'),
+    'key' => env('APP_KEY', 'c2EECUglGZ9YjcyGubX024EjVjP0n9el'),
 
     'cipher' => 'AES-256-CBC',
 

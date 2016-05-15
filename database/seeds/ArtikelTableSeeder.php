@@ -26,24 +26,11 @@ Quisque eget ultrices tellus, ac tempus sapien. In ac augue bibendum dui dictum 
 				'image' => '/public/images/berita/contoh_berita.jpg',
 				'type' => 'berita',
 				'content' => 'Content Berita ' . $i . ' ' . $content,
+				'status' => 'published',
 				'created_at' => DB::raw('NOW()'),
 				'updated_at' => DB::raw('NOW()'),
 				);
 			DB::table('artikel')->insert($berita);
-		}
-
-		// Pengumuman
-    	for($i = 1; $i <= 20; $i++) {
-	        $pengumuman = array (
-				'title' => 'Ini Judul Pengumuman' . $i,
-				'description' => 'Ini contoh deskripsi singkat di artikel Pengumuman ' . $i,
-				'image' => '/public/images/pengumuman/contoh_pengumuman.jpg',
-				'type' => 'pengumuman',
-				'content' => 'Content Pengumuman ' . $i . ' ' . $content,
-				'created_at' => DB::raw('NOW()'),
-				'updated_at' => DB::raw('NOW()'),
-				);
-			DB::table('artikel')->insert($pengumuman);
 		}
 
 		// Kegiatan
@@ -54,6 +41,7 @@ Quisque eget ultrices tellus, ac tempus sapien. In ac augue bibendum dui dictum 
 				'image' => '/public/images/kegiatan/contoh_kegiatan.jpg',
 				'type' => 'kegiatan',
 				'content' => 'Content Kegiatan ' . $i . ' ' . $content,
+				'status' => 'published',
 				'created_at' => DB::raw('NOW()'),
 				'updated_at' => DB::raw('NOW()'),
 				);
